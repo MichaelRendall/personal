@@ -1,0 +1,28 @@
+@import "../../styles/_variables.scss";
+
+.header {
+  position: fixed;
+  z-index: 300;
+  width: 100%;
+  text-align: center;
+  color: $grey;
+  padding: 2rem 1rem;
+  display: flex;
+  align-items: center;
+  margin: 0;
+
+  & > * {
+    flex-basis: 100%;
+  }
+}
+
+.logo {
+  font: {
+    size: 1.2rem;
+    weight: 700;
+  }
+  a {
+    text-decoration: none;
+    color: $grey;
+  }
+}

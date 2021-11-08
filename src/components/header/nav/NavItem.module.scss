@@ -1,0 +1,20 @@
+@import "../../../styles/_variables.scss";
+
+.navItem {
+  font-weight: 700;
+  padding: 1rem;
+  width: 100%;
+  cursor: pointer;
+  text-align: center;
+
+  a {
+    text-decoration: none;
+    color: $grey;
+
+    &:hover,
+    &:active,
+    &.active {
+      color: $red;
+    }
+  }
+}
