@@ -23,7 +23,7 @@ const SideDrawer = (props) => {
       }}
     >
       <aside ref={nodeRef} className={classes.sideDrawer}>
-        <NavItems />
+        <NavItems clicked={props.toggleDrawer} />
       </aside>
     </CSSTransition>
   );

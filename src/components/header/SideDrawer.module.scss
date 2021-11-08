@@ -7,11 +7,7 @@
   top: 0;
   z-index: 200;
   background: $off-white;
-  padding: 6.875rem 0 0;
-
-  /* @media (min-width: 40rem) {
-    width: 25rem;
-  } */
+  padding: $header-height 0 2rem;
 }
 
 .enter {

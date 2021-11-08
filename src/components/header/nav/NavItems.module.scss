@@ -8,5 +8,8 @@
     align-items: flex-start;
     margin: 0;
     padding: 0;
+    @media (min-width: 40rem) {
+      flex-direction: row;
+    }
   }
 }

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 import Backdrop from "../UI/Backdrop";
 import SideDrawer from "./SideDrawer";
@@ -7,6 +8,10 @@ import classes from "./Header.module.scss";
 
 const Header = () => {
   const [drawerIsOpen, setDrawerIsOpen] = useState(false);
+
+  const closeDrawerHandler = () => {
+    setDrawerIsOpen(false);
+  };
 
   const toggleDrawerHandler = () => {
     setDrawerIsOpen(!drawerIsOpen);
@@ -22,9 +27,11 @@ const Header = () => {
       <header className={classes.header}>
         <Hamburger clicked={toggleDrawerHandler} drawerOpen={drawerIsOpen} />
         <div className={classes.logo}>
-          MICHAEL
-          <br />
-          RENDALL
+          <NavLink to="/" onClick={closeDrawerHandler}>
+            MICHAEL
+            <br />
+            RENDALL
+          </NavLink>
         </div>
         <div></div>
       </header>
