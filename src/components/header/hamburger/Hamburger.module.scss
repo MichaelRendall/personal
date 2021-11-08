@@ -12,8 +12,10 @@
 
   div {
     background-color: $grey;
+    fill: $grey;
     height: 0.175rem;
     border-radius: 1px;
+    transition: 0.4s;
   }
   div:first-child {
     width: 0.75rem;
@@ -24,4 +26,20 @@
   div:last-child {
     width: 1rem;
   }
+}
+
+.change div:first-child {
+  width: 1.25rem;
+  -webkit-transform: rotate(-45deg) translate(-7px, 6px);
+  transform: rotate(-45deg) translate(-7px, 6px);
+}
+
+.change div:nth-child(2) {
+  opacity: 0;
+}
+
+.change div:last-child {
+  width: 1.25rem;
+  -webkit-transform: rotate(45deg) translate(-8px, -8px);
+  transform: rotate(45deg) translate(-8px, -8px);
 }

@@ -1,6 +1,9 @@
 @import "../../styles/_variables.scss";
 
 .header {
+  position: fixed;
+  z-index: 300;
+  width: 100%;
   text-align: center;
   color: $grey;
   padding: 2rem 1rem;

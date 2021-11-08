@@ -7,7 +7,8 @@ const NavItems = () => {
     <nav className={classes.navItems}>
       <ul>
         <NavItem name="Charades" />
-        <NavItem name="Paper" />
+        <NavItem name="Paper Game" />
+        <NavItem name="Contact" />
       </ul>
     </nav>
   );
