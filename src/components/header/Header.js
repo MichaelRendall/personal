@@ -1,33 +1,28 @@
-import React, { useState } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 
 import Backdrop from "../UI/Backdrop";
 import SideDrawer from "./SideDrawer";
+
 import Hamburger from "./hamburger/Hamburger";
+import useToggle from "../../hooks/useToggle";
+
 import classes from "./Header.module.scss";
 
 const Header = () => {
-  const [drawerIsOpen, setDrawerIsOpen] = useState(false);
-
-  const closeDrawerHandler = () => {
-    setDrawerIsOpen(false);
-  };
-
-  const toggleDrawerHandler = () => {
-    setDrawerIsOpen(!drawerIsOpen);
-  };
+  const [drawerIsOpen, setDrawerIsOpen] = useToggle(false);
 
   return (
     <>
-      {drawerIsOpen && <Backdrop onClick={toggleDrawerHandler} />}
+      {drawerIsOpen && <Backdrop onClick={() => setDrawerIsOpen(false)} />}
       <SideDrawer
         show={drawerIsOpen}
-        toggleDrawer={toggleDrawerHandler}
+        clicked={() => setDrawerIsOpen(false)}
       ></SideDrawer>
       <header className={classes.header}>
-        <Hamburger clicked={toggleDrawerHandler} drawerOpen={drawerIsOpen} />
+        <Hamburger clicked={setDrawerIsOpen} drawerOpen={drawerIsOpen} />
         <div className={classes.logo}>
-          <NavLink to="/" onClick={closeDrawerHandler}>
+          <NavLink to="/" onClick={() => setDrawerIsOpen(false)}>
             MICHAEL
             <br />
             RENDALL

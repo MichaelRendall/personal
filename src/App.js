@@ -8,6 +8,7 @@ import Flags from "./pages/Flags";
 import Contact from "./pages/Contact";
 
 const App = () => {
+
   return (
     <div className="App">
       <Header />

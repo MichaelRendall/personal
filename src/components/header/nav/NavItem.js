@@ -7,9 +7,7 @@ const NavItem = (props) => {
     <li className={classes.navItem}>
       <NavLink
         to={props.url}
-        className={(navData) =>
-			navData.isActive ? classes.active : ""
-        }
+        className={(navData) => (navData.isActive ? classes.active : "")}
         onClick={props.clicked}
       >
         {props.name.toUpperCase()}
