@@ -6,8 +6,8 @@
   left: 0;
   top: 0;
   z-index: 200;
-  background: $off-white;
-  padding: $header-height 0 2rem;
+  background: $white;
+  padding: calc($header-height - 1rem) 0 1rem;
 }
 
 .enter {

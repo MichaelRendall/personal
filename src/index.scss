@@ -8,5 +8,10 @@
 
 body {
   margin: 0;
-  background-color: $off-white;
+  background-color: $white;
+}
+
+main {
+  margin-top: $header-height;
+  padding: 2rem 1rem;
 }

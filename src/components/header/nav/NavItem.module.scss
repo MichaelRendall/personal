@@ -4,7 +4,6 @@
   font-weight: 700;
   padding: 1rem;
   width: 100%;
-  cursor: pointer;
   text-align: center;
 
   a {
@@ -14,7 +13,7 @@
     &:hover,
     &:active,
     &.active {
-      color: $red;
+      color: $salmon;
     }
   }
 }
