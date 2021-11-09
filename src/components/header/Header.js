@@ -1,28 +1,27 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 
 import Backdrop from "../UI/Backdrop";
 import SideDrawer from "./SideDrawer";
 
 import Hamburger from "./hamburger/Hamburger";
-import useToggle from "../../hooks/useToggle";
+import NavContext from "../../context/nav-context";
 
 import classes from "./Header.module.scss";
 
 const Header = () => {
-  const [drawerIsOpen, setDrawerIsOpen] = useToggle(false);
+  const navCtx = useContext(NavContext);
 
   return (
     <>
-      {drawerIsOpen && <Backdrop onClick={() => setDrawerIsOpen(false)} />}
-      <SideDrawer
-        show={drawerIsOpen}
-        clicked={() => setDrawerIsOpen(false)}
-      ></SideDrawer>
+      {navCtx.drawerShowing && (
+        <Backdrop onClick={() => navCtx.toggleDrawer(false)} />
+      )}
+      <SideDrawer show={navCtx.drawerShowing}></SideDrawer>
       <header className={classes.header}>
-        <Hamburger clicked={setDrawerIsOpen} drawerOpen={drawerIsOpen} />
+        <Hamburger />
         <div className={classes.logo}>
-          <NavLink to="/" onClick={() => setDrawerIsOpen(false)}>
+          <NavLink to="/" onClick={() => navCtx.toggleDrawer(false)}>
             MICHAEL
             <br />
             RENDALL
