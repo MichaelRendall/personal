@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import classes from "./Hamburger.module.scss";
 import NavContext from "../../../context/nav-context";
 
-const Hamburger = (props) => {
+const Hamburger = () => {
   const navCtx = useContext(NavContext);
   let content;
   content = (
