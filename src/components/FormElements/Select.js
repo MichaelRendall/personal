@@ -44,7 +44,6 @@ const Select = (props) => {
   );
 
   const changeFilterHandler = (selectedOption) => {
-    console.log(selectedOption);
     if (selectedOption !== null) {
       queryParams.set(props.param, selectedOption.value);
     } else {

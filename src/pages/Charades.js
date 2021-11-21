@@ -1,8 +1,9 @@
-import React from "react";
-import useToggle from "../hooks/useToggle";
-import Button from "../components/FormElements/Button";
-import Dropdown from "../components/UI/Dropdown";
+import React, { useState } from "react";
+import { useLocation } from "react-router";
+
 import Input from "../components/FormElements/Input";
+import GameHeading from "../components/GameHeading/GameHeading";
+import CHARADE_LIST from "../lib/charade-list";
 //import classes from "./Charades.module.scss";
 
 const themeOptions = [
@@ -12,9 +13,9 @@ const themeOptions = [
 
 const categoryOptions = [
   { value: "film", label: "Films" },
-  { value: "tv", label: "TV Shows" },
   { value: "song", label: "Songs" },
   { value: "action", label: "Actions" },
+  { value: "misc", label: "Miscellaneous" },
 ];
 
 const timerOptions = [
@@ -25,16 +26,41 @@ const timerOptions = [
 ];
 
 const Charades = () => {
-  const [dropdown, setDropdown] = useToggle(false);
+  const [charade, setCharade] = useState();
+  const [theme, setTheme] = useState();
+  const [category, setCategory] = useState();
+  const location = useLocation();
+
+  const getCharadeHandler = () => {
+    let activeCharades = CHARADE_LIST;
+
+    const queryParams = new URLSearchParams(location.search);
+    const filters = queryParams.entries();
+
+    for (const filter of filters) {
+      activeCharades = activeCharades.filter(
+        (singleCharade) => singleCharade[filter[0]] === filter[1]
+      );
+    }
+
+    if (activeCharades.length === 0) {
+      setCharade("all gone");
+      setTheme();
+      setCategory();
+      return;
+    }
+	
+    const charade =
+      activeCharades[Math.floor(Math.random() * activeCharades.length)];
+
+    setCharade(charade.name);
+    setTheme(charade.theme);
+    setCategory(charade.cat);
+  };
+
   return (
-    <section className="">
-      <Button
-        name="Settings"
-        filter={true}
-        active={dropdown}
-        onClick={setDropdown}
-      />
-      <Dropdown show={dropdown}>
+    <>
+      <GameHeading heading="CHARADES">
         <Input
           element="select"
           options={themeOptions}
@@ -61,9 +87,12 @@ const Charades = () => {
           label="Time Limit"
           param="time"
         />
-      </Dropdown>
-      <h1>charades</h1>
-    </section>
+      </GameHeading>
+      <button onClick={getCharadeHandler}>click</button>
+      <p>{charade}</p>
+      <p>{theme}</p>
+      <p>{category}</p>
+    </>
   );
 };
 
