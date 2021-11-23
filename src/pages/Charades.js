@@ -1,5 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router";
+
+import useTimer from "../hooks/useTimer";
+import CharadeCard from "../components/charades/CharadeCard";
 
 import Input from "../components/FormElements/Input";
 import GameHeading from "../components/GameHeading/GameHeading";
@@ -19,37 +22,71 @@ const categoryOptions = [
 ];
 
 const timerOptions = [
-  { value: "30s", label: "30 Seconds" },
-  { value: "1m", label: "1 Minute" },
-  { value: "2m", label: "2 Minutes" },
-  { value: "5m", label: "5 Minutes" },
+  { value: 30, label: "30 Seconds" },
+  { value: 60, label: "1 Minute" },
+  { value: 120, label: "2 Minutes" },
+  { value: 300, label: "5 Minutes" },
 ];
 
 const Charades = () => {
+  const [charadeList, setCharadeList] = useState();
   const [charade, setCharade] = useState();
   const [theme, setTheme] = useState();
   const [category, setCategory] = useState();
+  const [startingTime, setStartingTime] = useState(null);
   const location = useLocation();
 
-  const getCharadeHandler = () => {
+  const [timerVisual, timerActive, setTimerActive, setTimeDeadlineHandler] =
+    useTimer();
+
+  useEffect(() => {
+    setTimerActive(false);
+    setCharade();
+    setStartingTime(null);
+
     let activeCharades = CHARADE_LIST;
 
     const queryParams = new URLSearchParams(location.search);
     const filters = queryParams.entries();
 
     for (const filter of filters) {
-      activeCharades = activeCharades.filter(
-        (singleCharade) => singleCharade[filter[0]] === filter[1]
-      );
+      const filterName = filter[0].split("-");
+
+      if (filterName[0] === "f") {
+        activeCharades = activeCharades.filter(
+          (singleCharade) => singleCharade[filterName[1]] === filter[1]
+        );
+      } else if (filterName[0] === "n" && filterName[1] === "time") {
+        setStartingTime(filter[1]);
+        setTimeDeadlineHandler(filter[1]);
+      }
     }
 
+    setCharadeList(activeCharades);
+  }, [
+    location.search,
+    setTimerActive,
+    setTimeDeadlineHandler,
+    setStartingTime,
+  ]);
+
+  const startGameHandler = () => {
+    if (startingTime !== null) {
+      setTimerActive(true);
+      setTimeDeadlineHandler(startingTime);
+    }
+
+    getCharadeHandler(charadeList);
+  };
+
+  const getCharadeHandler = (activeCharades) => {
     if (activeCharades.length === 0) {
-      setCharade("all gone");
-      setTheme();
-      setCategory();
+      setCharade("There's none left!");
+      setTheme("sorry");
+      setCategory("sorry");
       return;
     }
-	
+
     const charade =
       activeCharades[Math.floor(Math.random() * activeCharades.length)];
 
@@ -57,6 +94,14 @@ const Charades = () => {
     setTheme(charade.theme);
     setCategory(charade.cat);
   };
+
+  useEffect(() => {
+    if (timerActive === false) {
+      setCharade();
+      setTheme();
+      setCategory();
+    }
+  }, [timerActive]);
 
   return (
     <>
@@ -68,7 +113,7 @@ const Charades = () => {
           isClearable={true}
           placeholder="Standard"
           label="Theme"
-          param="theme"
+          param="f-theme"
         />
         <Input
           element="select"
@@ -77,7 +122,7 @@ const Charades = () => {
           isClearable={true}
           placeholder="All Categories"
           label="Category"
-          param="cat"
+          param="f-cat"
         />
         <Input
           element="select"
@@ -85,13 +130,17 @@ const Charades = () => {
           isClearable={true}
           placeholder="No Limits"
           label="Time Limit"
-          param="time"
+          param="n-time"
         />
       </GameHeading>
-      <button onClick={getCharadeHandler}>click</button>
-      <p>{charade}</p>
-      <p>{theme}</p>
-      <p>{category}</p>
+      {!charade && <button onClick={startGameHandler}>start</button>}
+      {startingTime && <p>Time Left: {timerVisual}</p>}
+      {charade && (
+        <>
+          <CharadeCard category={category} charade={charade} theme={theme} />
+          <button onClick={() => getCharadeHandler(charadeList)}>next</button>
+        </>
+      )}
     </>
   );
 };
