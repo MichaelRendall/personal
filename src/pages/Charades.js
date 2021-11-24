@@ -7,6 +7,7 @@ import CharadeCard from "../components/charades/CharadeCard";
 import Input from "../components/FormElements/Input";
 import GameHeading from "../components/GameHeading/GameHeading";
 import CHARADE_LIST from "../lib/charade-list";
+import Button from "../components/FormElements/Button";
 //import classes from "./Charades.module.scss";
 
 const themeOptions = [
@@ -22,10 +23,10 @@ const categoryOptions = [
 ];
 
 const timerOptions = [
-  { value: 30, label: "30 Seconds" },
-  { value: 60, label: "1 Minute" },
-  { value: 120, label: "2 Minutes" },
-  { value: 300, label: "5 Minutes" },
+  { value: "30", label: "30 Seconds" },
+  { value: "60", label: "1 Minute" },
+  { value: "120", label: "2 Minutes" },
+  { value: "300", label: "5 Minutes" },
 ];
 
 const Charades = () => {
@@ -138,7 +139,7 @@ const Charades = () => {
       {charade && (
         <>
           <CharadeCard category={category} charade={charade} theme={theme} />
-          <button onClick={() => getCharadeHandler(charadeList)}>next</button>
+          <Button onClick={() => getCharadeHandler(charadeList)} name="Next" />
         </>
       )}
     </>

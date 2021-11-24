@@ -1,24 +1,45 @@
 @import "styles/_variables.scss";
-@import url("https://fonts.googleapis.com/css2?family=Gluten&family=Lato:wght@300;400;700&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700;800;900&family=Righteous&display=swap");
 * {
   box-sizing: border-box;
-  font-family: "Lato", sans-serif;
+  font-family: "Raleway", sans-serif;
+}
+
+html,
+body,
+#root,
+.App,
+main {
+  height: 100%;
 }
 
 body {
-  margin: 0 auto;
-  max-width: $max-width;
-  background-color: $white;
+  background: #f2f2f2;
+  margin: 0;
+}
+
+.App {
+  display: grid;
+  grid-template-rows: $header-height auto fit-content(8rem);
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+}
+
+footer {
+  grid-area: footer;
 }
 
 main {
-  margin-top: $header-height;
-  padding: 2rem 1rem;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0;
+  grid-area: main;
 }
 
 h1 {
-  font-family: "Gluten", sans-serif;
+  font-family: "Righteous", sans-serif;
   text-align: center;
   color: $black;
   font-size: 1.5rem;

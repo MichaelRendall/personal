@@ -40,7 +40,7 @@ const Select = (props) => {
   const filter = queryParams.get(props.param) || null;
 
   const initialValue = props.options.findIndex(
-    (option) => option.value == filter
+    (option) => option.value === filter
   );
 
   const changeFilterHandler = (selectedOption) => {

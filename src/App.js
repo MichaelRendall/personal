@@ -8,11 +8,11 @@ import Charades from "./pages/Charades";
 import PaperGame from "./pages/PaperGame";
 import Flags from "./pages/Flags";
 import Contact from "./pages/Contact";
+import Footer from "./components/footer/Footer";
 
 library.add(fas);
 
 const App = () => {
-
   return (
     <div className="App">
       <Header />
@@ -25,6 +25,7 @@ const App = () => {
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
+      <Footer />
     </div>
   );
 };

@@ -2,38 +2,43 @@
 
 .card {
   width: 100%;
-  min-width: 16rem;
-  height: 16rem;
+  height: 14rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: $salmon;
-  border-radius: 20px;
   text-align: center;
   padding: 0;
-  margin: 1rem;
-  box-shadow: 5px 5px 30px 7px rgba(0, 0, 0, 0.25);
   cursor: pointer;
   text-decoration: none;
   transition: 0.4s;
 
   @media (min-width: 40rem) {
-    width: 16rem;
+    height: 100%;
+  }
+
+  &:first-of-type {
+    background: $pastel-pink;
+  }
+  &:nth-of-type(2) {
+    background: $pastel-yellow;
+  }
+
+  &:nth-of-type(3) {
+    background: $pastel-blue;
   }
 
   &:hover,
   &:active {
-    transform: scale(0.95, 0.95);
-    background: #fc6150;
+    filter: brightness(85%);
   }
 }
 
 .card_heading {
-  color: $white;
+  color: $black;
 
   h2 {
     margin: 0;
-    font-family: "Gluten";
-    font-size: 2.5rem;
+    font-family: "Righteous", cursive;
+    font-size: 2rem;
   }
 }

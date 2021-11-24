@@ -6,7 +6,8 @@ const Home = () => {
   return (
     <section className={classes.cardSection}>
       <Card header="Charades" url="/charades" />
-      <Card header="Paper Game" url="/paper-game" />
+      <Card header="Paper Game" url="/paper-game" unfinished />
+      <Card header="Flag Quiz" url="/flags" unfinished />
     </section>
   );
 };

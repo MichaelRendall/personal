@@ -9,10 +9,16 @@
   justify-content: space-evenly;
   padding: 0 0.5rem;
   cursor: pointer;
+  transition: linear 300ms;
+
+  &:hover,
+  &:active {
+    filter: brightness(0%);
+  }
 
   div {
-    background-color: $black;
-    fill: $black;
+    background-color: $grey;
+    fill: $grey;
     height: 0.175rem;
     border-radius: 1px;
     transition: 0.4s;

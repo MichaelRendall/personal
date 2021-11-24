@@ -5,10 +5,14 @@
   flex-wrap: wrap;
   justify-content: center;
 
+  @media (min-width: 40rem) {
+    height: 100%;
+  }
+
   & > * {
     flex: 0 1 100%;
     @media (min-width: 40rem) {
-		flex: 0 1 25%;
+      flex: 1;
     }
   }
 }

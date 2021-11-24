@@ -9,7 +9,6 @@ const Button = (props) => {
         onClick={props.onClick}
       >
         {props.name.toUpperCase()}
-        {props.filter && <i className={classes.arrow}></i>}
       </button>
     </>
   );
