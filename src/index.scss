@@ -42,10 +42,15 @@ h1 {
   font-family: "Righteous", sans-serif;
   text-align: center;
   color: $black;
-  font-size: 1.5rem;
+  font-size: 2rem;
   margin: 0;
   padding: 0;
-  border-bottom: 4px solid $salmon;
+  letter-spacing: 0.05em;
+}
+
+h2,
+h3 {
+  margin: 0;
 }
 
 .flexCenter {

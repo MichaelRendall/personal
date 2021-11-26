@@ -10,10 +10,13 @@ const GameHeading = (props) => {
   return (
     <>
       <section className={classes.heading}>
-        <h1>{props.heading}</h1>
-        <div className={`${classes.icon} ${dropdown && classes.active}`} onClick={setDropdown}>
-          <FontAwesomeIcon icon={["fas", "cog"]} className="icon" />
+        <div className={`${classes.icon} ${dropdown && classes.active}`}>
+          <span onClick={setDropdown}>
+            <FontAwesomeIcon icon={["fas", "cog"]} className="icon" />
+          </span>
         </div>
+        <h1>{props.heading}</h1>
+        <span></span>
       </section>
       <Dropdown show={dropdown}>{props.children}</Dropdown>
     </>

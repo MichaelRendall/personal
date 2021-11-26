@@ -2,6 +2,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import classes from "./CharadeCard.module.scss";
+import Button from "../FormElements/Button";
 
 const CharadeCard = (props) => {
   let icon;
@@ -23,6 +24,7 @@ const CharadeCard = (props) => {
         <FontAwesomeIcon icon={["fas", icon]} className="icon" />
       </span>
       <h2>{props.charade}</h2>
+      <Button onClick={props.clicked} name="Got it" />
     </div>
   );
 };

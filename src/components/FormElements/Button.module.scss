@@ -6,33 +6,23 @@
   border: none;
   border-radius: 5px;
   color: $white;
-  padding: 1rem 3rem 1rem 1rem;
+  padding: 1rem 2rem;
   font-weight: 700;
-}
-
-.arrow {
-  position: absolute;
-  top: 17px;
-  right: 0;
-  margin-right: 1rem;
-  border: solid $white;
-  border-width: 0 3px 3px 0;
-  display: inline-block;
-  padding: 3px;
-  transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  width: fit-content;
+  cursor: pointer;
   transition: 0.4s;
+
+  &:hover,
+  &:active {
+    filter: brightness(85%);
+  }
 }
 
-.active {
-  background: $salmon;
-  color: $white;
-
-  .arrow {
-	top: 21px;
-    border: solid $white;
-    border-width: 0 3px 3px 0;
-    transform: rotate(225deg);
-    -webkit-transform: rotate(225deg);
-  }
+.large {
+  font-size: 1rem;
+  margin: 3rem auto;
+  padding: 1rem 3rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }

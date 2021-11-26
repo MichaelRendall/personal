@@ -8,6 +8,8 @@ import Input from "../components/FormElements/Input";
 import GameHeading from "../components/GameHeading/GameHeading";
 import CHARADE_LIST from "../lib/charade-list";
 import Button from "../components/FormElements/Button";
+import GameSection from "../components/UI/GameSection";
+import Timer from "../components/timer/Timer";
 //import classes from "./Charades.module.scss";
 
 const themeOptions = [
@@ -80,6 +82,16 @@ const Charades = () => {
     getCharadeHandler(charadeList);
   };
 
+  const endGameHandler = () => {
+    if (startingTime !== null) {
+      setTimerActive(false);
+      setTimeDeadlineHandler(startingTime);
+    }
+    setCharade();
+    setTheme();
+    setCategory();
+  };
+
   const getCharadeHandler = (activeCharades) => {
     if (activeCharades.length === 0) {
       setCharade("There's none left!");
@@ -105,7 +117,7 @@ const Charades = () => {
   }, [timerActive]);
 
   return (
-    <>
+    <GameSection>
       <GameHeading heading="CHARADES">
         <Input
           element="select"
@@ -134,15 +146,17 @@ const Charades = () => {
           param="n-time"
         />
       </GameHeading>
-      {!charade && <button onClick={startGameHandler}>start</button>}
-      {startingTime && <p>Time Left: {timerVisual}</p>}
+      {startingTime && <Timer timer={timerVisual} />}
+      {!charade && <Button onClick={startGameHandler} name="Begin" large />}
       {charade && (
-        <>
-          <CharadeCard category={category} charade={charade} theme={theme} />
-          <Button onClick={() => getCharadeHandler(charadeList)} name="Next" />
-        </>
+        <CharadeCard
+          category={category}
+          charade={charade}
+          theme={theme}
+          clicked={endGameHandler}
+        />
       )}
-    </>
+    </GameSection>
   );
 };
 
