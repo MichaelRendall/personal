@@ -8,11 +8,11 @@
   color: $white;
   padding: 1rem 2rem;
   font-weight: 700;
-  letter-spacing: 0.05em;
+  letter-spacing: $letter-spacing;
   text-transform: uppercase;
   width: fit-content;
   cursor: pointer;
-  transition: 0.4s;
+  transition: $transition-speed;
 
   &:hover,
   &:active {

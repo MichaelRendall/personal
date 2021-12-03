@@ -9,7 +9,7 @@
   justify-content: space-evenly;
   padding: 0 0.5rem;
   cursor: pointer;
-  transition: linear 300ms;
+  transition: $transition-speed;
 
   &:hover,
   &:active {
@@ -21,7 +21,7 @@
     fill: $grey;
     height: 0.175rem;
     border-radius: 1px;
-    transition: 0.4s;
+    transition: $transition-speed;
   }
   div:first-child {
     width: 0.75rem;

@@ -10,9 +10,9 @@
   padding: 0;
   cursor: pointer;
   text-decoration: none;
-  transition: 0.4s;
+  transition: $transition-speed;
 
-  @media (min-width: 40rem) {
+  @media (min-width: $media-min-width) {
     height: 100%;
   }
 
@@ -22,7 +22,6 @@
   &:nth-of-type(2) {
     background: $pastel-yellow;
   }
-
   &:nth-of-type(3) {
     background: $pastel-blue;
   }
@@ -37,9 +36,8 @@
   color: $black;
 
   h2 {
-    margin: 0;
     font-family: "Righteous", cursive;
     font-size: 2rem;
-    letter-spacing: 0.05em;
+    letter-spacing: $letter-spacing;
   }
 }

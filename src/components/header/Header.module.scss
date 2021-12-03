@@ -6,7 +6,6 @@
   left: 0;
   z-index: 300;
   width: 100%;
-  /*  max-width: $max-width; */
   text-align: center;
   color: $grey;
   background-color: $white;
@@ -24,14 +23,13 @@
   font: {
     size: 1.2rem;
     weight: 800;
-    family: "Raleway";
   }
 
   a {
     text-decoration: none;
     color: $grey;
-    transition: linear 300ms;
-    letter-spacing: 0.05em;
+    transition: $transition-speed;
+    letter-spacing: $letter-spacing;
 
     &:hover,
     &:active {

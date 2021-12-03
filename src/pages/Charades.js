@@ -10,7 +10,6 @@ import CHARADE_LIST from "../lib/charade-list";
 import Button from "../components/FormElements/Button";
 import GameSection from "../components/UI/GameSection";
 import Timer from "../components/timer/Timer";
-//import classes from "./Charades.module.scss";
 
 const themeOptions = [
   { value: "festive", label: "Festive" },
@@ -32,7 +31,7 @@ const timerOptions = [
 ];
 
 const Charades = () => {
-  document.title = "Charades";
+  document.title = "Charades | Michael Rendall";
 
   const [charadeList, setCharadeList] = useState();
   const [charade, setCharade] = useState();

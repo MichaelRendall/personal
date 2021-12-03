@@ -19,10 +19,10 @@
     width: 2em;
     text-align: center;
     color: $grey;
-    transition: 0.4s;
+    transition: $transition-speed;
   }
 
-  .red {
+  .warning {
     color: $salmon;
     font-weight: 700;
     font-size: 2rem;

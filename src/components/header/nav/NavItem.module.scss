@@ -9,8 +9,8 @@
   a {
     text-decoration: none;
     color: $grey;
-	transition: 0.4s;
-	letter-spacing: 0.05em;
+	transition: $transition-speed;
+	letter-spacing: $letter-spacing;
 
     &:hover,
     &:active,

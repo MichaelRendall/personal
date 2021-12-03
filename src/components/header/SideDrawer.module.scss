@@ -13,7 +13,7 @@
 .enter {
   transform: translateX(-100%);
 
-  @media (min-width: 40rem) {
+  @media (min-width: $media-min-width) {
     transform: translateY(-50%);
   }
 }
@@ -23,7 +23,7 @@
   opacity: 1;
   transition: linear 200ms;
 
-  @media (min-width: 40rem) {
+  @media (min-width: $media-min-width) {
     transform: translateY(0);
   }
 }
@@ -32,7 +32,7 @@
   transform: translateX(0%);
   opacity: 1;
 
-  @media (min-width: 40rem) {
+  @media (min-width: $media-min-width) {
     transform: translateY(0);
   }
 }
@@ -42,7 +42,7 @@
   opacity: 0;
   transition: linear 200ms;
 
-  @media (min-width: 40rem) {
+  @media (min-width: $media-min-width) {
     transform: translateY(-50%);
   }
 }

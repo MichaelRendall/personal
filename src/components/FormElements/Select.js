@@ -1,7 +1,6 @@
 import React from "react";
 import { useNavigate, useLocation } from "react-router";
 import ReactSelect from "react-select";
-import "./Select.scss";
 
 const customStyles = {
   control: (provided, state) => ({
