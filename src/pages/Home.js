@@ -3,6 +3,7 @@ import Card from "../components/UI/Card";
 import classes from "./Home.module.scss";
 
 const Home = () => {
+  document.title = "Home | Michael Rendall";
   return (
     <section className={classes.cardSection}>
       <Card header="Charades" url="/charades" />

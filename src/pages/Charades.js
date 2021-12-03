@@ -32,6 +32,8 @@ const timerOptions = [
 ];
 
 const Charades = () => {
+  document.title = "Charades";
+
   const [charadeList, setCharadeList] = useState();
   const [charade, setCharade] = useState();
   const [theme, setTheme] = useState();
