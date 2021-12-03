@@ -9,10 +9,14 @@
   text-align: center;
   color: $grey;
   background-color: $white;
-  padding: 2rem 1rem;
+  padding: 1rem;
   display: flex;
   align-items: center;
   margin: 0;
+
+  @media (min-width: $media-min-width) {
+    padding: 2rem 1rem;
+  }
 
   & > * {
     flex-basis: 100%;
@@ -21,8 +25,12 @@
 
 .logo {
   font: {
-    size: 1.2rem;
+    size: 1rem;
     weight: 800;
+  }
+
+  @media (min-width: $media-min-width) {
+    font-size: 1.2rem;
   }
 
   a {

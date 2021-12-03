@@ -7,7 +7,11 @@
   top: 0;
   z-index: 200;
   background: $white;
-  padding: calc($header-height - 1rem) 0 1rem;
+  padding: calc($header-height-mobile - 1rem) 0 1rem;
+
+  @media (min-width: $media-min-width) {
+    padding: calc($header-height-web - 1rem) 0 1rem;
+  }
 }
 
 .enter {

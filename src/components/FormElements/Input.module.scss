@@ -5,6 +5,7 @@
   flex-direction: column;
   position: relative;
   min-width: 12rem;
+  font-size: 0.875rem;
 
   label {
     font-weight: 700;
@@ -13,6 +14,6 @@
   }
 }
 
-.input:first-of-type{
-	margin-left: 0;
+.input:first-of-type {
+  margin-left: 0;
 }
