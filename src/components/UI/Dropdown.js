@@ -7,7 +7,7 @@ const Dropdown = (props) => {
   return (
     <CSSTransition
       in={props.show}
-      timeout={75}
+      timeout={100}
       mountOnEnter
       unmountOnExit
       nodeRef={nodeRef}

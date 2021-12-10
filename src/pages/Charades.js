@@ -118,7 +118,7 @@ const Charades = () => {
   }, [timerActive]);
 
   return (
-    <GameSection>
+    <GameSection theme="pink">
       <GameHeading heading="CHARADES">
         <Input
           element="select"

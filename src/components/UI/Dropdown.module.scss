@@ -13,18 +13,22 @@
 
 .enter {
   transform: translateY(-20%);
+  opacity: 0;
 }
 
 .enterActive {
   transform: translateY(0);
-  transition: linear 75ms;
+  opacity: 1;
+  transition: linear 100ms;
 }
 
 .exit {
   transform: translateY(0%);
+  opacity: 1;
 }
 
 .exitActive {
   transform: translateY(-20%);
-  transition: linear 75ms;
+  opacity: 0;
+  transition: linear 100ms;
 }

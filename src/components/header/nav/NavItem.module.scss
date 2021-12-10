@@ -9,13 +9,41 @@
   a {
     text-decoration: none;
     color: $grey;
-	transition: $transition-speed;
-	letter-spacing: $letter-spacing;
+    transition: $transition-speed;
+    letter-spacing: $letter-spacing;
+  }
 
-    &:hover,
-    &:active,
-    &.active {
-      color: $salmon;
+  &:first-of-type {
+    a:hover,
+    a:active,
+    a.active {
+      color: $dark-pink;
     }
   }
+
+  &:nth-of-type(2) {
+    a:hover,
+    a:active,
+    a.active {
+      color: $dark-yellow;
+    }
+  }
+
+  &:nth-of-type(3) {
+    a:hover,
+    a:active,
+    a.active {
+      color: $dark-blue;
+    }
+  }
+
+  &:last-of-type {
+    a:hover,
+    a:active,
+    a.active {
+      color: purple;
+    }
+  }
+
+  
 }

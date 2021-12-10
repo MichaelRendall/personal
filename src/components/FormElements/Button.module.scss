@@ -2,7 +2,7 @@
 
 .button {
   position: relative;
-  background: $salmon;
+  background: $dark-pink;
   border: none;
   border-radius: 5px;
   color: $white;
@@ -17,7 +17,8 @@
 
   &:hover,
   &:active {
-    filter: brightness(85%);
+    /* filter: brightness(85%); */
+	background: scale-color($dark-pink, $lightness: -30%);
   }
 }
 
