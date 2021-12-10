@@ -15,38 +15,57 @@
 }
 
 .enter {
+  -webkit-transform: translateX(-100%);
+  -ms-transform: translateX(-100%);
   transform: translateX(-100%);
 
   @media (min-width: $media-min-width) {
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
     transform: translateY(-50%);
   }
 }
 
 .enterActive {
+  -webkit-transform: translateX(0);
+  -ms-transform: translateX(0);
   transform: translateX(0);
+
   opacity: 1;
   transition: linear 200ms;
 
   @media (min-width: $media-min-width) {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
     transform: translateY(0);
   }
 }
 
 .exit {
-  transform: translateX(0%);
+  -webkit-transform: translateX(0);
+  -ms-transform: translateX(0);
+  transform: translateX(0);
+
   opacity: 1;
 
   @media (min-width: $media-min-width) {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
     transform: translateY(0);
   }
 }
 
 .exitActive {
+  -webkit-transform: translateX(-100%);
+  -ms-transform: translateX(-100%);
   transform: translateX(-100%);
+
   opacity: 0;
   transition: linear 200ms;
 
   @media (min-width: $media-min-width) {
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
     transform: translateY(-50%);
   }
 }
