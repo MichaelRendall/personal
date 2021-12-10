@@ -32,6 +32,8 @@
   transform: translateX(0);
 
   opacity: 1;
+  -webkit-transition: linear 200ms;
+  -o-transition: linear 200ms;
   transition: linear 200ms;
 
   @media (min-width: $media-min-width) {
@@ -61,6 +63,8 @@
   transform: translateX(-100%);
 
   opacity: 0;
+  -webkit-transition: linear 200ms;
+  -o-transition: linear 200ms;
   transition: linear 200ms;
 
   @media (min-width: $media-min-width) {
