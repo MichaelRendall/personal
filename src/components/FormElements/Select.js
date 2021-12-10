@@ -58,6 +58,7 @@ const Select = (props) => {
       isClearable={props.isClearable}
       placeholder={props.placeholder}
       isMulti={props.isMulti}
+      isSearchable={false}
       options={props.options}
       onChange={changeFilterHandler}
       defaultValue={props.options[initialValue]}
