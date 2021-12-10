@@ -132,7 +132,7 @@ const Charades = () => {
         <Input
           element="select"
           options={categoryOptions}
-          isSearchable={true}
+          isSearchable={false}
           isClearable={true}
           placeholder="All Categories"
           label="Category"
@@ -141,6 +141,7 @@ const Charades = () => {
         <Input
           element="select"
           options={timerOptions}
+		  isSearchable={false}
           isClearable={true}
           placeholder="No Limits"
           label="Time Limit"
