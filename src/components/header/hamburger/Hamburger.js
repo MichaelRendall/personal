@@ -12,6 +12,7 @@ const Hamburger = () => {
           navCtx.drawerShowing ? classes.change : ""
         }`}
         onClick={navCtx.toggleDrawer}
+		aria-label="Open Menu"
       >
         <div></div>
         <div></div>
