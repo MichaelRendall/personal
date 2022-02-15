@@ -49,7 +49,11 @@ const NewSelect: React.FC<SelectProps> = (props) => {
           <ul>
             {props.options.map((option) => (
               <li
-                className={classes.active}
+                className={
+                  props.options[selectedOption].label === option.label
+                    ? classes.active
+                    : ""
+                }
                 key={option.value}
                 value={option.value}
                 onClick={() => changeOptionHandler(option.value)}
