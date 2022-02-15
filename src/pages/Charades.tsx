@@ -10,34 +10,27 @@ import CHARADE_LIST from "../lib/charade-list";
 import Button from "../components/FormElements/Button";
 import GameSection from "../components/UI/GameSection";
 import Timer from "../components/timer/Timer";
+import {
+  themeOptions,
+  categoryOptions,
+  timerOptions,
+} from "../lib/filter-options";
 
-const themeOptions = [
-  { value: "festive", label: "Festive" },
-  { value: "easter", label: "Easter" },
-];
-
-const categoryOptions = [
-  { value: "film", label: "Films" },
-  { value: "song", label: "Songs" },
-  { value: "action", label: "Actions" },
-  { value: "misc", label: "Miscellaneous" },
-];
-
-const timerOptions = [
-  { value: "30", label: "30 Seconds" },
-  { value: "60", label: "1 Minute" },
-  { value: "120", label: "2 Minutes" },
-  { value: "300", label: "5 Minutes" },
-];
+interface CharadeList {
+  [key: string]: string;
+  name: string;
+  theme: string;
+  cat: string;
+}
 
 const Charades = () => {
   document.title = "Charades | Michael Rendall";
 
-  const [charadeList, setCharadeList] = useState();
-  const [charade, setCharade] = useState();
-  const [theme, setTheme] = useState();
-  const [category, setCategory] = useState();
-  const [startingTime, setStartingTime] = useState(null);
+  const [charadeList, setCharadeList] = useState<CharadeList[]>([]);
+  const [charade, setCharade] = useState<string | null>(null);
+  const [theme, setTheme] = useState<string | null>(null);
+  const [category, setCategory] = useState<string | null>(null);
+  const [startingTime, setStartingTime] = useState<string | null>(null);
   const location = useLocation();
 
   const [timerVisual, timerActive, setTimerActive, setTimeDeadlineHandler] =
@@ -45,7 +38,7 @@ const Charades = () => {
 
   useEffect(() => {
     setTimerActive(false);
-    setCharade();
+    setCharade(null);
     setStartingTime(null);
 
     let activeCharades = CHARADE_LIST;
@@ -58,7 +51,8 @@ const Charades = () => {
 
       if (filterName[0] === "f") {
         activeCharades = activeCharades.filter(
-          (singleCharade) => singleCharade[filterName[1]] === filter[1]
+          (singleCharade: CharadeList) =>
+            singleCharade[filterName[1]] === filter[1]
         );
       } else if (filterName[0] === "n" && filterName[1] === "time") {
         setStartingTime(filter[1]);
@@ -88,12 +82,12 @@ const Charades = () => {
       setTimerActive(false);
       setTimeDeadlineHandler(startingTime);
     }
-    setCharade();
-    setTheme();
-    setCategory();
+    setCharade(null);
+    setTheme(null);
+    setCategory(null);
   };
 
-  const getCharadeHandler = (activeCharades) => {
+  const getCharadeHandler = (activeCharades: CharadeList[]) => {
     if (activeCharades.length === 0) {
       setCharade("There's none left!");
       setTheme("sorry");
@@ -111,16 +105,23 @@ const Charades = () => {
 
   useEffect(() => {
     if (timerActive === false) {
-      setCharade();
-      setTheme();
-      setCategory();
+      setCharade(null);
+      setTheme(null);
+      setCategory(null);
     }
   }, [timerActive]);
 
   return (
     <GameSection theme="pink">
       <GameHeading heading="CHARADES">
-        <Input
+        {
+          <Input
+            element="select"
+            label="Theme"
+            options={themeOptions}
+            param="f-theme"
+          />
+          /* <Input
           element="select"
           options={themeOptions}
           isSearchable={false}
@@ -141,20 +142,21 @@ const Charades = () => {
         <Input
           element="select"
           options={timerOptions}
-		  isSearchable={false}
+          isSearchable={false}
           isClearable={true}
           placeholder="No Limits"
           label="Time Limit"
           param="n-time"
-        />
+        /> */
+        }
       </GameHeading>
       {startingTime && <Timer timer={timerVisual} />}
       {!charade && <Button onClick={startGameHandler} name="Begin" large />}
       {charade && (
         <CharadeCard
-          category={category}
+          category={category!}
           charade={charade}
-          theme={theme}
+          theme={theme!}
           clicked={endGameHandler}
         />
       )}

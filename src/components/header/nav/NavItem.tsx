@@ -3,7 +3,12 @@ import classes from "./NavItem.module.scss";
 import { NavLink } from "react-router-dom";
 import NavContext from "../../../context/nav-context";
 
-const NavItem = (props) => {
+interface NavItemProps {
+  url: string;
+  name: string;
+}
+
+const NavItem: React.FC<NavItemProps> = (props) => {
   const navCtx = useContext(NavContext);
   return (
     <li className={classes.navItem}>

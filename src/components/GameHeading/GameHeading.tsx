@@ -4,7 +4,11 @@ import useToggle from "../../hooks/useToggle";
 import Dropdown from "../UI/Dropdown";
 import classes from "./GameHeading.module.scss";
 
-const GameHeading = (props) => {
+interface GameHeadingProps {
+  heading: string;
+}
+
+const GameHeading: React.FC<GameHeadingProps> = (props) => {
   const [dropdown, setDropdown] = useToggle(false);
 
   return (

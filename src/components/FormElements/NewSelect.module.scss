@@ -1,0 +1,41 @@
+@import "../../styles/_variables.scss";
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.select {
+  background-color: $white;
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  border: 1px solid $mid-grey;
+}
+
+.select__options {
+  background-color: $white;
+  border-radius: 8px;
+  margin-top: 0.75rem;
+  position: absolute;
+  width: 100%;
+  top: 100%;
+  z-index: 10;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0;
+  }
+
+  li {
+    padding: 0.75rem 1rem;
+
+    &:hover {
+      background-color: $light-grey;
+    }
+  }
+
+  .active {
+    background-color: $pastel-pink;
+  }
+}

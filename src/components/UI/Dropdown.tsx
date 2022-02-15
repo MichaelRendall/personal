@@ -2,8 +2,12 @@ import React, { useRef } from "react";
 import classes from "./Dropdown.module.scss";
 import CSSTransition from "react-transition-group/CSSTransition";
 
-const Dropdown = (props) => {
-  const nodeRef = useRef();
+interface DropdownProps {
+  show: boolean;
+}
+
+const Dropdown: React.FC<DropdownProps> = (props) => {
+  const nodeRef = useRef(null);
   return (
     <CSSTransition
       in={props.show}
