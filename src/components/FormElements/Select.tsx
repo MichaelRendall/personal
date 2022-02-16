@@ -30,7 +30,7 @@ const NewSelect: React.FC<SelectProps> = (props) => {
 
   useOnClickOutside(dropDownRef, clickOutsideHandler);
 
-  const changeOptionHandler = (value: string) => {
+  const changeOptionHandler = (value: string | null) => {
     if (value !== null) {
       queryParams.set(props.param, value);
     } else {
@@ -71,6 +71,14 @@ const NewSelect: React.FC<SelectProps> = (props) => {
   return (
     <div className="input__wrapper">
       <label htmlFor={props.id}>{props.label}</label>
+      {props.options[selectedOption] && (
+        <small
+          className={classes.clear}
+          onClick={() => changeOptionHandler(null)}
+        >
+          Clear
+        </small>
+      )}
       <div id={props.id} className={classes.wrapper} ref={dropDownRef}>
         <div
           className={`${classes.select} ${open && classes.open}`}
