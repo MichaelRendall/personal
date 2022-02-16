@@ -4,7 +4,6 @@ import { useLocation } from "react-router";
 import useTimer from "../hooks/useTimer";
 import CharadeCard from "../components/charades/CharadeCard";
 
-import Input from "../components/FormElements/Input";
 import GameHeading from "../components/GameHeading/GameHeading";
 import CHARADE_LIST from "../lib/charade-list";
 import Button from "../components/FormElements/Button";
@@ -15,6 +14,7 @@ import {
   categoryOptions,
   timerOptions,
 } from "../lib/filter-options";
+import Select from "../components/FormElements/Select";
 
 interface CharadeList {
   [key: string]: string;
@@ -115,39 +115,26 @@ const Charades = () => {
     <GameSection theme="pink">
       <GameHeading heading="CHARADES">
         {
-          <Input
-            element="select"
-            label="Theme"
-            options={themeOptions}
-            param="f-theme"
-          />
-          /* <Input
-          element="select"
-          options={themeOptions}
-          isSearchable={false}
-          isClearable={true}
-          placeholder="Standard"
-          label="Theme"
-          param="f-theme"
-        />
-        <Input
-          element="select"
-          options={categoryOptions}
-          isSearchable={false}
-          isClearable={true}
-          placeholder="All Categories"
-          label="Category"
-          param="f-cat"
-        />
-        <Input
-          element="select"
-          options={timerOptions}
-          isSearchable={false}
-          isClearable={true}
-          placeholder="No Limits"
-          label="Time Limit"
-          param="n-time"
-        /> */
+          <>
+            <Select
+              id="theme"
+              label="Theme"
+              options={themeOptions}
+              param="f-theme"
+            />
+            <Select
+              id="category"
+              label="Category"
+              options={categoryOptions}
+              param="f-cat"
+            />
+            <Select
+              id="timer"
+              label="Timer"
+              options={timerOptions}
+              param="n-time"
+            />
+          </>
         }
       </GameHeading>
       {startingTime && <Timer timer={timerVisual} />}

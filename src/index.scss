@@ -68,3 +68,21 @@ h3 {
   display: flex;
   justify-content: center;
 }
+
+.input__wrapper {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-width: 12rem;
+  font-size: 0.875rem;
+
+  label {
+    font-weight: 700;
+    color: $grey;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.input:first-of-type {
+  margin-left: 0;
+}
