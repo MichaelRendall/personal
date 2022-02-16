@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 
-const useTimer = (useTimer) => {
-  const [timerSeconds, setTimerSeconds] = useState();
+const useTimer = () => {
+  const [timerSeconds, setTimerSeconds] = useState(0);
   const [timerVisual, setTimerVisual] = useState("0:00");
   const [timerActive, setTimerActive] = useState(false);
 
@@ -9,7 +9,7 @@ const useTimer = (useTimer) => {
     const seconds = Math.floor((timerSeconds / 1000) % 60);
     const minutes = Math.floor((timerSeconds / 1000 / 60) % 60);
     setTimerVisual(minutes + ":" + (seconds > 9 ? seconds : "0" + seconds));
-  }, [timerSeconds, useTimer]);
+  }, [timerSeconds]);
 
   const setTimeDeadlineHandler = useCallback((timeLimit) => {
     let secondsRemaining;
@@ -19,7 +19,8 @@ const useTimer = (useTimer) => {
       let timeDeadline = new Date();
       timeDeadline.setSeconds(timeDeadline.getSeconds() + +timeLimit);
 
-      secondsRemaining = Date.parse(timeDeadline) - Date.parse(new Date());
+      secondsRemaining =
+        Date.parse(timeDeadline.toString()) - Date.parse(new Date().toString());
     }
 
     setTimerSeconds(secondsRemaining);
@@ -39,7 +40,12 @@ const useTimer = (useTimer) => {
     return () => clearTimeout(timerout);
   }, [timerActive, timerSeconds]);
 
-  return [timerVisual, timerActive, setTimerActive, setTimeDeadlineHandler];
+  return [
+    timerVisual,
+    timerActive,
+    setTimerActive,
+    setTimeDeadlineHandler,
+  ] as const;
 };
 
 export default useTimer;

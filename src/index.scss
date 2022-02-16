@@ -1,5 +1,5 @@
 @import "styles/_variables.scss";
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700;800;900&family=Righteous&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&family=Righteous&display=swap");
 
 /* General Styles */
 
@@ -67,4 +67,22 @@ h3 {
 .flexCenter {
   display: flex;
   justify-content: center;
+}
+
+.input__wrapper {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-width: 12rem;
+  font-size: 0.875rem;
+
+  label {
+    font-weight: 700;
+    color: $grey;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.input:first-of-type {
+  margin-left: 0;
 }

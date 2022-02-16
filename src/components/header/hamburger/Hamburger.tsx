@@ -11,8 +11,8 @@ const Hamburger = () => {
         className={`${classes.hamburger} ${
           navCtx.drawerShowing ? classes.change : ""
         }`}
-        onClick={navCtx.toggleDrawer}
-		aria-label="Open Menu"
+        onClick={() => navCtx.toggleDrawer()}
+        aria-label="Open Menu"
       >
         <div></div>
         <div></div>

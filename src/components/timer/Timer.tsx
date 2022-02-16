@@ -1,7 +1,11 @@
 import React from "react";
 import classes from "./Timer.module.scss";
 
-const Timer = (props) => {
+interface TimerProps {
+  timer: string;
+}
+
+const Timer: React.FC<TimerProps> = (props) => {
   return (
     <span className={classes.timer}>
       <span>&#8987;</span>

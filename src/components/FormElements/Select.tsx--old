@@ -1,8 +1,8 @@
-import React from "react";
+/* import React from "react";
 import { useNavigate, useLocation } from "react-router";
-import ReactSelect from "react-select";
+import Select, { StylesConfig } from "react-select";
 
-const customStyles = {
+const customStyles: StylesConfig = {
   control: (provided, state) => ({
     ...provided,
     backgroundColor: "#f9f9f9",
@@ -31,7 +31,16 @@ const customStyles = {
   },
 };
 
-const Select = (props) => {
+interface SelectProps {
+  param: string;
+  options: { value: string; label: string }[];
+  isSearchable: boolean;
+  isClearable: boolean;
+  isMulti: boolean;
+  placeholder: string;
+}
+
+const SelectFunc: React.FC<SelectProps> = (props) => {
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -42,9 +51,11 @@ const Select = (props) => {
     (option) => option.value === filter
   );
 
-  const changeFilterHandler = (selectedOption) => {
+  const changeFilterHandler = (
+    selectedOption: React.ChangeEvent<HTMLSelectElement>
+  ) => {
     if (selectedOption !== null) {
-      queryParams.set(props.param, selectedOption.value);
+      queryParams.set(props.param, selectedOption.target.value);
     } else {
       queryParams.delete(props.param);
     }
@@ -52,7 +63,7 @@ const Select = (props) => {
   };
 
   return (
-    <ReactSelect
+    <Select
       styles={customStyles}
       isSearchable={props.isSearchable}
       isClearable={props.isClearable}
@@ -65,4 +76,5 @@ const Select = (props) => {
   );
 };
 
-export default Select;
+export default SelectFunc;
+ */

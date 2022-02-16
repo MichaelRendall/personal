@@ -9,7 +9,7 @@ import NavContext from "../../context/nav-context";
 
 import classes from "./Header.module.scss";
 
-const Header = () => {
+const Header: React.FC = () => {
   const navCtx = useContext(NavContext);
 
   return (

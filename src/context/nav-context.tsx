@@ -3,10 +3,10 @@ import useToggle from "../hooks/useToggle";
 
 const NavContext = React.createContext({
   drawerShowing: false,
-  toggleDrawer: () => {},
+  toggleDrawer: (_?: boolean) => {},
 });
 
-export const NavContextProvider = (props) => {
+export const NavContextProvider: React.FC = (props) => {
   const [drawerShowing, toggleDrawer] = useToggle(false);
 
   return (
