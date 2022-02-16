@@ -13,6 +13,7 @@
 .icon {
   color: $grey;
   font-size: 1.25rem;
+  user-select: none;
 
   span {
     padding: 0 0.5rem;
