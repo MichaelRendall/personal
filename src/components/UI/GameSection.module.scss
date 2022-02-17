@@ -1,4 +1,5 @@
 @import "../../styles/_variables.scss";
+@import "../../styles/_mixins.scss";
 
 .gameSection {
   width: 100%;
@@ -9,19 +10,33 @@
 }
 
 .pink {
-  border-top: 2px solid $dark-pink;
-  border-bottom: 2px solid $dark-pink;
-  background: $light-pink;
+  --light-color: #{$light-pink};
+  --dark-color: #{$dark-pink};
 }
 
 .yellow {
-  border-top: 2px solid $dark-yellow;
-  border-bottom: 2px solid $dark-yellow;
-  background: $light-yellow;
+  --light-color: #{$light-yellow};
+  --dark-color: #{$dark-yellow};
 }
 
 .blue {
-  border-top: 2px solid $dark-blue;
-  border-bottom: 2px solid $dark-blue;
-  background: $light-blue;
+  --light-color: #{$light-blue};
+  --dark-color: #{$dark-blue};
+}
+
+.pink,
+.yellow,
+.blue {
+  border-top: 2px solid var(--dark-color);
+  border-bottom: 2px solid var(--dark-color);
+  background: var(--light-color);
+
+  button {
+    background: var(--dark-color);
+
+    /* &:hover,
+    &:active {
+      background: scale-color(var(--color), $lightness: -20%);
+    } */
+  }
 }

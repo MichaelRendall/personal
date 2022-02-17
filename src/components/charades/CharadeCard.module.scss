@@ -1,21 +1,5 @@
 @import "../../styles/_variables.scss";
 
-.charadeCard {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 3rem;
-  width: 100%;
-  max-width: 40rem;
-  border-radius: 6px;
-  padding: 2rem;
-  margin: 3rem auto 0;
-  text-align: center;
-  background: $white;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
-    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-}
-
 .category {
   width: 100%;
   display: flex;

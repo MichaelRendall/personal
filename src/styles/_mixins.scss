@@ -1,0 +1,8 @@
+@import "_variables.scss";
+
+/* :before and :after tags */
+@mixin pseudo($display: block, $pos: absolute, $content: "") {
+  content: $content;
+  display: $display;
+  position: $pos;
+}

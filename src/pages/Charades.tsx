@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router";
 
 import useTimer from "../hooks/useTimer";
+import Wrapper from "../components/UI/Wrapper";
 import CharadeCard from "../components/charades/CharadeCard";
 
 import GameHeading from "../components/GameHeading/GameHeading";
@@ -140,12 +141,14 @@ const Charades = () => {
       {startingTime && <Timer timer={timerVisual} />}
       {!charade && <Button onClick={startGameHandler} name="Begin" large />}
       {charade && (
-        <CharadeCard
-          category={category!}
-          charade={charade}
-          theme={theme!}
-          clicked={endGameHandler}
-        />
+        <Wrapper>
+          <CharadeCard
+            category={category!}
+            charade={charade}
+            theme={theme!}
+            clicked={endGameHandler}
+          />
+        </Wrapper>
       )}
     </GameSection>
   );

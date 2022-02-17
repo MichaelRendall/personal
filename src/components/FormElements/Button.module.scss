@@ -2,7 +2,6 @@
 
 .button {
   position: relative;
-  background: $dark-pink;
   border: none;
   border-radius: 5px;
   color: $white;
@@ -14,12 +13,6 @@
   width: fit-content;
   cursor: pointer;
   transition: $transition-speed;
-
-  &:hover,
-  &:active {
-    /* filter: brightness(85%); */
-	background: scale-color($dark-pink, $lightness: -20%);
-  }
 }
 
 .large {

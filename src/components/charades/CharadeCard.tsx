@@ -25,7 +25,7 @@ const CharadeCard: React.FC<CharadeCardProps> = (props) => {
   }
 
   return (
-    <div className={classes.charadeCard}>
+    <>
       <span className={classes.category}>
         <FontAwesomeIcon icon={["fas", icon]} className="icon" />
         <h3>{props.category.toString().toUpperCase()}</h3>
@@ -33,7 +33,7 @@ const CharadeCard: React.FC<CharadeCardProps> = (props) => {
       </span>
       <h2>{props.charade}</h2>
       <Button onClick={props.clicked} name="Got it" />
-    </div>
+    </>
   );
 };
 
