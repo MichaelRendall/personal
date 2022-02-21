@@ -1,19 +1,24 @@
 import React from "react";
-//import classes from "./Input.module.scss";
+import classes from "./Input.module.scss";
 
 interface InputProps {
-  element: string;
-  id?: string;
+  type: string;
+  id: string;
   label: string;
   placeholder?: string;
-  param?: string;
 }
 
 const Input: React.FC<InputProps> = (props) => {
   return (
     <div className="input__wrapper">
       <label htmlFor={props.id}>{props.label}</label>
-      {/* {props.element === "input" && <input id={props.id} />} */}
+      <input
+        className={classes.input}
+        type={props.type}
+        id={props.id}
+        placeholder={props.placeholder}
+        autoComplete="off"
+      />
     </div>
   );
 };

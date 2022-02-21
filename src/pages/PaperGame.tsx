@@ -3,19 +3,30 @@ import GameSection from "../components/UI/GameSection";
 import GameHeading from "../components/GameHeading/GameHeading";
 import Button from "../components/FormElements/Button";
 import Wrapper from "../components/UI/Wrapper";
+import Input from "../components/FormElements/Input";
 
 const PaperGame = () => {
   document.title = "Paper Game | Michael Rendall";
 
-  const hostGameHandler = () => {};
-  const joinGameHandler = () => {};
+  const createGameHandler = () => {};
 
   return (
     <GameSection theme="yellow">
       <GameHeading heading="PAPER GAME" />
-      <Wrapper>
-        <Button name="Host Game" onClick={hostGameHandler} />
-        <Button name="Join Game" onClick={joinGameHandler} />
+      <Wrapper size="auto">
+        <Input
+          type="text"
+          id="name"
+          label="Display Name"
+          placeholder="Display Name"
+        />
+        <Input
+          type="text"
+          id="name"
+          label="Room Code"
+          placeholder="Room Code"
+        />
+        <Button name="Host or Join Game" onClick={createGameHandler} />
       </Wrapper>
     </GameSection>
   );

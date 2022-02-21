@@ -141,7 +141,7 @@ const Charades = () => {
       {startingTime && <Timer timer={timerVisual} />}
       {!charade && <Button onClick={startGameHandler} name="Begin" large />}
       {charade && (
-        <Wrapper>
+        <Wrapper size="fixed">
           <CharadeCard
             category={category!}
             charade={charade}

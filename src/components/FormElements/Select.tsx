@@ -11,7 +11,7 @@ interface SelectProps {
   placeholder?: string;
 }
 
-const NewSelect: React.FC<SelectProps> = (props) => {
+const Select: React.FC<SelectProps> = (props) => {
   const [open, setOpen] = useState(false);
   const dropDownRef = useRef(null);
 
@@ -97,4 +97,4 @@ const NewSelect: React.FC<SelectProps> = (props) => {
   );
 };
 
-export default NewSelect;
+export default Select;
