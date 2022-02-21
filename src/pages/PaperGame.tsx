@@ -22,7 +22,7 @@ const PaperGame = () => {
         />
         <Input
           type="text"
-          id="name"
+          id="room"
           label="Room Code"
           placeholder="Room Code"
         />
