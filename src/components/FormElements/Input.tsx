@@ -6,6 +6,7 @@ interface InputProps {
   id: string;
   label: string;
   placeholder?: string;
+  refValue: React.RefObject<HTMLInputElement>;
 }
 
 const Input: React.FC<InputProps> = (props) => {
@@ -18,6 +19,7 @@ const Input: React.FC<InputProps> = (props) => {
         id={props.id}
         placeholder={props.placeholder}
         autoComplete="off"
+        ref={props.refValue}
       />
     </div>
   );

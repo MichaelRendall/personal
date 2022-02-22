@@ -4,7 +4,7 @@ import classes from "./Button.module.scss";
 interface ButtonProps {
   large?: boolean;
   name: string;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 const Button: React.FC<ButtonProps> = (props) => {
