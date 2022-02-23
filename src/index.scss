@@ -1,5 +1,4 @@
-@import "styles/_variables.scss";
-@import "styles/_mixins.scss";
+@import "styles/_config.scss";
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&family=Righteous&display=swap");
 
 /* General Styles */
@@ -66,13 +65,11 @@ h3 {
 /* Global Classes */
 
 .flexCenter {
-  display: flex;
-  justify-content: center;
+  @include flex($jc: center);
 }
 
 .input__wrapper {
-  display: flex;
-  flex-direction: column;
+  @include flex($fd: column);
   position: relative;
   min-width: 12rem;
   font-size: 0.875rem;

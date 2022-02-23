@@ -1,8 +1,42 @@
-@import "_variables.scss";
-
 /* :before and :after tags */
 @mixin pseudo($display: block, $pos: absolute, $content: "") {
   content: $content;
   display: $display;
   position: $pos;
+}
+
+/* Display Flex */
+@mixin flex(
+  $fd: false,
+  $jc: false,
+  $ai: false,
+  $gap: false,
+  $fw: false,
+  $flex: false
+) {
+  display: flex;
+
+  @if $fd != false {
+    flex-direction: $fd;
+  }
+
+  @if $jc != false {
+    justify-content: $jc;
+  }
+
+  @if $ai != false {
+    align-items: $ai;
+  }
+
+  @if $fw != false {
+    flex-wrap: $fw;
+  }
+
+  @if $gap != false {
+    gap: $gap;
+  }
+
+  @if $flex != false {
+    flex: $flex;
+  }
 }

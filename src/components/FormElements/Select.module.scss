@@ -1,9 +1,8 @@
-@import "../../styles/_variables.scss";
+@import "../../styles/_config.scss";
 
 /* Wrapper for whole select component (minus label) */
 .wrapper {
-  display: flex;
-  flex-direction: column;
+  @include flex($fd: column);
 }
 
 .clear {
@@ -23,9 +22,7 @@
 
 /* Select input with text and arrow */
 .select {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  @include flex($jc: space-between, $ai: center);
 
   background-color: $white;
   border: 1px solid $mid-grey;

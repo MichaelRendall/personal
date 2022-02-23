@@ -1,9 +1,7 @@
-@import "../../styles/_variables.scss";
+@import "../../styles/_config.scss";
 
 .heading {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+  @include flex($fd: row, $ai: center);
 
   & > * {
     flex-basis: 100%;

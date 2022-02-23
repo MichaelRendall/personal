@@ -1,6 +1,7 @@
-@import "../../styles/_variables.scss";
+@import "../../styles/_config.scss";
 
 .header {
+  @include flex($ai: center);
   position: sticky;
   top: 0;
   left: 0;
@@ -10,8 +11,6 @@
   color: $grey;
   background-color: $white;
   padding: 1rem;
-  display: flex;
-  align-items: center;
   margin: 0;
 
   @media (min-width: $media-min-width) {

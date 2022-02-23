@@ -1,12 +1,9 @@
-@import "../../../styles/_variables.scss";
+@import "../../../styles/_config.scss";
 
 .hamburger {
+  @include flex($fd: column, $jc: space-evenly, $ai: flex-start);
   height: 2.25rem;
   width: fit-content;
-  display: flex;
-  align-items: flex-start;
-  flex-flow: column;
-  justify-content: space-evenly;
   padding: 0 0.5rem;
   cursor: pointer;
   transition: $transition-speed;
