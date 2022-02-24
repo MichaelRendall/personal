@@ -2,4 +2,8 @@
 
 .form {
   @include flex($fd: column, $gap: 1rem);
+
+  .form__buttons {
+    @include flex($fd: row, $gap: 1rem);
+  }
 }

@@ -4,14 +4,27 @@ import classes from "./Button.module.scss";
 interface ButtonProps {
   large?: boolean;
   name: string;
-  onClick?: () => void;
+  invert?: boolean;
+  submit?: boolean;
+  onClick?: (() => void) | ((event: React.FormEvent) => Promise<void>);
 }
 
 const Button: React.FC<ButtonProps> = (props) => {
+  const buttonClasses = [classes.button];
+
+  if (props.large) {
+    buttonClasses.push(classes.large);
+  }
+
+  if (props.invert) {
+    buttonClasses.push(classes.invert);
+  }
+
   return (
     <button
-      className={`${classes.button} ${props.large && classes.large}`}
+      className={buttonClasses.join(" ")}
       onClick={props.onClick}
+      type={props.submit ? "submit" : "button"}
     >
       {props.name}
     </button>

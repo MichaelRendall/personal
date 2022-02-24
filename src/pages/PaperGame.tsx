@@ -9,10 +9,14 @@ import HostJoinGame from "../components/paperGame/HostJoinGame";
 const PaperGame = () => {
   const roomNameRef = useRef<HTMLInputElement>(null);
   const userNameRef = useRef<HTMLInputElement>(null);
-  const [cookies, setCookie] = useCookies(["uuid", "name"]);
+  const [cookies, setCookie, removeCookie] = useCookies([
+    "uuid",
+    "name",
+    "roomId",
+  ]);
   document.title = "Paper Game | Michael Rendall";
 
-  const createGameHandler = async (event: React.FormEvent) => {
+  const hostGameHandler = async (event: React.FormEvent) => {
     event.preventDefault();
 
     const response = await fetch("http://localhost:8080/create-game", {
@@ -28,23 +32,40 @@ const PaperGame = () => {
     });
     const responseData = await response.json();
 
-    console.log(responseData);
     setCookie("uuid", responseData.uuid);
     setCookie("name", responseData.name);
+    setCookie("roomId", responseData.roomId);
+  };
 
-    console.log(cookies.name);
-    console.log(cookies.uuid);
+  const joinGameHandler = async (event: React.FormEvent) => {
+    event.preventDefault();
+    console.log("joined!");
+  };
+
+  const leaveGameHandler = () => {
+    removeCookie("uuid");
+    removeCookie("name");
+    removeCookie("roomId");
   };
 
   return (
     <GameSection theme="yellow">
       <GameHeading heading="PAPER GAME" />
       <Wrapper size="auto">
-        <HostJoinGame
-          submitted={createGameHandler}
-          userNameRef={userNameRef}
-          roomNameRef={roomNameRef}
-        />
+        {!cookies.roomId && (
+          <HostJoinGame
+            hostGameHandler={hostGameHandler}
+            joinGameHandler={joinGameHandler}
+            userNameRef={userNameRef}
+            roomNameRef={roomNameRef}
+          />
+        )}
+        {cookies.roomId && (
+          <>
+            <p>game is set. {cookies.name} ready to play</p>
+            <button onClick={leaveGameHandler}>clear</button>
+          </>
+        )}
       </Wrapper>
     </GameSection>
   );

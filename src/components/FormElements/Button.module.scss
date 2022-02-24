@@ -13,6 +13,24 @@
   width: fit-content;
   cursor: pointer;
   transition: $transition-speed;
+
+  /* need to make these colours dynamic!! */
+  background-color: $dark-yellow;
+  border: 2px solid $dark-yellow;
+
+  &:hover {
+    background-color: scale-color($dark-yellow, $lightness: -30%);
+    border-color: scale-color($dark-yellow, $lightness: -30%);
+  }
+}
+
+.invert {
+  background-color: $white;
+  color: $dark-yellow;
+
+  &:hover {
+    color: $white;
+  }
 }
 
 .large {

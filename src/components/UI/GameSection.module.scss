@@ -29,12 +29,13 @@
   border-bottom: 2px solid var(--dark-color);
   background: var(--light-color);
 
-  button {
+  /* button {
     background: var(--dark-color);
+    border: 2px solid var(--dark-color);
 
-    /* &:hover,
+    &:hover,
     &:active {
       background: scale-color(var(--color), $lightness: -20%);
-    } */
-  }
+    }
+  } */
 }

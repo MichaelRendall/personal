@@ -4,14 +4,15 @@ import Button from "../FormElements/Button";
 import classes from "./HostJoinGame.module.scss";
 
 interface HostJoinGameProps {
-  submitted: (event: React.FormEvent) => Promise<void>;
+  hostGameHandler: (event: React.FormEvent) => Promise<void>;
+  joinGameHandler: (event: React.FormEvent) => Promise<void>;
   userNameRef: React.RefObject<HTMLInputElement>;
   roomNameRef: React.RefObject<HTMLInputElement>;
 }
 
 const HostJoinGame: React.FC<HostJoinGameProps> = (props) => {
   return (
-    <form className={classes.form} onSubmit={props.submitted}>
+    <form className={classes.form} onSubmit={props.hostGameHandler}>
       <Input
         type="text"
         id="name"
@@ -26,7 +27,10 @@ const HostJoinGame: React.FC<HostJoinGameProps> = (props) => {
         placeholder="Room Code"
         refValue={props.roomNameRef}
       />
-      <Button name="Host or Join Game" />
+      <div className={classes.form__buttons}>
+        <Button name="Join Game" invert onClick={props.joinGameHandler} />
+        <Button name="Host Game" submit />
+      </div>
     </form>
   );
 };
