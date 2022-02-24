@@ -32,6 +32,11 @@ const PaperGame = () => {
     });
     const responseData = await response.json();
 
+    if (responseData.errors) {
+      alert("Please fill your name and the room code");
+      return;
+    }
+
     setCookie("uuid", responseData.uuid);
     setCookie("name", responseData.name);
     setCookie("roomId", responseData.roomId);
