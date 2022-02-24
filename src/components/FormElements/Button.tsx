@@ -6,6 +6,7 @@ interface ButtonProps {
   name: string;
   invert?: boolean;
   submit?: boolean;
+  disabled?: boolean;
   onClick?: (() => void) | ((event: React.FormEvent) => Promise<void>);
 }
 
@@ -25,6 +26,7 @@ const Button: React.FC<ButtonProps> = (props) => {
       className={buttonClasses.join(" ")}
       onClick={props.onClick}
       type={props.submit ? "submit" : "button"}
+      disabled={props.disabled}
     >
       {props.name}
     </button>
