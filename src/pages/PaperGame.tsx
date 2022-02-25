@@ -50,7 +50,24 @@ const PaperGame = () => {
     hostJoinRequestHandler("join-game");
   };
 
-  const leaveGameHandler = () => {
+  const leaveGameHandler = async (event: React.FormEvent) => {
+    const response = await fetch(`http://localhost:8080/leave-game`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "same-origin",
+      body: JSON.stringify({
+        room: cookies.roomId,
+        uuid: cookies.uuid,
+      }),
+    });
+    const responseData = await response.json();
+
+    if (response.status === 500) {
+      alert(responseData.message);
+      return;
+    }
     removeCookie("uuid");
     removeCookie("name");
     removeCookie("roomId");
