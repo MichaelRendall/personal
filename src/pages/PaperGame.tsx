@@ -16,10 +16,8 @@ const PaperGame = () => {
   ]);
   document.title = "Paper Game | Michael Rendall";
 
-  const hostGameHandler = async (event: React.FormEvent) => {
-    event.preventDefault();
-
-    const response = await fetch("http://localhost:8080/create-game", {
+  const hostJoinRequestHandler = async (functionName: string) => {
+    const response = await fetch(`http://localhost:8080/${functionName}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -32,8 +30,8 @@ const PaperGame = () => {
     });
     const responseData = await response.json();
 
-    if (responseData.errors) {
-      alert("Please fill your name and the room code");
+    if (response.status === 500) {
+      alert(responseData.message);
       return;
     }
 
@@ -42,9 +40,14 @@ const PaperGame = () => {
     setCookie("roomId", responseData.roomId);
   };
 
+  const hostGameHandler = async (event: React.FormEvent) => {
+    event.preventDefault();
+    hostJoinRequestHandler("create-game");
+  };
+
   const joinGameHandler = async (event: React.FormEvent) => {
     event.preventDefault();
-    console.log("joined!");
+    hostJoinRequestHandler("join-game");
   };
 
   const leaveGameHandler = () => {
