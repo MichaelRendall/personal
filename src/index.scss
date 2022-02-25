@@ -64,9 +64,14 @@ h3 {
 
 /* Global Classes */
 
+.error {
+  font-weight: 600;
+  color: $salmon;
+}
+/* 
 .flexCenter {
   @include flex($jc: center);
-}
+} */
 
 .input__wrapper {
   @include flex($fd: column);

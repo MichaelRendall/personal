@@ -1,76 +1,72 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import GameSection from "../components/UI/GameSection";
 import GameHeading from "../components/GameHeading/GameHeading";
 import Wrapper from "../components/UI/Wrapper";
 
 import { useCookies } from "react-cookie";
 import HostJoinGame from "../components/paperGame/HostJoinGame";
+import useFetch from "../hooks/useFetch";
+import Spinner from "../components/UI/Spinner";
 
 const PaperGame = () => {
+  document.title = "Paper Game | Michael Rendall";
+
   const roomNameRef = useRef<HTMLInputElement>(null);
   const userNameRef = useRef<HTMLInputElement>(null);
+
+  const { isLoading, error, data, sendRequest } = useFetch();
   const [cookies, setCookie, removeCookie] = useCookies([
     "uuid",
     "name",
     "roomId",
   ]);
-  document.title = "Paper Game | Michael Rendall";
 
-  const hostJoinRequestHandler = async (functionName: string) => {
-    const response = await fetch(`http://localhost:8080/${functionName}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "same-origin",
-      body: JSON.stringify({
-        room: roomNameRef.current!.value,
-        name: userNameRef.current!.value,
-      }),
-    });
-    const responseData = await response.json();
-
-    if (response.status === 500) {
-      alert(responseData.message);
-      return;
+  useEffect(() => {
+    if (data?.removeData && !error) {
+      removeCookie("uuid");
+      removeCookie("name");
+      removeCookie("roomId");
+    } else if (data && !error) {
+      setCookie("uuid", data.uuid);
+      setCookie("name", data.name);
+      setCookie("roomId", data.roomId);
     }
-
-    setCookie("uuid", responseData.uuid);
-    setCookie("name", responseData.name);
-    setCookie("roomId", responseData.roomId);
-  };
+  }, [data, error, setCookie, removeCookie]);
 
   const hostGameHandler = async (event: React.FormEvent) => {
     event.preventDefault();
-    hostJoinRequestHandler("create-game");
+    await sendRequest({
+      url: `http://localhost:8080/create-game`,
+      method: "POST",
+      body: {
+        room: roomNameRef.current!.value,
+        name: userNameRef.current!.value,
+      },
+    });
   };
 
   const joinGameHandler = async (event: React.FormEvent) => {
     event.preventDefault();
-    hostJoinRequestHandler("join-game");
+    await sendRequest({
+      url: `http://localhost:8080/join-game`,
+      method: "POST",
+      body: {
+        room: roomNameRef.current!.value,
+        name: userNameRef.current!.value,
+      },
+    });
   };
 
   const leaveGameHandler = async (event: React.FormEvent) => {
-    const response = await fetch(`http://localhost:8080/leave-game`, {
+    event.preventDefault();
+    sendRequest({
+      url: `http://localhost:8080/leave-game`,
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "same-origin",
-      body: JSON.stringify({
-        room: cookies.roomId,
+      body: {
+        roomId: cookies.roomId,
         uuid: cookies.uuid,
-      }),
+      },
     });
-    const responseData = await response.json();
-
-    if (response.status === 500) {
-      alert(responseData.message);
-      return;
-    }
-    removeCookie("uuid");
-    removeCookie("name");
-    removeCookie("roomId");
   };
 
   return (
@@ -85,12 +81,14 @@ const PaperGame = () => {
             roomNameRef={roomNameRef}
           />
         )}
-        {cookies.roomId && (
+        {!isLoading && cookies.roomId && (
           <>
             <p>game is set. {cookies.name} ready to play</p>
             <button onClick={leaveGameHandler}>clear</button>
           </>
         )}
+        {isLoading && <Spinner />}
+        {!isLoading && error && <small className="error">{error}</small>}
       </Wrapper>
     </GameSection>
   );

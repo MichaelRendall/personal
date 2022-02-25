@@ -15,7 +15,7 @@ const GameHeading: React.FC<GameHeadingProps> = (props) => {
     <>
       <section className={classes.heading}>
         <div className={`${classes.icon} ${dropdown && classes.active}`}>
-          <span onClick={setDropdown} aria-label="Open Game Settings">
+          <span onClick={() => setDropdown()} aria-label="Open Game Settings">
             <FontAwesomeIcon icon={["fas", "cog"]} className="icon" />
           </span>
         </div>
