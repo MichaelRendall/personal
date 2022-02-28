@@ -7,6 +7,7 @@ import { useCookies } from "react-cookie";
 import HostJoinGame from "../components/paperGame/HostJoinGame";
 import useFetch from "../hooks/useFetch";
 import Spinner from "../components/UI/Spinner";
+import Game from "../components/paperGame/Game";
 
 const PaperGame = () => {
   document.title = "Paper Game | Michael Rendall";
@@ -83,8 +84,7 @@ const PaperGame = () => {
         )}
         {!isLoading && cookies.roomId && (
           <>
-            <p>game is set. {cookies.name} ready to play</p>
-            <button onClick={leaveGameHandler}>clear</button>
+            <Game leaveGame={leaveGameHandler} />
           </>
         )}
         {isLoading && <Spinner />}

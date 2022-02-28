@@ -5,6 +5,7 @@ interface data {
   name?: string;
   uuid?: string;
   removeData?: boolean;
+  game?: { room: string; users: [] };
   message: string;
 }
 
