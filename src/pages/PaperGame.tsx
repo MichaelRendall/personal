@@ -88,7 +88,7 @@ const PaperGame = () => {
           </>
         )}
         {isLoading && <Spinner />}
-        {!isLoading && error && <small className="error">{error}</small>}
+        {error && <small className="error">{error}</small>}
       </Wrapper>
     </GameSection>
   );

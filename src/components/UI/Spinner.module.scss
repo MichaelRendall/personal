@@ -1,19 +1,34 @@
 @import "../../styles/_config.scss";
 
-.Spinner {
+.background {
   @include flex($jc: center, $ai: center);
-  position: relative;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: $white;
+  opacity: 0.75;
 }
-.Spinner:after {
-  @include pseudo($pos: relative);
-  width: 32px;
-  height: 32px;
-  margin: 0;
-  border-radius: 50%;
-  border: 6px solid $grey;
-  border-color: $grey transparent $grey transparent;
-  animation: lds-dual-ring 1.2s linear infinite;
+
+.spinner {
+  @include flex($jc: center, $ai: center);
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+
+  &:after {
+    @include pseudo($pos: relative);
+    width: 32px;
+    height: 32px;
+    margin: 0;
+    border-radius: 50%;
+    border: 6px solid $grey;
+    border-color: $grey transparent $grey transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
+  }
 }
+
 @keyframes lds-dual-ring {
   0% {
     transform: rotate(0deg);
