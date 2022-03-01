@@ -2,6 +2,9 @@ import React, { useEffect } from "react";
 import classes from "./Game.module.scss";
 import { useCookies } from "react-cookie";
 import useFetch from "../../hooks/useFetch";
+import Players from "./Players";
+import Button from "../FormElements/Button";
+import SubmissionsForm from "./SubmissionsForm";
 
 interface GameProps {
   leaveGame: (event: React.FormEvent) => Promise<void>;
@@ -25,8 +28,16 @@ const Game: React.FC<GameProps> = (props) => {
     <div>
       {data && (
         <>
-          <p>{data.game!.room}</p>
-          <button onClick={props.leaveGame}>Leave</button>
+          <h2>{data.game!.room}</h2>
+          <div className={classes.game}>
+            <section>
+              <SubmissionsForm />
+            </section>
+            <aside>
+              <Players />
+              <Button name="Leave" onClick={props.leaveGame} small />
+            </aside>
+          </div>
         </>
       )}
     </div>

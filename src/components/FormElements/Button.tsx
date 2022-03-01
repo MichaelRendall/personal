@@ -3,6 +3,7 @@ import classes from "./Button.module.scss";
 
 interface ButtonProps {
   large?: boolean;
+  small?: boolean;
   name: string;
   invert?: boolean;
   submit?: boolean;
@@ -15,6 +16,10 @@ const Button: React.FC<ButtonProps> = (props) => {
 
   if (props.large) {
     buttonClasses.push(classes.large);
+  }
+
+  if (props.small) {
+    buttonClasses.push(classes.small);
   }
 
   if (props.invert) {

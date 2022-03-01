@@ -1,6 +1,7 @@
 import React from "react";
 import Input from "../FormElements/Input";
 import Button from "../FormElements/Button";
+import Form from "../FormElements/Form";
 import classes from "./HostJoinGame.module.scss";
 import useValidator from "../../hooks/useValidator";
 
@@ -36,7 +37,7 @@ const HostJoinGame: React.FC<HostJoinGameProps> = (props) => {
   }
 
   return (
-    <form className={classes.form} onSubmit={props.hostGameHandler}>
+    <Form onSubmit={props.hostGameHandler}>
       <Input
         type="text"
         id="name"
@@ -68,7 +69,7 @@ const HostJoinGame: React.FC<HostJoinGameProps> = (props) => {
         />
         <Button name="Host Game" submit disabled={!formIsValid} />
       </div>
-    </form>
+    </Form>
   );
 };
 
