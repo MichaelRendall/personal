@@ -1,13 +1,20 @@
 @import "../../styles/_config.scss";
 
 .playerList {
-  @include flex($fd: column, $gap: 1rem);
+  @include flex($fd: column, $gap: 0.5rem);
   list-style: none;
   padding: 0;
   margin: 1rem 0;
   text-align: left;
 
   li {
-    @include flex($fd: row, $jc: space-between);
+    @include flex($fd: row, $jc: space-between, $gap: 1rem);
+
+    padding: 0.5rem 1rem;
+    background-color: $light-grey;
   }
+}
+
+.score {
+  font-weight: 600;
 }

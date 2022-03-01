@@ -23,7 +23,7 @@ const Game: React.FC<GameProps> = (props) => {
     };
     fetchGame();
   }, [cookies.roomId, sendRequest]);
-
+  console.log(data);
   return (
     <div>
       {data && (
@@ -34,7 +34,7 @@ const Game: React.FC<GameProps> = (props) => {
               <SubmissionsForm />
             </section>
             <aside>
-              <Players />
+              <Players players={data.game?.users} />
               <Button name="Leave" onClick={props.leaveGame} small />
             </aside>
           </div>
