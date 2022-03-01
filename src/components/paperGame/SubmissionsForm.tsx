@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "../FormElements/Button";
 import Form from "../FormElements/Form";
-import classes from "./SubmissionsForm.module.scss";
+//import classes from "./SubmissionsForm.module.scss";
 
 const SubmissionsForm = () => {
   return (

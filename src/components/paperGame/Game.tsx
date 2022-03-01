@@ -11,7 +11,7 @@ interface GameProps {
 }
 
 const Game: React.FC<GameProps> = (props) => {
-  const { isLoading, error, data, sendRequest } = useFetch();
+  const { data, sendRequest } = useFetch();
   const [cookies] = useCookies(["uuid", "name", "roomId"]);
 
   useEffect(() => {
