@@ -73,23 +73,23 @@ const PaperGame = () => {
   return (
     <GameSection theme="yellow">
       <GameHeading heading="PAPER GAME" />
-      <Wrapper size="auto">
-        {!cookies.roomId && (
+      {!cookies.roomId && (
+        <Wrapper size="auto">
           <HostJoinGame
             hostGameHandler={hostGameHandler}
             joinGameHandler={joinGameHandler}
             userNameRef={userNameRef}
             roomNameRef={roomNameRef}
           />
-        )}
-        {!isLoading && cookies.roomId && (
-          <>
-            <Game leaveGame={leaveGameHandler} />
-          </>
-        )}
-        {isLoading && <Spinner />}
-        {error && <small className="error">{error}</small>}
-      </Wrapper>
+          {isLoading && <Spinner />}
+          {error && <small className="error">{error}</small>}
+        </Wrapper>
+      )}
+      {!isLoading && cookies.roomId && (
+        <>
+          <Game leaveGame={leaveGameHandler} />
+        </>
+      )}
     </GameSection>
   );
 };

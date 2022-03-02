@@ -4,6 +4,7 @@ import { useCookies } from "react-cookie";
 import useFetch from "../../hooks/useFetch";
 import Players from "./Players";
 import Button from "../FormElements/Button";
+import Wrapper from "../UI/Wrapper";
 import SubmissionsForm from "./SubmissionsForm";
 
 interface GameProps {
@@ -25,19 +26,18 @@ const Game: React.FC<GameProps> = (props) => {
   }, [cookies.roomId, sendRequest]);
   console.log(data);
   return (
-    <div>
+    <div className={classes.game}>
       {data && (
         <>
-          <h2>{data.game!.room}</h2>
-          <div className={classes.game}>
-            <section>
-              <SubmissionsForm />
-            </section>
-            <aside>
-              <Players players={data.game?.users} />
-              <Button name="Leave" onClick={props.leaveGame} small />
-            </aside>
-          </div>
+          <Wrapper>
+            <SubmissionsForm />
+          </Wrapper>
+          <aside className={classes.aside}>
+            <h2>{data.game!.room}</h2>
+            <hr />
+            <Players players={data.game?.users} />
+            <Button name="Leave" onClick={props.leaveGame} small />
+          </aside>
         </>
       )}
     </div>
