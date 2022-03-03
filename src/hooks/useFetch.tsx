@@ -45,6 +45,7 @@ const useFetch = () => {
     isLoading,
     error,
     data,
+    setData,
     sendRequest,
   } as const;
 };

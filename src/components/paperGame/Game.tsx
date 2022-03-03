@@ -14,23 +14,8 @@ interface GameProps {
 }
 
 const Game: React.FC<GameProps> = (props) => {
-  const { data, sendRequest } = useFetch();
+  const { data, setData, sendRequest } = useFetch();
   const [cookies] = useCookies(["uuid", "name", "roomId"]);
-
-  useEffect(() => {
-    const socket = io("http://localhost:8080");
-    socket.on("paper-game", (data) => {
-      if (data.action === "joined") {
-        const fetchGame = async () => {
-          sendRequest({
-            url: `http://localhost:8080/get-game/${cookies.roomId}`,
-            method: "GET",
-          });
-        };
-        fetchGame();
-      }
-    });
-  }, [cookies.roomId, sendRequest]);
 
   useEffect(() => {
     const fetchGame = async () => {
@@ -41,6 +26,16 @@ const Game: React.FC<GameProps> = (props) => {
     };
     fetchGame();
   }, [cookies.roomId, sendRequest]);
+
+  useEffect(() => {
+    const socket = io("http://localhost:8080");
+    socket.on("join-game", (data) => {
+      setData(data);
+    });
+    socket.on("leave-game", (data) => {
+      setData(data);
+    });
+  }, [setData]);
 
   return (
     <div className={classes.game}>
