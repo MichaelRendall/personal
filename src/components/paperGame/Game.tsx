@@ -7,7 +7,7 @@ import Button from "../FormElements/Button";
 import Wrapper from "../UI/Wrapper";
 import SubmissionsForm from "./SubmissionsForm";
 
-import { io, Socket } from "socket.io-client";
+import { Socket } from "socket.io-client";
 
 interface GameProps {
   leaveGame: (event: React.FormEvent) => Promise<void>;
