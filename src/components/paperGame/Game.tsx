@@ -7,10 +7,11 @@ import Button from "../FormElements/Button";
 import Wrapper from "../UI/Wrapper";
 import SubmissionsForm from "./SubmissionsForm";
 
-import { io } from "socket.io-client";
+import { io, Socket } from "socket.io-client";
 
 interface GameProps {
   leaveGame: (event: React.FormEvent) => Promise<void>;
+  socket: Socket | undefined;
 }
 
 const Game: React.FC<GameProps> = (props) => {
@@ -28,14 +29,15 @@ const Game: React.FC<GameProps> = (props) => {
   }, [cookies.roomId, sendRequest]);
 
   useEffect(() => {
-    const socket = io("http://localhost:8080");
-    socket.on("join-game", (data) => {
+    //const sessionId = localStorage.getItem("sessionId");
+    //const socket = io("http://localhost:8080");
+    props.socket!.on("join-game", (data) => {
       setData(data);
     });
-    socket.on("leave-game", (data) => {
+    props.socket!.on("leave-game", (data) => {
       setData(data);
     });
-  }, [setData]);
+  }, [setData, props.socket]);
 
   return (
     <div className={classes.game}>

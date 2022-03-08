@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import GameSection from "../components/UI/GameSection";
 import GameHeading from "../components/GameHeading/GameHeading";
 import Wrapper from "../components/UI/Wrapper";
@@ -8,6 +8,8 @@ import HostJoinGame from "../components/paperGame/HostJoinGame";
 import useFetch from "../hooks/useFetch";
 import Spinner from "../components/UI/Spinner";
 import Game from "../components/paperGame/Game";
+
+import { io, Socket } from "socket.io-client";
 
 const PaperGame = () => {
   document.title = "Paper Game | Michael Rendall";
@@ -21,6 +23,29 @@ const PaperGame = () => {
     "name",
     "roomId",
   ]);
+  const [socket, setSocket] = useState<Socket>();
+
+  /* socket.on("session", ({ sessionID, userID }) => {
+    // attach the session ID to the next reconnection attempts
+    socket.auth = { sessionID };
+    // store it in the localStorage
+    localStorage.setItem("sessionID", sessionID);
+    // save the ID of the user
+    socket.userID = userID;
+  }); */
+  useEffect(() => {
+    const newSocket = io("http://localhost:8080");
+
+    /* newSocket.on("session", ({ sessionId }) => {
+      // attach the session ID to the next reconnection attempts
+      newSocket.auth = { sessionId };
+      // store it in the localStorage
+      localStorage.setItem("sessionId", sessionId);
+    }); */
+
+    setSocket(newSocket);
+    //newSocket.close();
+  }, [setSocket]);
 
   useEffect(() => {
     if (data?.removeData && !error) {
@@ -36,6 +61,8 @@ const PaperGame = () => {
 
   const hostGameHandler = async (event: React.FormEvent) => {
     event.preventDefault();
+    /* socket!.auth = { username: userNameRef.current!.value };
+    socket!.connect(); */
     await sendRequest({
       url: `http://localhost:8080/create-game`,
       method: "POST",
@@ -48,6 +75,8 @@ const PaperGame = () => {
 
   const joinGameHandler = async (event: React.FormEvent) => {
     event.preventDefault();
+    //const socket = io("http://localhost:8080");
+    //socket.emit("create-room", roomNameRef.current!.value);
     await sendRequest({
       url: `http://localhost:8080/join-game`,
       method: "POST",
@@ -85,9 +114,9 @@ const PaperGame = () => {
           {error && <small className="error">{error}</small>}
         </Wrapper>
       )}
-      {!isLoading && cookies.roomId && (
+      {!isLoading && cookies.roomId && socket && (
         <>
-          <Game leaveGame={leaveGameHandler} />
+          <Game leaveGame={leaveGameHandler} socket={socket} />
         </>
       )}
     </GameSection>
