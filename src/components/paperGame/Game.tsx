@@ -32,6 +32,7 @@ const Game: React.FC<GameProps> = (props) => {
     //const sessionId = localStorage.getItem("sessionId");
     //const socket = io("http://localhost:8080");
     props.socket!.on("join-game", (data) => {
+      console.log("joined game!");
       setData(data);
     });
     props.socket!.on("leave-game", (data) => {

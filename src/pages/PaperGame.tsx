@@ -34,18 +34,23 @@ const PaperGame = () => {
     socket.userID = userID;
   }); */
   useEffect(() => {
-    const newSocket = io("http://localhost:8080");
+    const newSocket = io("http://localhost:8080", { autoConnect: false });
+    const sessionId = localStorage.getItem("sessionId");
 
-    /* newSocket.on("session", ({ sessionId }) => {
+    if (sessionId) {
+      newSocket.auth = { sessionId, roomId: cookies.roomId };
+    }
+    newSocket.connect();
+
+    newSocket.on("session", ({ sessionId, roomId }) => {
       // attach the session ID to the next reconnection attempts
-      newSocket.auth = { sessionId };
+      newSocket.auth = { sessionId, roomId };
       // store it in the localStorage
       localStorage.setItem("sessionId", sessionId);
-    }); */
+    });
 
     setSocket(newSocket);
-    //newSocket.close();
-  }, [setSocket]);
+  }, [setSocket, cookies.roomId]);
 
   useEffect(() => {
     if (data?.removeData && !error) {
@@ -61,8 +66,6 @@ const PaperGame = () => {
 
   const hostGameHandler = async (event: React.FormEvent) => {
     event.preventDefault();
-    /* socket!.auth = { username: userNameRef.current!.value };
-    socket!.connect(); */
     await sendRequest({
       url: `http://localhost:8080/create-game`,
       method: "POST",
@@ -75,8 +78,6 @@ const PaperGame = () => {
 
   const joinGameHandler = async (event: React.FormEvent) => {
     event.preventDefault();
-    //const socket = io("http://localhost:8080");
-    //socket.emit("create-room", roomNameRef.current!.value);
     await sendRequest({
       url: `http://localhost:8080/join-game`,
       method: "POST",
