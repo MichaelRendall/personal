@@ -34,6 +34,7 @@ const Game: React.FC<GameProps> = (props) => {
       setData(data);
     });
     props.socket!.on("leave-game", (data) => {
+      console.log("a user left!");
       setData(data);
     });
   }, [setData, props.socket]);
