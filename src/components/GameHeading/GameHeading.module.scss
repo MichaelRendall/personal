@@ -3,7 +3,11 @@
 .heading {
   @include flex($fd: row, $ai: center);
 
-  & > * {
+  & > :first-child,
+  & > :last-child {
+    flex-basis: 50%;
+  }
+  & > :nth-child(2) {
     flex-basis: 100%;
   }
 }

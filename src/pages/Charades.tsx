@@ -114,7 +114,7 @@ const Charades = () => {
 
   return (
     <GameSection theme="pink">
-      <GameHeading heading="CHARADES">
+      <GameHeading heading="CHARADES" showSettings>
         {
           <>
             <Select
