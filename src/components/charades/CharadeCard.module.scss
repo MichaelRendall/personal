@@ -1,5 +1,18 @@
 @import "../../styles/_config.scss";
 
+.default {
+  --color: #{$salmon};
+}
+.yellow {
+  --color: #{$dark-yellow};
+}
+.red {
+  --color: #{$dark-pink};
+}
+.blue {
+  --color: #{$dark-blue};
+}
+
 .category {
   width: 100%;
   @include flex($fd: row, $jc: center, $ai: center, $gap: 2rem);
@@ -9,7 +22,7 @@
   }
 
   svg {
-    color: $dark-pink;
+    color: var(--color);
     font-size: 2rem;
   }
 }
