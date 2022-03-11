@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useLocation } from "react-router";
 
 import useTimer from "../hooks/useTimer";
@@ -16,6 +16,8 @@ import {
   timerOptions,
 } from "../lib/filter-options";
 import Select from "../components/FormElements/Select";
+import { ThemeContext } from "../context/theme-context";
+import Theme from "../models/theme-enum";
 
 interface CharadeList {
   [key: string]: string;
@@ -25,6 +27,9 @@ interface CharadeList {
 }
 
 const Charades = () => {
+  const themeCtx = useContext(ThemeContext);
+  themeCtx.changeTheme(Theme.RED);
+
   document.title = "Charades | Michael Rendall";
 
   const [charadeList, setCharadeList] = useState<CharadeList[]>([]);
@@ -113,7 +118,7 @@ const Charades = () => {
   }, [timerActive]);
 
   return (
-    <GameSection theme="pink">
+    <GameSection>
       <GameHeading heading="CHARADES" showSettings>
         {
           <>

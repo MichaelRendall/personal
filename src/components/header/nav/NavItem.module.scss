@@ -1,5 +1,18 @@
 @import "../../../styles/_config.scss";
 
+.default {
+  --color: #{$salmon};
+}
+.yellow {
+  --color: #{$dark-yellow};
+}
+.red {
+  --color: #{$dark-pink};
+}
+.blue {
+  --color: #{$dark-blue};
+}
+
 .navItem {
   font-weight: 700;
   padding: 1rem;
@@ -11,39 +24,10 @@
     color: $grey;
     transition: $transition-speed;
     letter-spacing: $letter-spacing;
-  }
-
-  &:first-of-type {
-    a:hover,
-    a:active,
-    a.active {
-      color: $dark-pink;
+    &:hover,
+    &:active,
+    &.active {
+      color: var(--color);
     }
   }
-
-  &:nth-of-type(2) {
-    a:hover,
-    a:active,
-    a.active {
-      color: $dark-yellow;
-    }
-  }
-
-  &:nth-of-type(3) {
-    a:hover,
-    a:active,
-    a.active {
-      color: $dark-blue;
-    }
-  }
-
-  &:last-of-type {
-    a:hover,
-    a:active,
-    a.active {
-      color: purple;
-    }
-  }
-
-  
 }

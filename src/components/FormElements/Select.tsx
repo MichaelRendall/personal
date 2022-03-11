@@ -1,6 +1,7 @@
-import React, { useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useOnClickOutside } from "usehooks-ts";
+import { ThemeContext } from "../../context/theme-context";
 import classes from "./Select.module.scss";
 
 interface SelectProps {
@@ -12,6 +13,7 @@ interface SelectProps {
 }
 
 const Select: React.FC<SelectProps> = (props) => {
+  const themeCtx = useContext(ThemeContext);
   const [open, setOpen] = useState(false);
   const dropDownRef = useRef(null);
 
@@ -69,7 +71,7 @@ const Select: React.FC<SelectProps> = (props) => {
   });
 
   return (
-    <div className="input__wrapper">
+    <div className={`input__wrapper ${classes[themeCtx.theme]}`}>
       <label htmlFor={props.id}>{props.label}</label>
       {props.options[selectedOption] && (
         <small

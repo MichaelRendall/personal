@@ -7,15 +7,18 @@ import { CookiesProvider } from "react-cookie";
 
 import "./index.scss";
 import App from "./App";
+import ThemeContextProvider from "./context/theme-context";
 
 ReactDOM.render(
   <React.StrictMode>
     <CookiesProvider>
-      <NavContextProvider>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </NavContextProvider>
+      <ThemeContextProvider>
+        <NavContextProvider>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </NavContextProvider>
+      </ThemeContextProvider>
     </CookiesProvider>
   </React.StrictMode>,
   document.getElementById("root")

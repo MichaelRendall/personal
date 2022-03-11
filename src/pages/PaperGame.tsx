@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect, useState, useContext } from "react";
 import GameSection from "../components/UI/GameSection";
 import GameHeading from "../components/GameHeading/GameHeading";
 import Wrapper from "../components/UI/Wrapper";
@@ -8,11 +8,15 @@ import HostJoinGame from "../components/paperGame/HostJoinGame";
 import useFetch from "../hooks/useFetch";
 import Spinner from "../components/UI/Spinner";
 import Game from "../components/paperGame/Game";
+import { ThemeContext } from "../context/theme-context";
+import Theme from "../models/theme-enum";
 
 import { io, Socket } from "socket.io-client";
 
 const PaperGame = () => {
   document.title = "Paper Game | Michael Rendall";
+  const themeCtx = useContext(ThemeContext);
+  themeCtx.changeTheme(Theme.YELLOW);
 
   const roomNameRef = useRef<HTMLInputElement>(null);
   const userNameRef = useRef<HTMLInputElement>(null);
@@ -93,7 +97,7 @@ const PaperGame = () => {
   };
 
   return (
-    <GameSection theme="yellow">
+    <GameSection>
       <GameHeading heading="PAPER GAME" />
       {!cookies.roomId && (
         <Wrapper size="auto">

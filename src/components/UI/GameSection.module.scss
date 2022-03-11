@@ -7,7 +7,12 @@
   padding: 2rem 1rem;
 }
 
-.pink {
+.default {
+  --light-color: #{$light-grey};
+  --dark-color: #{$mid-grey};
+}
+
+.red {
   --light-color: #{$light-pink};
   --dark-color: #{$dark-pink};
 }
@@ -22,20 +27,10 @@
   --dark-color: #{$dark-blue};
 }
 
-.pink,
+.red,
 .yellow,
 .blue {
   border-top: 2px solid var(--dark-color);
   border-bottom: 2px solid var(--dark-color);
   background: var(--light-color);
-
-  /* button {
-    background: var(--dark-color);
-    border: 2px solid var(--dark-color);
-
-    &:hover,
-    &:active {
-      background: scale-color(var(--color), $lightness: -20%);
-    }
-  } */
 }

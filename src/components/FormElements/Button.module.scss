@@ -1,5 +1,18 @@
 @import "../../styles/_config.scss";
 
+.default {
+  --color: #{$salmon};
+}
+.yellow {
+  --color: #{$dark-yellow};
+}
+.red {
+  --color: #{$dark-pink};
+}
+.blue {
+  --color: #{$dark-blue};
+}
+
 .button {
   position: relative;
   border: none;
@@ -13,22 +26,18 @@
   width: fit-content;
   cursor: pointer;
   transition: $transition-speed;
-
-  /* need to make these colours dynamic!! */
-  background-color: $dark-yellow;
-  border: 2px solid $dark-yellow;
+  background-color: var(--color);
+  border: 2px solid var(--color);
 
   &:hover,
   &:active {
-    background-color: scale-color($dark-yellow, $lightness: -20%);
-    border-color: scale-color($dark-yellow, $lightness: -20%);
+    filter: brightness(90%);
   }
 
   &:disabled,
   &:disabled:hover,
   &:disabled:active {
-    background-color: $dark-yellow;
-    border-color: $dark-yellow;
+    filter: brightness(100%);
     opacity: 0.5;
     cursor: not-allowed;
   }
@@ -36,19 +45,20 @@
 
 .invert {
   background-color: $white;
-  color: $dark-yellow;
+  color: var(--color);
 
   &:hover,
   &:active {
     color: $white;
+    background-color: var(--color);
   }
 
   &:disabled,
   &:disabled:hover,
   &:disabled:active {
     background-color: $white;
-    border-color: $dark-yellow;
-    color: $dark-yellow;
+    border-color: var(--color);
+    color: var(--color);
   }
 }
 
