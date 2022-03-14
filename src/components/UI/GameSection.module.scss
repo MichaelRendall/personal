@@ -8,29 +8,23 @@
 }
 
 .default {
-  --light-color: #{$light-grey};
   --dark-color: #{$mid-grey};
 }
 
 .red {
-  --light-color: #{$light-pink};
   --dark-color: #{$dark-pink};
 }
 
 .yellow {
-  --light-color: #{$light-yellow};
   --dark-color: #{$dark-yellow};
 }
 
 .blue {
-  --light-color: #{$light-blue};
   --dark-color: #{$dark-blue};
 }
 
 .red,
 .yellow,
 .blue {
-  border-top: 2px solid var(--dark-color);
-  border-bottom: 2px solid var(--dark-color);
-  background: var(--light-color);
+  background: $off-white;
 }
