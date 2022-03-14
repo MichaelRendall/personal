@@ -28,7 +28,9 @@ interface CharadeList {
 
 const Charades = () => {
   const themeCtx = useContext(ThemeContext);
-  themeCtx.changeTheme(Theme.RED);
+  useEffect(() => {
+    themeCtx.changeTheme(Theme.RED);
+  }, [themeCtx]);
 
   document.title = "Charades | Michael Rendall";
 

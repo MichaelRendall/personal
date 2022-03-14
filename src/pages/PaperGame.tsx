@@ -15,8 +15,11 @@ import { io, Socket } from "socket.io-client";
 
 const PaperGame = () => {
   document.title = "Paper Game | Michael Rendall";
+  
   const themeCtx = useContext(ThemeContext);
-  themeCtx.changeTheme(Theme.YELLOW);
+  useEffect(() => {
+    themeCtx.changeTheme(Theme.YELLOW);
+  }, [themeCtx]);
 
   const roomNameRef = useRef<HTMLInputElement>(null);
   const userNameRef = useRef<HTMLInputElement>(null);
