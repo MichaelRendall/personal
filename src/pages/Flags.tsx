@@ -5,13 +5,9 @@ import GameSection from "../components/UI/GameSection";
 import { ThemeContext } from "../context/theme-context";
 import Theme from "../models/theme-enum";
 import FLAG_LIST from "../lib/flag-list";
-
-interface FlagList {
-  [key: string]: string;
-  name: string;
-  continent: string;
-  src: string;
-}
+import Wrapper from "../components/UI/Wrapper";
+import FlagList from "../models/flag-interface";
+import FlagCard from "../components/flagQuiz/FlagCard";
 
 const Flags = () => {
   document.title = "Flags | Michael Rendall";
@@ -21,24 +17,44 @@ const Flags = () => {
     themeCtx.changeTheme(Theme.BLUE);
   }, [themeCtx]);
 
-  const [currentFlag, setCurrentFlag] = useState<FlagList>();
-  //const [activeFlags, setActiveFlags] = useState<FlagList[]>(FLAG_LIST);
+  const [gameRunning, setGameRunning] = useState(false);
+  const [activeFlags, setActiveFlags] = useState<FlagList[]>(FLAG_LIST);
 
   const startGameHandler = () => {
-    //const flag = activeFlags[Math.floor(Math.random() * activeFlags.length)];
-    const flag = FLAG_LIST[Math.floor(Math.random() * FLAG_LIST.length)];
-    setCurrentFlag(flag);
+    const flagOrder = shuffleListHandler(FLAG_LIST);
+    setActiveFlags(flagOrder);
+    setGameRunning(true);
+  };
+
+  const shuffleListHandler = (list: FlagList[]) => {
+    let currentIndex = list.length;
+    let randomIndex;
+
+    // While there remain elements to shuffle...
+    while (currentIndex !== 0) {
+      // Pick a remaining element...
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+
+      // And swap it with the current element.
+      [list[currentIndex], list[randomIndex]] = [
+        list[randomIndex],
+        list[currentIndex],
+      ];
+    }
+
+    return list;
   };
 
   return (
     <GameSection>
       <GameHeading heading="FLAG QUIZ" showSettings />
-      <Button onClick={startGameHandler} name="Begin" large />
-      <p>{currentFlag?.name}</p>
-      <img
-        src={`../assets/flags/${currentFlag?.src}`}
-        alt={`flag of ${currentFlag?.name}`}
-      />
+      {!gameRunning && <Button onClick={startGameHandler} name="Begin" large />}
+      {gameRunning && (
+        <Wrapper>
+          <FlagCard flags={activeFlags} />
+        </Wrapper>
+      )}
     </GameSection>
   );
 };

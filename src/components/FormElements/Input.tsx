@@ -4,13 +4,13 @@ import classes from "./Input.module.scss";
 interface InputProps {
   type: string;
   id: string;
-  label: string;
+  label?: string;
   placeholder?: string;
-  refValue: React.RefObject<HTMLInputElement>;
-  value: string;
+  refValue?: React.RefObject<HTMLInputElement>;
+  value?: string;
   invalid?: boolean;
-  onBlur: () => void;
-  onChange: (event: React.FormEvent) => void;
+  onBlur?: () => void;
+  onChange?: (event: React.FormEvent) => void;
 }
 
 const Input: React.FC<InputProps> = (props) => {
@@ -22,7 +22,7 @@ const Input: React.FC<InputProps> = (props) => {
 
   return (
     <div className="input__wrapper">
-      <label htmlFor={props.id}>{props.label}</label>
+      {props.label && <label htmlFor={props.id}>{props.label}</label>}
       <input
         className={inputClasses.join(" ")}
         type={props.type}

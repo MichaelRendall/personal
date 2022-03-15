@@ -1,0 +1,22 @@
+@import "../../styles/_config.scss";
+
+.default {
+  --color: #{$grey};
+}
+.yellow {
+  --color: #{$dark-yellow};
+}
+.red {
+  --color: #{$dark-pink};
+}
+.blue {
+  --color: #{$dark-blue};
+}
+
+.controls {
+  @include flex($gap: 1rem);
+}
+
+.flag {
+  width: 100%;
+}
