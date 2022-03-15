@@ -28,17 +28,17 @@
   transition: box-shadow $transition-speed linear;
   background-color: var(--color);
   border: 1px solid var(--color);
-  box-shadow: 0 0.125rem 0 rgb(65 61 69 / 20%);
+  box-shadow: 0 2px 0 rgb(0 0 0 / 20%);
 
   &:hover,
   &:active {
-    filter: brightness(95%);
+    box-shadow: 0px 4px 0 rgb(0 0 0 / 20%);
   }
 
   &:disabled,
   &:disabled:hover,
   &:disabled:active {
-    filter: brightness(100%);
+    box-shadow: 0 2px 0 rgb(0 0 0 / 20%);
     opacity: 0.5;
     cursor: not-allowed;
   }
@@ -47,21 +47,6 @@
 .invert {
   background-color: $white;
   color: var(--color);
-  transition: background-color 0.1s linear;
-
-  &:hover,
-  &:active {
-    color: $white;
-    background-color: var(--color);
-  }
-
-  &:disabled,
-  &:disabled:hover,
-  &:disabled:active {
-    background-color: $white;
-    border-color: var(--color);
-    color: var(--color);
-  }
 }
 
 .large {

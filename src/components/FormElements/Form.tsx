@@ -2,7 +2,7 @@ import React from "react";
 import classes from "./Form.module.scss";
 
 interface FormProps {
-  onSubmit?: (event: React.FormEvent) => Promise<void>;
+  onSubmit?: (event: React.FormEvent) => Promise<void> | void;
 }
 
 const Form: React.FC<FormProps> = (props) => {

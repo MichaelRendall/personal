@@ -9,12 +9,14 @@ interface SelectProps {
   label: string;
   options: { value: string; label: string }[];
   param: string;
+  refValue?: React.RefObject<HTMLInputElement>;
   placeholder?: string;
 }
 
 const Select: React.FC<SelectProps> = (props) => {
   const themeCtx = useContext(ThemeContext);
   const [open, setOpen] = useState(false);
+  const [inputValue, setInputValue] = useState("");
   const dropDownRef = useRef(null);
 
   const navigate = useNavigate();
@@ -35,8 +37,10 @@ const Select: React.FC<SelectProps> = (props) => {
   const changeOptionHandler = (value: string | null) => {
     if (value !== null) {
       queryParams.set(props.param, value);
+      setInputValue(value);
     } else {
       queryParams.delete(props.param);
+      setInputValue("");
     }
     navigate(`?${queryParams}`);
     setOpen(false);
@@ -95,6 +99,12 @@ const Select: React.FC<SelectProps> = (props) => {
           </div>
         )}
       </div>
+      <input
+        type="hidden"
+        className={props.id}
+        value={inputValue}
+        ref={props.refValue}
+      />
     </div>
   );
 };
