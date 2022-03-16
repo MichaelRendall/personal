@@ -5,7 +5,6 @@ import GameSection from "../components/UI/GameSection";
 import { ThemeContext } from "../context/theme-context";
 import Theme from "../models/theme-enum";
 import FLAG_LIST from "../lib/flag-list";
-import Wrapper from "../components/UI/Wrapper";
 import FlagList from "../models/flag-interface";
 import FlagCard from "../components/flagQuiz/FlagCard";
 
@@ -50,11 +49,7 @@ const Flags = () => {
     <GameSection>
       <GameHeading heading="FLAG QUIZ" showSettings />
       {!gameRunning && <Button onClick={startGameHandler} name="Begin" large />}
-      {gameRunning && (
-        <Wrapper>
-          <FlagCard flags={activeFlags} />
-        </Wrapper>
-      )}
+      {gameRunning && <FlagCard flags={activeFlags} />}
     </GameSection>
   );
 };

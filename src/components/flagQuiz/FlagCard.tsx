@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Wrapper from "../UI/Wrapper";
 import FlagList from "../../models/flag-interface";
 import Button from "../FormElements/Button";
 import Input from "../FormElements/Input";
@@ -25,19 +26,35 @@ const FlagCard: React.FC<FlagCardProps> = (props) => {
     setCurrentFlag(newFlag);
   };
 
+  const thumbnails = props.flags.map((flag) => (
+    <span key={flag.name} className={classes.thumb}>
+      <img src={flag.thumb} alt={`thumbnail for ${flag.name}`} />
+    </span>
+  ));
+
   return (
-    <>
-      <div className={classes.controls}>
-        <Button small name="Prev" onClick={() => changeFlagHandler("minus")} />
-        <Input id="guess" type="text" />
-        <Button small name="Next" onClick={() => changeFlagHandler("plus")} />
-      </div>
-      <img
-        className={classes.flag}
-        src={props.flags[currentFlag].src}
-        alt={`flag of ${props.flags[currentFlag].name}`}
-      />
-    </>
+    <div className={classes.container}>
+      <Wrapper>
+        <div className={classes.thumbs}>{thumbnails}</div>
+      </Wrapper>
+      <Wrapper>
+        <div className={classes.controls}>
+          <Button
+            small
+            name="Prev"
+            onClick={() => changeFlagHandler("minus")}
+          />
+          <Input id="guess" type="text" />
+          <Button small name="Next" onClick={() => changeFlagHandler("plus")} />
+        </div>
+        <img
+          className={classes.flag}
+          src={props.flags[currentFlag].src}
+          alt={`flag of ${props.flags[currentFlag].name}`}
+        />
+      </Wrapper>
+      <Wrapper>leaderboard</Wrapper>
+    </div>
   );
 };
 
