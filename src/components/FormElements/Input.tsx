@@ -10,7 +10,7 @@ interface InputProps {
   value?: string;
   invalid?: boolean;
   onBlur?: () => void;
-  onChange?: (event: React.FormEvent) => void;
+  onChange?: ((event: React.FormEvent) => void) | (() => void);
 }
 
 const Input: React.FC<InputProps> = (props) => {

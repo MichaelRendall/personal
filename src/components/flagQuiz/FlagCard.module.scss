@@ -19,7 +19,7 @@
 
   & > :first-child,
   & > :last-child {
-    flex-basis: 25%;
+    flex-basis: 50%;
   }
   & > :nth-child(2) {
     flex-basis: 100%;
@@ -45,10 +45,22 @@
 
   .thumb {
     max-height: 3rem;
-    border: 1px solid $pastel-blue;
+    max-width: 5rem;
+    padding: 0.5rem;
+    background-color: $light-grey;
+    border-radius: 2px;
+    cursor: pointer;
 
     img {
       height: 100%;
     }
+  }
+
+  .active {
+    background-color: $dark-blue;
+  }
+
+  .correct {
+    background-color: green;
   }
 }

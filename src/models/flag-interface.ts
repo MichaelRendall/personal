@@ -1,9 +1,9 @@
 interface FlagList {
-  [key: string]: string;
   name: string;
   continent: string;
   src: string;
   thumb: string;
+  correct: boolean;
 }
 
 export default FlagList;
