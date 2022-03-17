@@ -92,7 +92,7 @@ const FlagCard: React.FC<FlagCardProps> = (props) => {
           />
         </Wrapper>
       </div>
-      <Wrapper size="aside">
+      <Wrapper size="auto">
         <div className={classes.thumbs}>{thumbnails}</div>
       </Wrapper>
     </>

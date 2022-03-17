@@ -14,17 +14,9 @@
 }
 
 .container {
-  @include flex($fd: column-reverse, $jc: center, $gap: 2rem);
-  margin: 2rem 0 0;
+  @include flex($fd: column-reverse, $jc: center, $gap: 2rem, $ai: baseline);
+  margin: 0 0 2rem;
   width: 100%;
-
-  /* & > :first-child,
-  & > :last-child {
-    flex-basis: 50%;
-  }
-  & > :nth-child(2) {
-    flex-basis: 100%;
-  } */
 
   @media (min-width: $media-min-width) {
     flex-direction: row;

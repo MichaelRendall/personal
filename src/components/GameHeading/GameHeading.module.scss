@@ -3,6 +3,7 @@
 .heading {
   @include flex($fd: row, $ai: center);
   width: 100%;
+  margin-bottom: 3rem;
 
   & > :first-child,
   & > :last-child {
