@@ -72,7 +72,7 @@ h3 {
 .input__wrapper {
   @include flex($fd: column);
   position: relative;
-  min-width: 12rem;
+  /* min-width: 12rem; */
   font-size: 0.875rem;
 
   label {

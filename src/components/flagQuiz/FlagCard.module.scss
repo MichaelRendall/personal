@@ -14,19 +14,21 @@
 }
 
 .container {
-  @include flex($fd: column, $gap: 2rem);
+  @include flex($fd: column-reverse, $jc: center, $gap: 2rem);
   margin: 2rem 0 0;
+  width: 100%;
 
-  & > :first-child,
+  /* & > :first-child,
   & > :last-child {
     flex-basis: 50%;
   }
   & > :nth-child(2) {
     flex-basis: 100%;
-  }
+  } */
 
   @media (min-width: $media-min-width) {
     flex-direction: row;
+    flex-wrap: wrap-reverse;
   }
 }
 

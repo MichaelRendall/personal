@@ -2,6 +2,7 @@
 
 .dropdown {
   @include flex($fd: column, $gap: 1rem);
+  width: 100%;
   padding: 2rem 0 0;
   transition: linear 100ms;
   transform-origin: 0% 10%;

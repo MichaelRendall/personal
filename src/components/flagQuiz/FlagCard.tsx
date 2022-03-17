@@ -54,45 +54,48 @@ const FlagCard: React.FC<FlagCardProps> = (props) => {
   });
 
   return (
-    <div className={classes.container}>
-      <Wrapper>
-        <h2>0/{props.flags.length}</h2>
+    <>
+      <div className={classes.container}>
+        <Wrapper size="aside">
+          <h2>0/{props.flags.length}</h2> leaderboard
+        </Wrapper>
+        <Wrapper>
+          <div className={classes.controls}>
+            {!props.flags[currentFlag].correct && (
+              <>
+                <Button
+                  small
+                  name="Prev"
+                  onClick={() => changeFlagHandler("minus")}
+                />
+                <Input
+                  id="guess"
+                  type="text"
+                  refValue={answerRef}
+                  onChange={answerHandler}
+                />
+                <Button
+                  small
+                  name="Next"
+                  onClick={() => changeFlagHandler("plus")}
+                />
+              </>
+            )}
+            {props.flags[currentFlag].correct && (
+              <p>{props.flags[currentFlag].name}</p>
+            )}
+          </div>
+          <img
+            className={classes.flag}
+            src={props.flags[currentFlag].src}
+            alt={`flag of ${props.flags[currentFlag].name}`}
+          />
+        </Wrapper>
+      </div>
+      <Wrapper size="aside">
         <div className={classes.thumbs}>{thumbnails}</div>
       </Wrapper>
-      <Wrapper>
-        <div className={classes.controls}>
-          {!props.flags[currentFlag].correct && (
-            <>
-              <Button
-                small
-                name="Prev"
-                onClick={() => changeFlagHandler("minus")}
-              />
-              <Input
-                id="guess"
-                type="text"
-                refValue={answerRef}
-                onChange={answerHandler}
-              />
-              <Button
-                small
-                name="Next"
-                onClick={() => changeFlagHandler("plus")}
-              />
-            </>
-          )}
-          {props.flags[currentFlag].correct && (
-            <p>{props.flags[currentFlag].name}</p>
-          )}
-        </div>
-        <img
-          className={classes.flag}
-          src={props.flags[currentFlag].src}
-          alt={`flag of ${props.flags[currentFlag].name}`}
-        />
-      </Wrapper>
-      <Wrapper>leaderboard</Wrapper>
-    </div>
+    </>
   );
 };
 

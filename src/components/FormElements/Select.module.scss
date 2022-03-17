@@ -37,6 +37,7 @@
 .select {
   @include flex($jc: space-between, $ai: center);
 
+  min-width: 12rem;
   background-color: $white;
   border: 1px solid $mid-grey;
   border-radius: 4px;

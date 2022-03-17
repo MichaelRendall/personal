@@ -2,6 +2,7 @@
 
 .heading {
   @include flex($fd: row, $ai: center);
+  width: 100%;
 
   & > :first-child,
   & > :last-child {
