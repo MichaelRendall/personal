@@ -20,9 +20,14 @@ const Flags = () => {
   const [activeFlags, setActiveFlags] = useState<FlagList[]>(FLAG_LIST);
 
   const startGameHandler = () => {
+    FLAG_LIST.forEach((flag) => (flag.correct = false));
     const flagOrder = shuffleListHandler(FLAG_LIST);
     setActiveFlags(flagOrder);
     setGameRunning(true);
+  };
+
+  const endGameHandler = () => {
+    setGameRunning(false);
   };
 
   const shuffleListHandler = (list: FlagList[]) => {
@@ -49,7 +54,7 @@ const Flags = () => {
     <GameSection>
       <GameHeading heading="FLAG QUIZ" showSettings />
       {!gameRunning && <Button onClick={startGameHandler} name="Begin" large />}
-      {gameRunning && <FlagCard flags={activeFlags} />}
+      {gameRunning && <FlagCard flags={activeFlags} endGame={endGameHandler} />}
     </GameSection>
   );
 };

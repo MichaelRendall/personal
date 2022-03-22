@@ -9,6 +9,7 @@ interface ButtonProps {
   invert?: boolean;
   submit?: boolean;
   disabled?: boolean;
+  fullWidth?: boolean;
   onClick?: (() => void) | ((event: React.FormEvent) => Promise<void>);
 }
 
@@ -27,6 +28,10 @@ const Button: React.FC<ButtonProps> = (props) => {
 
   if (props.invert) {
     buttonClasses.push(classes.invert);
+  }
+
+  if (props.fullWidth) {
+    buttonClasses.push(classes.fullWidth);
   }
 
   return (
