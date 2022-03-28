@@ -1,10 +1,12 @@
 import React, { useContext } from "react";
 import classes from "./FlagQuiz.module.scss";
-import Thumbnails from "./Thumbnails";
-import Scoreboard from "./Scoreboard";
+
 import { FlagContext } from "../../context/flag-context";
-import SubmitScore from "./SubmitScore";
+
+import Scoreboard from "./Scoreboard";
 import ActiveFlag from "./ActiveFlag";
+import SubmitScore from "./SubmitScore";
+import Thumbnails from "./Thumbnails";
 
 interface FlagQuizProps {
   endGame: () => void;

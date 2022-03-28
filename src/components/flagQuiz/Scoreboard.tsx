@@ -1,7 +1,9 @@
 import React, { useContext } from "react";
-import { FlagContext } from "../../context/flag-context";
-import Wrapper from "../UI/Wrapper";
 //import classes from "./Scoreboard.module.scss";
+
+import { FlagContext } from "../../context/flag-context";
+
+import Wrapper from "../UI/Wrapper";
 
 const Scoreboard: React.FC = () => {
   const flagCtx = useContext(FlagContext);

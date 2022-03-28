@@ -1,21 +1,23 @@
 import React, { useRef, useEffect, useState, useContext } from "react";
-import GameSection from "../components/UI/GameSection";
-import GameHeading from "../components/GameHeading/GameHeading";
-import Wrapper from "../components/UI/Wrapper";
 
-import { useCookies } from "react-cookie";
-import HostJoinGame from "../components/paperGame/HostJoinGame";
 import useFetch from "../hooks/useFetch";
-import Spinner from "../components/UI/Spinner";
-import Game from "../components/paperGame/Game";
 import { ThemeContext } from "../context/theme-context";
 import Theme from "../models/theme-enum";
 
+import { useCookies } from "react-cookie";
 import { io, Socket } from "socket.io-client";
+
+import GameSection from "../components/UI/GameSection";
+import GameHeading from "../components/GameHeading/GameHeading";
+import Wrapper from "../components/UI/Wrapper";
+import Container from "../components/UI/Container";
+import HostJoinGame from "../components/paperGame/HostJoinGame";
+import Game from "../components/paperGame/Game";
+import Spinner from "../components/UI/Spinner";
 
 const PaperGame = () => {
   document.title = "Paper Game | Michael Rendall";
-  
+
   const themeCtx = useContext(ThemeContext);
   useEffect(() => {
     themeCtx.changeTheme(Theme.YELLOW);
@@ -102,23 +104,25 @@ const PaperGame = () => {
   return (
     <GameSection>
       <GameHeading heading="PAPER GAME" />
-      {!cookies.roomId && (
-        <Wrapper size="auto">
-          <HostJoinGame
-            hostGameHandler={hostGameHandler}
-            joinGameHandler={joinGameHandler}
-            userNameRef={userNameRef}
-            roomNameRef={roomNameRef}
-          />
-          {isLoading && <Spinner />}
-          {error && <small className="error">{error}</small>}
-        </Wrapper>
-      )}
-      {!isLoading && cookies.roomId && socket && (
-        <>
-          <Game leaveGame={leaveGameHandler} socket={socket} />
-        </>
-      )}
+      <Container>
+        {!cookies.roomId && (
+          <Wrapper size="auto">
+            <HostJoinGame
+              hostGameHandler={hostGameHandler}
+              joinGameHandler={joinGameHandler}
+              userNameRef={userNameRef}
+              roomNameRef={roomNameRef}
+            />
+            {isLoading && <Spinner />}
+            {error && <small className="error">{error}</small>}
+          </Wrapper>
+        )}
+        {!isLoading && cookies.roomId && socket && (
+          <>
+            <Game leaveGame={leaveGameHandler} socket={socket} />
+          </>
+        )}
+      </Container>
     </GameSection>
   );
 };

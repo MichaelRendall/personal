@@ -1,4 +1,3 @@
-import React from "react";
 import Wrapper from "../UI/Wrapper";
 import Form from "../FormElements/Form";
 import Input from "../FormElements/Input";

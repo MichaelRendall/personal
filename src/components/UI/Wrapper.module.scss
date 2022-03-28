@@ -13,7 +13,10 @@
 }
 
 .auto {
-  width: auto;
+  width: 100%;
+  @media (min-width: $media-min-width) {
+    width: fit-content;
+  }
 }
 
 .fixed {

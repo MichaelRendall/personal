@@ -1,8 +1,10 @@
 import React, { useContext } from "react";
-import { FlagContext } from "../../context/flag-context";
-import Button from "../FormElements/Button";
-import Input from "../FormElements/Input";
 import classes from "./ActiveFlagControls.module.scss";
+
+import { FlagContext } from "../../context/flag-context";
+
+import Input from "../FormElements/Input";
+import Button from "../FormElements/Button";
 
 const ActiveFlagControls: React.FC = () => {
   const flagCtx = useContext(FlagContext);

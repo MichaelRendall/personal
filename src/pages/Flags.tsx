@@ -1,13 +1,16 @@
 import { useState, useContext, useEffect } from "react";
-import Button from "../components/FormElements/Button";
-import GameHeading from "../components/GameHeading/GameHeading";
-import GameSection from "../components/UI/GameSection";
+
+import FlagContextProvider, { FlagContext } from "../context/flag-context";
 import { ThemeContext } from "../context/theme-context";
 import Theme from "../models/theme-enum";
-import FLAG_LIST from "../lib/flag-list";
 import FlagList from "../models/flag-interface";
+import FLAG_LIST from "../lib/flag-list";
+
+import GameSection from "../components/UI/GameSection";
+import GameHeading from "../components/GameHeading/GameHeading";
+import Container from "../components/UI/Container";
 import FlagQuiz from "../components/flagQuiz/FlagQuiz";
-import FlagContextProvider, { FlagContext } from "../context/flag-context";
+import Button from "../components/FormElements/Button";
 
 const Flags = () => {
   document.title = "Flags | Michael Rendall";
@@ -55,12 +58,12 @@ const Flags = () => {
     <FlagContextProvider>
       <GameSection>
         <GameHeading heading="FLAG QUIZ" showSettings />
-        {!gameRunning && (
-          <Button onClick={startGameHandler} name="Begin" large />
-        )}
-        {gameRunning && (
-          <FlagQuiz endGame={endGameHandler} />
-        )}
+        <Container>
+          {!gameRunning && (
+            <Button onClick={startGameHandler} name="Begin" large />
+          )}
+          {gameRunning && <FlagQuiz endGame={endGameHandler} />}
+        </Container>
       </GameSection>
     </FlagContextProvider>
   );

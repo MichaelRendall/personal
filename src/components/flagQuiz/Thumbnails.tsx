@@ -1,8 +1,10 @@
 import React, { useContext } from "react";
-import Wrapper from "../UI/Wrapper";
 import classes from "./Thumbnails.module.scss";
+
 import { ThemeContext } from "../../context/theme-context";
 import { FlagContext } from "../../context/flag-context";
+
+import Wrapper from "../UI/Wrapper";
 
 const Thumbnails: React.FC = () => {
   const flagCtx = useContext(FlagContext);

@@ -1,8 +1,10 @@
 import React, { useContext, useEffect } from "react";
+import classes from "./Home.module.scss";
+
 import { ThemeContext } from "../context/theme-context";
 import Theme from "../models/theme-enum";
+
 import Card from "../components/UI/Card";
-import classes from "./Home.module.scss";
 
 const Home = () => {
   document.title = "Home | Michael Rendall";

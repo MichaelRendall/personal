@@ -1,7 +1,9 @@
 import React, { useContext } from "react";
-import { FlagContext } from "../../context/flag-context";
-import Wrapper from "../UI/Wrapper";
 import classes from "./ActiveFlag.module.scss";
+
+import { FlagContext } from "../../context/flag-context";
+
+import Wrapper from "../UI/Wrapper";
 import ActiveFlagControls from "./ActiveFlagControls";
 
 const ActiveFlag: React.FC = () => {

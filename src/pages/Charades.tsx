@@ -1,23 +1,24 @@
 import React, { useState, useEffect, useContext } from "react";
+
 import { useLocation } from "react-router";
-
 import useTimer from "../hooks/useTimer";
-import Wrapper from "../components/UI/Wrapper";
-import CharadeCard from "../components/charades/CharadeCard";
-
-import GameHeading from "../components/GameHeading/GameHeading";
+import { ThemeContext } from "../context/theme-context";
+import Theme from "../models/theme-enum";
 import CHARADE_LIST from "../lib/charade-list";
-import Button from "../components/FormElements/Button";
-import GameSection from "../components/UI/GameSection";
-import Timer from "../components/timer/Timer";
 import {
   themeOptions,
   categoryOptions,
   timerOptions,
 } from "../lib/filter-options";
+
+import GameSection from "../components/UI/GameSection";
+import GameHeading from "../components/GameHeading/GameHeading";
+import Wrapper from "../components/UI/Wrapper";
+import Container from "../components/UI/Container";
+import CharadeCard from "../components/charades/CharadeCard";
+import Button from "../components/FormElements/Button";
+import Timer from "../components/timer/Timer";
 import Select from "../components/FormElements/Select";
-import { ThemeContext } from "../context/theme-context";
-import Theme from "../models/theme-enum";
 
 interface CharadeList {
   [key: string]: string;
@@ -145,18 +146,20 @@ const Charades = () => {
           </>
         }
       </GameHeading>
-      {startingTime && <Timer timer={timerVisual} />}
-      {!charade && <Button onClick={startGameHandler} name="Begin" large />}
-      {charade && (
-        <Wrapper>
-          <CharadeCard
-            category={category!}
-            charade={charade}
-            theme={theme!}
-            clicked={endGameHandler}
-          />
-        </Wrapper>
-      )}
+      <Container>
+        {startingTime && <Timer timer={timerVisual} />}
+        {!charade && <Button onClick={startGameHandler} name="Begin" large />}
+        {charade && (
+          <Wrapper>
+            <CharadeCard
+              category={category!}
+              charade={charade}
+              theme={theme!}
+              clicked={endGameHandler}
+            />
+          </Wrapper>
+        )}
+      </Container>
     </GameSection>
   );
 };
