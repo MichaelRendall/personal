@@ -33,28 +33,3 @@
   height: 100%;
   object-fit: contain;
 }
-
-.thumbs {
-  @include flex($fd: row, $jc: center, $fw: wrap, $gap: 0.5rem);
-
-  .thumb {
-    max-height: 3rem;
-    max-width: 5rem;
-    padding: 0.5rem;
-    background-color: $light-grey;
-    border-radius: 2px;
-    cursor: pointer;
-
-    img {
-      height: 100%;
-    }
-  }
-
-  .active {
-    background-color: $dark-blue;
-  }
-
-  .correct {
-    background-color: green;
-  }
-}

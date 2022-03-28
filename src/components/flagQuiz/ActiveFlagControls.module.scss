@@ -1,0 +1,5 @@
+@import "../../styles/_config.scss";
+
+.controls {
+  @include flex($gap: 1rem);
+}

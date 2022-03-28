@@ -6,23 +6,24 @@ import { ThemeContext } from "../context/theme-context";
 import Theme from "../models/theme-enum";
 import FLAG_LIST from "../lib/flag-list";
 import FlagList from "../models/flag-interface";
-import FlagCard from "../components/flagQuiz/FlagCard";
+import FlagQuiz from "../components/flagQuiz/FlagQuiz";
+import FlagContextProvider, { FlagContext } from "../context/flag-context";
 
 const Flags = () => {
   document.title = "Flags | Michael Rendall";
   const themeCtx = useContext(ThemeContext);
+  const flagCtx = useContext(FlagContext);
 
   useEffect(() => {
     themeCtx.changeTheme(Theme.BLUE);
   }, [themeCtx]);
 
   const [gameRunning, setGameRunning] = useState(false);
-  const [activeFlags, setActiveFlags] = useState<FlagList[]>(FLAG_LIST);
 
   const startGameHandler = () => {
     FLAG_LIST.forEach((flag) => (flag.correct = false));
     const flagOrder = shuffleListHandler(FLAG_LIST);
-    setActiveFlags(flagOrder);
+    flagCtx.setFlags(flagOrder);
     setGameRunning(true);
   };
 
@@ -51,11 +52,17 @@ const Flags = () => {
   };
 
   return (
-    <GameSection>
-      <GameHeading heading="FLAG QUIZ" showSettings />
-      {!gameRunning && <Button onClick={startGameHandler} name="Begin" large />}
-      {gameRunning && <FlagCard flags={activeFlags} endGame={endGameHandler} />}
-    </GameSection>
+    <FlagContextProvider>
+      <GameSection>
+        <GameHeading heading="FLAG QUIZ" showSettings />
+        {!gameRunning && (
+          <Button onClick={startGameHandler} name="Begin" large />
+        )}
+        {gameRunning && (
+          <FlagQuiz endGame={endGameHandler} />
+        )}
+      </GameSection>
+    </FlagContextProvider>
   );
 };
 
