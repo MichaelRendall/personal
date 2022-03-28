@@ -1,20 +1,18 @@
-import React from "react";
-import FlagList from "../../models/flag-interface";
+import React, { useContext } from "react";
+import { FlagContext } from "../../context/flag-context";
 import Wrapper from "../UI/Wrapper";
 import classes from "./ActiveFlag.module.scss";
+import ActiveFlagControls from "./ActiveFlagControls";
 
-interface ActiveFlagProps {
-  flags: FlagList[];
-  currentFlag: number;
-}
-
-const ActiveFlag: React.FC<ActiveFlagProps> = (props) => {
+const ActiveFlag: React.FC = () => {
+  const flagCtx = useContext(FlagContext);
   return (
     <Wrapper>
+      <ActiveFlagControls />
       <img
         className={classes.flag}
-        src={props.flags[props.currentFlag].src}
-        alt={`flag of ${props.flags[props.currentFlag].name}`}
+        src={flagCtx.flags[flagCtx.currentFlag].src}
+        alt={`flag of ${flagCtx.flags[flagCtx.currentFlag].name}`}
       />
     </Wrapper>
   );
