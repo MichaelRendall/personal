@@ -26,6 +26,8 @@ const Flags = () => {
   const startGameHandler = () => {
     const flagOrder = shuffleListHandler(FLAG_LIST);
     flagCtx.setFlags(flagOrder);
+    flagCtx.setGameCompleted(false);
+    flagCtx.setScore(0);
     flagCtx.setCompletedFlags([]);
     setGameRunning(true);
   };
