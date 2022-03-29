@@ -35,6 +35,19 @@
   }
 
   .correct {
-    opacity: 0.5;
+    @include fa-icon-solid($fa-var-circle-check);
+    position: relative;
+
+    &::before {
+      @include flex($jc: center, $ai: center);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba($color: #000, $alpha: 0.5);
+      color: var(--pastelColor);
+      font-size: 1.25rem;
+    }
   }
 }
