@@ -1,6 +1,6 @@
 import { useState, useContext, useEffect } from "react";
 
-import FlagContextProvider, { FlagContext } from "../context/flag-context";
+import { FlagContext } from "../context/flag-context";
 import { ThemeContext } from "../context/theme-context";
 import Theme from "../models/theme-enum";
 import FlagList from "../models/flag-interface";
@@ -24,9 +24,9 @@ const Flags = () => {
   const [gameRunning, setGameRunning] = useState(false);
 
   const startGameHandler = () => {
-    FLAG_LIST.forEach((flag) => (flag.correct = false));
     const flagOrder = shuffleListHandler(FLAG_LIST);
     flagCtx.setFlags(flagOrder);
+    flagCtx.setCompletedFlags([]);
     setGameRunning(true);
   };
 
@@ -55,17 +55,15 @@ const Flags = () => {
   };
 
   return (
-    <FlagContextProvider>
-      <GameSection>
-        <GameHeading heading="FLAG QUIZ" showSettings />
-        <Container>
-          {!gameRunning && (
-            <Button onClick={startGameHandler} name="Begin" large />
-          )}
-          {gameRunning && <FlagQuiz endGame={endGameHandler} />}
-        </Container>
-      </GameSection>
-    </FlagContextProvider>
+    <GameSection>
+      <GameHeading heading="FLAG QUIZ" showSettings />
+      <Container>
+        {!gameRunning && (
+          <Button onClick={startGameHandler} name="Begin" large />
+        )}
+        {gameRunning && <FlagQuiz endGame={endGameHandler} />}
+      </Container>
+    </GameSection>
   );
 };
 

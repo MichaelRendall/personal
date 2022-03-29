@@ -11,29 +11,22 @@ const ActiveFlagControls: React.FC = () => {
 
   return (
     <div className={classes.controls}>
-      {!flagCtx.flags[flagCtx.currentFlag].correct && (
-        <>
-          <Button
-            small
-            name="Prev"
-            onClick={() => flagCtx.changeFlagHandler("minus")}
-          />
-          <Input
-            id="guess"
-            type="text"
-            refValue={flagCtx.answerRef!}
-            onChange={flagCtx.answerHandler}
-          />
-          <Button
-            small
-            name="Next"
-            onClick={() => flagCtx.changeFlagHandler("plus")}
-          />
-        </>
-      )}
-      {flagCtx.flags[flagCtx.currentFlag].correct && (
-        <p>{flagCtx.flags[flagCtx.currentFlag].name}</p>
-      )}
+      <Button
+        small
+        name="Prev"
+        onClick={() => flagCtx.changeFlagHandler("minus")}
+      />
+      <Input
+        id="guess"
+        type="text"
+        refValue={flagCtx.answerRef!}
+        onChange={flagCtx.answerHandler}
+      />
+      <Button
+        small
+        name="Next"
+        onClick={() => flagCtx.changeFlagHandler("plus")}
+      />
     </div>
   );
 };

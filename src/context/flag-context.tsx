@@ -1,11 +1,13 @@
 import React, { useState, useRef } from "react";
 
-import FLAG_LIST from "../lib/flag-list";
+//import FLAG_LIST from "../lib/flag-list";
 import FlagList from "../models/flag-interface";
 
 interface FlagContextObj {
   flags: FlagList[];
   setFlags: (flags: FlagList[]) => void;
+  completedFlags: FlagList[];
+  setCompletedFlags: (flags: FlagList[]) => void;
   currentFlag: number;
   setCurrentFlag: (number: number) => void;
   gameCompleted: boolean;
@@ -20,6 +22,8 @@ interface FlagContextObj {
 export const FlagContext = React.createContext<FlagContextObj>({
   flags: [],
   setFlags: () => {},
+  completedFlags: [],
+  setCompletedFlags: () => {},
   currentFlag: 0,
   setCurrentFlag: () => {},
   gameCompleted: false,
@@ -32,7 +36,8 @@ export const FlagContext = React.createContext<FlagContextObj>({
 });
 
 const FlagContextProvider: React.FC = (props) => {
-  const [activeFlags, setActiveFlags] = useState<FlagList[]>(FLAG_LIST);
+  const [activeFlags, setActiveFlags] = useState<FlagList[]>([]);
+  const [completedFlags, setCompletedFlags] = useState<FlagList[]>([]);
   const [currentFlag, setCurrentFlag] = useState(0);
   const [gameCompleted, setGameCompleted] = useState(false);
   const [score, setScore] = useState(0);
@@ -40,13 +45,14 @@ const FlagContextProvider: React.FC = (props) => {
 
   const changeFlagHandler = (direction: string) => {
     answerRef.current!.value = "";
+
     const arrayLength = activeFlags.length;
     let newFlag = direction === "plus" ? currentFlag + 1 : currentFlag - 1;
 
     if (newFlag < 0) {
       newFlag = arrayLength - 1;
     }
-    if (newFlag === arrayLength) {
+    if (newFlag >= arrayLength) {
       newFlag = 0;
     }
 
@@ -58,15 +64,26 @@ const FlagContextProvider: React.FC = (props) => {
       answerRef!.current?.value.toLowerCase() ===
       activeFlags[currentFlag].name.toLowerCase()
     ) {
-      console.log("correct");
-      activeFlags[currentFlag].correct = true;
+      const updatedCompletedFlags = completedFlags.concat(
+        activeFlags[currentFlag]
+      );
+      setCompletedFlags(updatedCompletedFlags);
 
-      const completedFlags = activeFlags.filter((flag) => flag.correct);
-      if (completedFlags.length === activeFlags.length) {
+      //const updatedActiveFlags = activeFlags;
+      //updatedActiveFlags.splice(currentFlag, 1);
+
+      //
+      const updatedActiveFlags = activeFlags.filter(
+        (_, index) => index !== currentFlag
+      );
+
+      setActiveFlags(updatedActiveFlags);
+
+      if (updatedActiveFlags.length === 0) {
         setGameCompleted(true);
       }
 
-      setScore(completedFlags.length);
+      setScore(updatedCompletedFlags.length);
       changeFlagHandler("plus");
     }
   };
@@ -74,6 +91,8 @@ const FlagContextProvider: React.FC = (props) => {
   const contextValue: FlagContextObj = {
     flags: activeFlags,
     setFlags: setActiveFlags,
+    completedFlags: completedFlags,
+    setCompletedFlags: setCompletedFlags,
     currentFlag: currentFlag,
     setCurrentFlag: setCurrentFlag,
     gameCompleted: gameCompleted,

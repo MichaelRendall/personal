@@ -11,21 +11,18 @@ const FLAG_LIST = [
     continent: "europe",
     src: france,
     thumb: franceTN,
-    correct: false,
   },
   {
     name: "Germany",
     continent: "europe",
     src: germany,
     thumb: germanyTN,
-    correct: false,
   },
   {
     name: "Australia",
     continent: "oceania",
     src: australia,
     thumb: australiaTN,
-    correct: false,
   },
 ];
 

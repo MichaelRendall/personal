@@ -16,9 +16,17 @@ const Thumbnails: React.FC = () => {
         key={flag.name}
         className={`${classes.thumb} ${
           index === flagCtx.currentFlag ? classes.active : ""
-        } ${flag.correct ? classes.correct : ""}`}
+        }`}
         onClick={() => flagCtx.setCurrentFlag(index)}
       >
+        <img src={flag.thumb} alt={`thumbnail for ${flag.name}`} />
+      </span>
+    );
+  });
+
+  const thumbnailsCompleted = flagCtx.completedFlags.map((flag, index) => {
+    return (
+      <span key={flag.name} className={`${classes.thumb} ${classes.correct}`}>
         <img src={flag.thumb} alt={`thumbnail for ${flag.name}`} />
       </span>
     );
@@ -28,6 +36,7 @@ const Thumbnails: React.FC = () => {
     <Wrapper size="auto">
       <div className={`${classes.thumbs} ${classes[themeCtx.theme]}`}>
         {thumbnails}
+        {thumbnailsCompleted}
       </div>
     </Wrapper>
   );

@@ -10,7 +10,7 @@ const Scoreboard: React.FC = () => {
   return (
     <Wrapper size="aside">
       <h2>
-        {flagCtx.score}/{flagCtx.flags.length}
+        {flagCtx.score}/{flagCtx.flags.length + flagCtx.completedFlags.length}
       </h2>
       leaderboard
     </Wrapper>

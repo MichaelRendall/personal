@@ -37,6 +37,7 @@
   .correct {
     @include fa-icon-solid($fa-var-circle-check);
     position: relative;
+    cursor: default;
 
     &::before {
       @include flex($jc: center, $ai: center);

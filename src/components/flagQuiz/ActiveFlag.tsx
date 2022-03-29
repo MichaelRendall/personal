@@ -10,12 +10,16 @@ const ActiveFlag: React.FC = () => {
   const flagCtx = useContext(FlagContext);
   return (
     <Wrapper>
-      <ActiveFlagControls />
-      <img
-        className={classes.flag}
-        src={flagCtx.flags[flagCtx.currentFlag].src}
-        alt={`flag of ${flagCtx.flags[flagCtx.currentFlag].name}`}
-      />
+      {flagCtx.flags[flagCtx.currentFlag] && (
+        <>
+          <ActiveFlagControls />
+          <img
+            className={classes.flag}
+            src={flagCtx.flags[flagCtx.currentFlag].src}
+            alt={`flag of ${flagCtx.flags[flagCtx.currentFlag].name}`}
+          />
+        </>
+      )}
     </Wrapper>
   );
 };

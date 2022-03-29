@@ -3,7 +3,6 @@ interface FlagList {
   continent: string;
   src: string;
   thumb: string;
-  correct: boolean;
 }
 
 export default FlagList;
