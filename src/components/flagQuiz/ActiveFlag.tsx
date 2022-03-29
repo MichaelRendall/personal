@@ -13,11 +13,13 @@ const ActiveFlag: React.FC = () => {
       {flagCtx.flags[flagCtx.currentFlag] && (
         <>
           <ActiveFlagControls />
-          <img
-            className={classes.flag}
-            src={flagCtx.flags[flagCtx.currentFlag].src}
-            alt={`flag of ${flagCtx.flags[flagCtx.currentFlag].name}`}
-          />
+          <div className={classes.flagContainer}>
+            <img
+              className={classes.flag}
+              src={flagCtx.flags[flagCtx.currentFlag].src}
+              alt={`flag of ${flagCtx.flags[flagCtx.currentFlag].name}`}
+            />
+          </div>
         </>
       )}
     </Wrapper>
