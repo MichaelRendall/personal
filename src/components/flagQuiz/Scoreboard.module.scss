@@ -37,10 +37,6 @@
     .scoreTime {
       @include flex($fd: row, $jc: flex-end, $ai: center, $gap: 2rem);
 
-      .time {
-        //color: $grey;
-      }
-
       .score {
         font-weight: 600;
         font-size: 1.25em;
