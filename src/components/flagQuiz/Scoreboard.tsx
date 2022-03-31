@@ -25,7 +25,7 @@ const Scoreboard: React.FC = () => {
   return (
     <Wrapper size="aside">
       <h2>
-        {process.env.REACT_APP_API_URL}/{flagCtx.flags.length + flagCtx.completedFlags.length}
+        {flagCtx.score}/{flagCtx.flags.length + flagCtx.completedFlags.length}
       </h2>
       {data?.flagScores && (
         <div className={classes.scoreboard}>
