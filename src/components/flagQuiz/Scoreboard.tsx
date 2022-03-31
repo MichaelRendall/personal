@@ -14,7 +14,7 @@ const Scoreboard: React.FC = () => {
     const fetchScoreboard = async () => {
       sendRequest({
         url: `${
-          process.env.API_URL || "http://localhost:8080"
+          process.env.REACT_APP_API_URL || "http://localhost:8080"
         }/flag-quiz/get-scoreboard`,
         method: "GET",
       });
@@ -25,7 +25,7 @@ const Scoreboard: React.FC = () => {
   return (
     <Wrapper size="aside">
       <h2>
-        {flagCtx.score}/{flagCtx.flags.length + flagCtx.completedFlags.length}
+        {process.env.REACT_APP_API_URL}/{flagCtx.flags.length + flagCtx.completedFlags.length}
       </h2>
       {data?.flagScores && (
         <div className={classes.scoreboard}>
