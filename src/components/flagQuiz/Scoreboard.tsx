@@ -38,7 +38,7 @@ const Scoreboard: React.FC = () => {
                 >
                   <p className={classes.name}>{score.nickname}</p>
                   <div className={classes.scoreTime}>
-                    <small className={classes.time}>9:50</small>
+                    <small className={classes.time}>10:50</small>
                     <p className={classes.score}>{score.score}</p>
                   </div>
                 </div>
