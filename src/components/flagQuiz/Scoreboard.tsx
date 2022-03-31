@@ -7,14 +7,15 @@ import useFetch from "../../hooks/useFetch";
 import Wrapper from "../UI/Wrapper";
 
 const Scoreboard: React.FC = () => {
-  //const [scores, setScores] = useState([]);
   const { data, sendRequest } = useFetch();
   const flagCtx = useContext(FlagContext);
 
   useEffect(() => {
     const fetchScoreboard = async () => {
       sendRequest({
-        url: `http://localhost:8080/flag-quiz/get-scoreboard`,
+        url: `${
+          process.env.API_URL || "http://localhost:8080/"
+        }flag-quiz/get-scoreboard`,
         method: "GET",
       });
     };

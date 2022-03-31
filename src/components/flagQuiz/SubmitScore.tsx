@@ -20,7 +20,9 @@ const SubmitScore: React.FC<SubmitScoreProps> = (props) => {
   const submitScoreHandler = async (event: React.FormEvent) => {
     event.preventDefault();
     await sendRequest({
-      url: `http://localhost:8080/flag-quiz/submit-score`,
+      url: `${
+        process.env.API_URL || "http://localhost:8080/"
+      }flag-quiz/submit-score`,
       method: "POST",
       body: {
         nickname: nicknameRef.current!.value,

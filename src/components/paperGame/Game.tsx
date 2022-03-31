@@ -21,7 +21,9 @@ const Game: React.FC<GameProps> = (props) => {
   useEffect(() => {
     const fetchGame = async () => {
       sendRequest({
-        url: `http://localhost:8080/get-game/${cookies.roomId}`,
+        url: `${process.env.API_URL || "http://localhost:8080/"}get-game/${
+          cookies.roomId
+        }`,
         method: "GET",
       });
     };

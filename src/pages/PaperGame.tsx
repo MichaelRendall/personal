@@ -35,7 +35,9 @@ const PaperGame = () => {
   const [socket, setSocket] = useState<Socket>();
 
   useEffect(() => {
-    const newSocket = io("http://localhost:8080", { autoConnect: false });
+    const newSocket = io(`${process.env.API_URL || "http://localhost:8080/"}`, {
+      autoConnect: false,
+    });
     const sessionId = localStorage.getItem("sessionId");
 
     if (sessionId) {
@@ -68,7 +70,7 @@ const PaperGame = () => {
   const hostGameHandler = async (event: React.FormEvent) => {
     event.preventDefault();
     await sendRequest({
-      url: `http://localhost:8080/create-game`,
+      url: `${process.env.API_URL || "http://localhost:8080/"}create-game`,
       method: "POST",
       body: {
         room: roomNameRef.current!.value,
@@ -80,7 +82,7 @@ const PaperGame = () => {
   const joinGameHandler = async (event: React.FormEvent) => {
     event.preventDefault();
     await sendRequest({
-      url: `http://localhost:8080/join-game`,
+      url: `${process.env.API_URL || "http://localhost:8080/"}join-game`,
       method: "POST",
       body: {
         room: roomNameRef.current!.value,
@@ -92,7 +94,7 @@ const PaperGame = () => {
   const leaveGameHandler = async (event: React.FormEvent) => {
     event.preventDefault();
     sendRequest({
-      url: `http://localhost:8080/leave-game`,
+      url: `${process.env.API_URL || "http://localhost:8080/"}leave-game`,
       method: "POST",
       body: {
         roomId: cookies.roomId,
