@@ -21,7 +21,7 @@ const SubmitScore: React.FC<SubmitScoreProps> = (props) => {
     event.preventDefault();
     await sendRequest({
       url: `${
-        process.env.API_URL || "http://localhost:8080"
+        process.env.REACT_APP_API_URL || "http://localhost:8080"
       }/flag-quiz/submit-score`,
       method: "POST",
       body: {
