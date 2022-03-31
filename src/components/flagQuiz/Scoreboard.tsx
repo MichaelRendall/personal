@@ -14,8 +14,8 @@ const Scoreboard: React.FC = () => {
     const fetchScoreboard = async () => {
       sendRequest({
         url: `${
-          process.env.API_URL || "http://localhost:8080/"
-        }flag-quiz/get-scoreboard`,
+          process.env.API_URL || "http://localhost:8080"
+        }/flag-quiz/get-scoreboard`,
         method: "GET",
       });
     };
