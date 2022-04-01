@@ -35,19 +35,21 @@
   }
 
   .correct {
-    @include fa-icon-solid($fa-var-circle-check);
+    //@include fa-icon-solid($fa-var-circle-check);
     position: relative;
     cursor: default;
 
     &::before {
       @include flex($jc: center, $ai: center);
+      font-family: "Font Awesome 6 Free";
+      content: "\f058";
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
       background-color: rgba($color: #000, $alpha: 0.5);
-	  border-radius: 2px;
+      border-radius: 2px;
       color: var(--pastelColor);
       font-size: 1.25rem;
     }
