@@ -28,6 +28,7 @@ const Flags = () => {
     flagCtx.setFlags(flagOrder);
     flagCtx.setGameCompleted(false);
     flagCtx.setScore(0);
+    flagCtx.setTime(0);
     flagCtx.setCompletedFlags([]);
     setGameRunning(true);
   };

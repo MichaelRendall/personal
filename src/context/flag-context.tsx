@@ -16,6 +16,8 @@ interface FlagContextObj {
   answerRef: React.RefObject<HTMLInputElement> | null;
   changeFlagHandler: (direction: string) => void;
   answerHandler: () => void;
+  time: number;
+  setTime: (number: number) => void;
 }
 
 export const FlagContext = React.createContext<FlagContextObj>({
@@ -32,6 +34,8 @@ export const FlagContext = React.createContext<FlagContextObj>({
   answerRef: null,
   changeFlagHandler: () => {},
   answerHandler: () => {},
+  time: 0,
+  setTime: () => {},
 });
 
 const FlagContextProvider: React.FC = (props) => {
@@ -40,6 +44,7 @@ const FlagContextProvider: React.FC = (props) => {
   const [currentFlag, setCurrentFlag] = useState(0);
   const [gameCompleted, setGameCompleted] = useState(false);
   const [score, setScore] = useState(0);
+  const [time, setTime] = useState(0);
   const answerRef = useRef<HTMLInputElement>(null);
 
   const changeFlagHandler = (direction: string) => {
@@ -97,6 +102,8 @@ const FlagContextProvider: React.FC = (props) => {
     answerRef: answerRef,
     changeFlagHandler: changeFlagHandler,
     answerHandler: answerHandler,
+    time: time,
+    setTime: setTime,
   };
 
   return (

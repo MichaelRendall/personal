@@ -27,6 +27,7 @@ const SubmitScore: React.FC<SubmitScoreProps> = (props) => {
       body: {
         nickname: nicknameRef.current!.value,
         score: flagCtx.score,
+        time: flagCtx.time,
       },
     });
     if (!error) {

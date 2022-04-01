@@ -6,6 +6,7 @@ import useFetch from "../../hooks/useFetch";
 
 import Wrapper from "../UI/Wrapper";
 import Spinner from "../UI/Spinner";
+import Stopwatch from "../timer/Stopwatch";
 
 const Scoreboard: React.FC = () => {
   const { isLoading, data, sendRequest } = useFetch();
@@ -25,9 +26,12 @@ const Scoreboard: React.FC = () => {
 
   return (
     <Wrapper size="aside">
-      <h2>
-        {flagCtx.score}/{flagCtx.flags.length + flagCtx.completedFlags.length}
-      </h2>
+      <div className={classes.scoreboard__header}>
+        <Stopwatch />
+        <h2>
+          {flagCtx.score}/{flagCtx.flags.length + flagCtx.completedFlags.length}
+        </h2>
+      </div>
       {isLoading && <Spinner />}
       {data?.flagScores && (
         <div className={classes.scoreboard}>
@@ -41,7 +45,17 @@ const Scoreboard: React.FC = () => {
                 >
                   <p className={classes.name}>{score.nickname}</p>
                   <div className={classes.scoreTime}>
-                    <small className={classes.time}>10:50</small>
+                    <small className={classes.time}>
+                      <span>
+                        {("0" + Math.floor((score.time / 60000) % 60)).slice(
+                          -2
+                        )}
+                        :
+                      </span>
+                      <span>
+                        {("0" + Math.floor((score.time / 1000) % 60)).slice(-2)}
+                      </span>
+                    </small>
                     <p className={classes.score}>{score.score}</p>
                   </div>
                 </div>

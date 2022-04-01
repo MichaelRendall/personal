@@ -9,7 +9,7 @@ interface data {
     room: string;
     users: { isHost: boolean; name: string; uuid: string }[];
   };
-  flagScores?: { nickname: string; score: number }[];
+  flagScores?: { nickname: string; score: number; time: number }[];
   message: string;
 }
 

@@ -4,6 +4,11 @@
   width: 100%;
 }
 
+.scoreboard__header {
+  @include flex($fd: row, $jc: space-between, $ai: center);
+  width: 100%;
+}
+
 .scoreboard__list {
   @include flex($fd: column, $gap: 0.5rem);
   width: 100%;
