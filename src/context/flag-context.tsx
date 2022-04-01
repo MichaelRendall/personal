@@ -1,6 +1,5 @@
 import React, { useState, useRef } from "react";
 
-//import FLAG_LIST from "../lib/flag-list";
 import FlagList from "../models/flag-interface";
 
 interface FlagContextObj {
@@ -69,10 +68,6 @@ const FlagContextProvider: React.FC = (props) => {
       );
       setCompletedFlags(updatedCompletedFlags);
 
-      //const updatedActiveFlags = activeFlags;
-      //updatedActiveFlags.splice(currentFlag, 1);
-
-      //
       const updatedActiveFlags = activeFlags.filter(
         (_, index) => index !== currentFlag
       );

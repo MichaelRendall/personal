@@ -5,9 +5,10 @@ import { FlagContext } from "../../context/flag-context";
 import useFetch from "../../hooks/useFetch";
 
 import Wrapper from "../UI/Wrapper";
+import Spinner from "../UI/Spinner";
 
 const Scoreboard: React.FC = () => {
-  const { data, sendRequest } = useFetch();
+  const { isLoading, data, sendRequest } = useFetch();
   const flagCtx = useContext(FlagContext);
 
   useEffect(() => {
@@ -27,6 +28,7 @@ const Scoreboard: React.FC = () => {
       <h2>
         {flagCtx.score}/{flagCtx.flags.length + flagCtx.completedFlags.length}
       </h2>
+      {isLoading && <Spinner />}
       {data?.flagScores && (
         <div className={classes.scoreboard}>
           <h3>Leaderboard</h3>

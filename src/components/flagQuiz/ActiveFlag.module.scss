@@ -1,7 +1,10 @@
 @import "../../styles/_config.scss";
 
 .flagContainer {
-  height: 21rem;
+  height: 11rem;
+  @media (min-width: $media-min-width) {
+    height: 21rem;
+  }
 }
 
 .flag {
