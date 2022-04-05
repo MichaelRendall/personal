@@ -1,3 +1,5 @@
+import { useLocation } from "react-router";
+
 import Wrapper from "../UI/Wrapper";
 import Form from "../FormElements/Form";
 import Input from "../FormElements/Input";
@@ -16,9 +18,21 @@ const SubmitScore: React.FC<SubmitScoreProps> = (props) => {
   const flagCtx = useContext(FlagContext);
   const nicknameRef = useRef<HTMLInputElement>(null);
   const { isLoading, error, sendRequest } = useFetch();
+  const location = useLocation();
 
   const submitScoreHandler = async (event: React.FormEvent) => {
     event.preventDefault();
+
+    const queryParams = new URLSearchParams(location.search);
+    const filters = queryParams.entries();
+
+    let filterList = { continent: "all" };
+    for (const filter of filters) {
+      const filterName = filter[0].split("-");
+
+      filterList = { ...filterList, [filterName[1]]: filter[1] };
+    }
+
     await sendRequest({
       url: `${
         process.env.REACT_APP_API_URL || "http://localhost:8080"
@@ -28,6 +42,7 @@ const SubmitScore: React.FC<SubmitScoreProps> = (props) => {
         nickname: nicknameRef.current!.value,
         score: flagCtx.score,
         time: flagCtx.time,
+        filter: filterList,
       },
     });
     if (!error) {

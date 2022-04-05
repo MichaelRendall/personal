@@ -16,3 +16,12 @@ export const timerOptions = [
   { value: "120", label: "2 Minutes" },
   { value: "300", label: "5 Minutes" },
 ];
+
+export const continentOptions = [
+  { value: "africa", label: "Africa" },
+  { value: "asia", label: "Asia" },
+  { value: "europe", label: "Europe" },
+  { value: "northamerica", label: "North America" },
+  { value: "oceania", label: "Oceania" },
+  { value: "southamerica", label: "South America" },
+];

@@ -1,4 +1,5 @@
 import { useState, useContext, useEffect } from "react";
+import { useLocation } from "react-router";
 
 import { FlagContext } from "../context/flag-context";
 import { ThemeContext } from "../context/theme-context";
@@ -11,6 +12,8 @@ import GameHeading from "../components/GameHeading/GameHeading";
 import Container from "../components/UI/Container";
 import FlagQuiz from "../components/flagQuiz/FlagQuiz";
 import Button from "../components/FormElements/Button";
+import Select from "../components/FormElements/Select";
+import { continentOptions } from "../lib/filter-options";
 
 const Flags = () => {
   document.title = "Flags | Michael Rendall";
@@ -22,15 +25,40 @@ const Flags = () => {
   }, [themeCtx]);
 
   const [gameRunning, setGameRunning] = useState(false);
+  const [flags, setFlags] = useState(FLAG_LIST);
+  const location = useLocation();
+
+  useEffect(() => {
+    setGameRunning(false);
+
+    let activeFlags = FLAG_LIST;
+
+    const queryParams = new URLSearchParams(location.search);
+    const filters = queryParams.entries();
+    
+    for (const filter of filters) {
+      const filterName = filter[0].split("-");
+
+      if (filterName[0] === "f") {
+        activeFlags = activeFlags.filter(
+          (singleFlag: FlagList) => singleFlag[filterName[1]] === filter[1]
+        );
+      }
+    }
+
+    setFlags(activeFlags);
+  }, [location.search]);
 
   const startGameHandler = () => {
-    const flagOrder = shuffleListHandler(FLAG_LIST);
-    flagCtx.setFlags(flagOrder);
-    flagCtx.setGameCompleted(false);
-    flagCtx.setScore(0);
-    flagCtx.setTime(0);
-    flagCtx.setCompletedFlags([]);
-    setGameRunning(true);
+    if (flags.length > 0) {
+      const flagOrder = shuffleListHandler(flags);
+      flagCtx.setFlags(flagOrder);
+      flagCtx.setGameCompleted(false);
+      flagCtx.setScore(0);
+      flagCtx.setTime(0);
+      flagCtx.setCompletedFlags([]);
+      setGameRunning(true);
+    }
   };
 
   const endGameHandler = () => {
@@ -59,12 +87,29 @@ const Flags = () => {
 
   return (
     <GameSection>
-      <GameHeading heading="FLAG QUIZ" showSettings />
+      <GameHeading heading="FLAG QUIZ" showSettings>
+        <Select
+          id="continent"
+          label="Continent"
+          options={continentOptions}
+          param="f-continent"
+        />
+      </GameHeading>
       <Container>
         {!gameRunning && (
-          <Button onClick={startGameHandler} name="Begin" large />
+          <Button
+            onClick={startGameHandler}
+            name="Begin"
+            large
+            disabled={flags.length === 0}
+          />
         )}
         {gameRunning && <FlagQuiz endGame={endGameHandler} />}
+        {flags.length === 0 && (
+          <small>
+            <b>Not Enough Flags!</b>
+          </small>
+        )}
       </Container>
     </GameSection>
   );
