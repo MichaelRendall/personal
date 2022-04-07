@@ -1,6 +1,4 @@
 import { Routes, Route } from "react-router-dom";
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { fas } from "@fortawesome/free-solid-svg-icons";
 
 import FlagContextProvider from "./context/flag-context";
 
@@ -11,8 +9,6 @@ import PaperGame from "./pages/PaperGame";
 import Flags from "./pages/Flags";
 import Contact from "./pages/Contact";
 import Footer from "./components/footer/Footer";
-
-library.add(fas);
 
 const App = () => {
   return (

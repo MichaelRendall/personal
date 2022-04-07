@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import { FaFilm, FaMusic, FaRunning, FaQuestion } from "react-icons/fa";
 
 import classes from "./CharadeCard.module.scss";
 import Button from "../FormElements/Button";
@@ -15,23 +14,24 @@ interface CharadeCardProps {
 
 const CharadeCard: React.FC<CharadeCardProps> = (props) => {
   const themeCtx = useContext(ThemeContext);
-  let icon: IconProp;
+
+  let icon: JSX.Element;
   if (props.category === "film") {
-    icon = "film";
+    icon = <FaFilm />;
   } else if (props.category === "song") {
-    icon = "music";
+    icon = <FaMusic />;
   } else if (props.category === "action") {
-    icon = "running";
+    icon = <FaRunning />;
   } else {
-    icon = "question";
+    icon = <FaQuestion />;
   }
 
   return (
     <>
       <span className={`${classes.category} ${classes[themeCtx.theme]}`}>
-        <FontAwesomeIcon icon={["fas", icon]} className="icon" />
+        {icon}
         <h3>{props.category.toString().toUpperCase()}</h3>
-        <FontAwesomeIcon icon={["fas", icon]} className="icon" />
+        {icon}
       </span>
       <h2>{props.charade}</h2>
       <Button onClick={props.clicked} name="Got it" />

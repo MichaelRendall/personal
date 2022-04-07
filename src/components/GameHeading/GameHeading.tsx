@@ -1,4 +1,4 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { IoSettingsOutline, IoSettingsSharp } from "react-icons/io5";
 
 import useToggle from "../../hooks/useToggle";
 import Dropdown from "../UI/Dropdown";
@@ -18,7 +18,8 @@ const GameHeading: React.FC<GameHeadingProps> = (props) => {
         <div className={`${classes.icon} ${dropdown && classes.active}`}>
           {props.showSettings && (
             <span onClick={() => setDropdown()} aria-label="Open Game Settings">
-              <FontAwesomeIcon icon={["fas", "cog"]} className="icon" />
+              {!dropdown && <IoSettingsOutline />}
+              {dropdown && <IoSettingsSharp />}
             </span>
           )}
         </div>

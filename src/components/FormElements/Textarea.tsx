@@ -1,44 +1,41 @@
 import React from "react";
-import classes from "./Input.module.scss";
+import classes from "./Textarea.module.scss";
 
 import { AiOutlineCloseCircle } from "react-icons/ai";
 
-interface InputProps {
-  type: string;
+interface TextareaProps {
   id: string;
   label?: string;
   placeholder?: string;
-  refValue?: React.RefObject<HTMLInputElement>;
+  refValue?: React.RefObject<HTMLTextAreaElement>;
   value?: string;
   invalid?: boolean;
   onBlur?: () => void;
   onChange?: ((event: React.FormEvent) => void) | (() => void);
 }
 
-const Input: React.FC<InputProps> = (props) => {
-  const inputClasses = [classes.input];
+const Textarea: React.FC<TextareaProps> = (props) => {
+  const textareaClasses = [classes.textarea];
 
   if (props.invalid) {
-    inputClasses.push(classes.invalid);
+    textareaClasses.push(classes.invalid);
   }
 
   return (
     <div className="input__wrapper">
       {props.label && <label htmlFor={props.id}>{props.label}</label>}
-      <input
-        className={inputClasses.join(" ")}
-        type={props.type}
+      <textarea
+        className={textareaClasses.join(" ")}
         id={props.id}
         placeholder={props.placeholder}
-        autoComplete="off"
         ref={props.refValue}
         value={props.value}
         onBlur={props.onBlur}
         onChange={props.onChange}
-      />
-      {props.invalid && <AiOutlineCloseCircle className={classes.invalid__icon} />}
+      ></textarea>
+	  {props.invalid && <AiOutlineCloseCircle className={classes.invalid__icon} />}
     </div>
   );
 };
 
-export default Input;
+export default Textarea;
