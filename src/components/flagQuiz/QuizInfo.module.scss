@@ -1,0 +1,6 @@
+@import "../../styles/_config.scss";
+
+.QuizInfo__header {
+  @include flex($fd: row, $jc: space-between, $ai: center);
+  width: 100%;
+}

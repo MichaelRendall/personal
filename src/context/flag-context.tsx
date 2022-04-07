@@ -13,6 +13,8 @@ interface FlagContextObj {
   setGameCompleted: (boolean: boolean) => void;
   score: number;
   setScore: (number: number) => void;
+  scoreSubmitted: boolean;
+  setScoreSubmitted: (boolean: boolean) => void;
   answerRef: React.RefObject<HTMLInputElement> | null;
   changeFlagHandler: (direction: string) => void;
   answerHandler: () => void;
@@ -31,6 +33,8 @@ export const FlagContext = React.createContext<FlagContextObj>({
   setGameCompleted: () => {},
   score: 0,
   setScore: () => {},
+  scoreSubmitted: false,
+  setScoreSubmitted: () => {},
   answerRef: null,
   changeFlagHandler: () => {},
   answerHandler: () => {},
@@ -44,6 +48,7 @@ const FlagContextProvider: React.FC = (props) => {
   const [currentFlag, setCurrentFlag] = useState(0);
   const [gameCompleted, setGameCompleted] = useState(false);
   const [score, setScore] = useState(0);
+  const [scoreSubmitted, setScoreSubmitted] = useState(false);
   const [time, setTime] = useState(0);
   const answerRef = useRef<HTMLInputElement>(null);
 
@@ -99,6 +104,8 @@ const FlagContextProvider: React.FC = (props) => {
     setGameCompleted: setGameCompleted,
     score: score,
     setScore: setScore,
+    scoreSubmitted: scoreSubmitted,
+    setScoreSubmitted: setScoreSubmitted,
     answerRef: answerRef,
     changeFlagHandler: changeFlagHandler,
     answerHandler: answerHandler,

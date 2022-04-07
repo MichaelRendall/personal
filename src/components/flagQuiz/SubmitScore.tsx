@@ -5,7 +5,7 @@ import Form from "../FormElements/Form";
 import Input from "../FormElements/Input";
 import Button from "../FormElements/Button";
 import useFetch from "../../hooks/useFetch";
-import { useContext, useRef, useState } from "react";
+import { useContext, useRef } from "react";
 import { FlagContext } from "../../context/flag-context";
 import Spinner from "../UI/Spinner";
 
@@ -14,7 +14,6 @@ interface SubmitScoreProps {
 }
 
 const SubmitScore: React.FC<SubmitScoreProps> = (props) => {
-  const [formSubmitted, setFormSubmitted] = useState(false);
   const flagCtx = useContext(FlagContext);
   const nicknameRef = useRef<HTMLInputElement>(null);
   const { isLoading, error, sendRequest } = useFetch();
@@ -46,13 +45,13 @@ const SubmitScore: React.FC<SubmitScoreProps> = (props) => {
       },
     });
     if (!error) {
-      setFormSubmitted(true);
+      flagCtx.setScoreSubmitted(true);
     }
   };
 
   return (
     <Wrapper>
-      {!formSubmitted && (
+      {!flagCtx.scoreSubmitted && (
         <>
           <h2>Congratulations!</h2>
           <Form onSubmit={submitScoreHandler}>
@@ -67,7 +66,7 @@ const SubmitScore: React.FC<SubmitScoreProps> = (props) => {
           </Form>
         </>
       )}
-      {formSubmitted && (
+      {flagCtx.scoreSubmitted && (
         <>
           <h2>Score Submitted</h2>
           <Button name="End Game" onClick={props.endGame} invert />

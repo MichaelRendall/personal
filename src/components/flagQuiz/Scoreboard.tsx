@@ -2,17 +2,17 @@ import React, { useContext, useEffect } from "react";
 import { useLocation } from "react-router";
 import classes from "./Scoreboard.module.scss";
 
-import { FlagContext } from "../../context/flag-context";
 import useFetch from "../../hooks/useFetch";
 
-import Wrapper from "../UI/Wrapper";
 import Spinner from "../UI/Spinner";
-import Stopwatch from "../timer/Stopwatch";
+import { ThemeContext } from "../../context/theme-context";
+import { FlagContext } from "../../context/flag-context";
 
 const Scoreboard: React.FC = () => {
   const { isLoading, error, data, sendRequest } = useFetch();
-  const flagCtx = useContext(FlagContext);
   const location = useLocation();
+  const themeCtx = useContext(ThemeContext);
+  const flagCtx = useContext(FlagContext);
 
   useEffect(() => {
     const fetchScoreboard = async () => {
@@ -37,20 +37,14 @@ const Scoreboard: React.FC = () => {
       });
     };
     fetchScoreboard();
-  }, [sendRequest, location.search]);
+  }, [sendRequest, location.search, flagCtx.scoreSubmitted]);
 
   return (
-    <Wrapper size="aside">
-      <div className={classes.scoreboard__header}>
-        <Stopwatch />
-        <h2>
-          {flagCtx.score}/{flagCtx.flags.length + flagCtx.completedFlags.length}
-        </h2>
-      </div>
+    <>
       {isLoading && <Spinner />}
       {error && <small>{error}</small>}
       {data?.flagScores && (
-        <div className={classes.scoreboard}>
+        <div className={`${classes.scoreboard} ${classes[themeCtx.theme]}`}>
           <h3>Leaderboard</h3>
           {data.flagScores.length > 0 && (
             <div className={classes.scoreboard__list}>
@@ -85,7 +79,7 @@ const Scoreboard: React.FC = () => {
           {data.flagScores.length === 0 && <small>No Scores Set</small>}
         </div>
       )}
-    </Wrapper>
+    </>
   );
 };
 

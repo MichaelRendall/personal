@@ -1,11 +1,23 @@
 @import "../../styles/_config.scss";
 
-.scoreboard {
-  width: 100%;
+.default {
+  --color: #{$grey};
+  --pastel-color: #{$mid-grey};
+}
+.yellow {
+  --color: #{$dark-yellow};
+  --pastel-color: #{$pastel-yellow};
+}
+.red {
+  --color: #{$dark-pink};
+  --pastel-color: #{$pastel-pink};
+}
+.blue {
+  --color: #{$dark-blue};
+  --pastel-color: #{$pastel-blue};
 }
 
-.scoreboard__header {
-  @include flex($fd: row, $jc: space-between, $ai: center);
+.scoreboard {
   width: 100%;
 }
 
@@ -26,12 +38,12 @@
     color: $grey;
 
     &:first-of-type {
-      background-color: $dark-blue;
+      background-color: var(--color);
       color: $white;
     }
     &:nth-of-type(2),
     &:nth-of-type(3) {
-      background-color: $pastel-blue;
+      background-color: var(--pastel-color);
       color: $black;
     }
 
