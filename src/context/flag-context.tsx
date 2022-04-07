@@ -47,10 +47,10 @@ const FlagContextProvider: React.FC = (props) => {
   const [time, setTime] = useState(0);
   const answerRef = useRef<HTMLInputElement>(null);
 
-  const changeFlagHandler = (direction: string) => {
+  const changeFlagHandler = (direction: string, currentFlags = activeFlags) => {
     answerRef.current!.value = "";
 
-    const arrayLength = activeFlags.length;
+    const arrayLength = currentFlags.length;
     let newFlag = direction === "plus" ? currentFlag + 1 : currentFlag - 1;
 
     if (newFlag < 0) {
@@ -84,7 +84,7 @@ const FlagContextProvider: React.FC = (props) => {
       }
 
       setScore(updatedCompletedFlags.length);
-      changeFlagHandler("plus");
+      changeFlagHandler("plus", updatedActiveFlags);
     }
   };
 
