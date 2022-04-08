@@ -13,6 +13,7 @@ import useValidator from "../hooks/useValidator";
 import { ThemeContext } from "../context/theme-context";
 import Theme from "../models/theme-enum";
 import Spinner from "../components/UI/Spinner";
+import useFetch from "../hooks/useFetch";
 
 const isNotEmpty = (value: string) => value.trim() !== "";
 const isEmail = (value: string) => value.trim() !== "" && value.includes("@");
@@ -24,13 +25,14 @@ const Contact = () => {
     themeCtx.changeTheme(Theme.RED);
   }, [themeCtx]);
 
-  const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [formValid, setFormValid] = useState(false);
 
   const nameRef = useRef<HTMLInputElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
   const messageRef = useRef<HTMLTextAreaElement>(null);
+
+  const { isLoading, error, sendRequest } = useFetch();
 
   const {
     isValid: enteredNameIsValid,
@@ -61,10 +63,24 @@ const Contact = () => {
     }
   }, [enteredNameIsValid, enteredEmailIsValid, enteredMessageIsValid]);
 
-  const submitHandler = (event: React.FormEvent) => {
+  const submitHandler = async (event: React.FormEvent) => {
     event.preventDefault();
-    setLoading(true);
-    setSubmitted(true);
+
+    await sendRequest({
+      url: `${
+        process.env.REACT_APP_API_URL || "http://localhost:8080"
+      }/contact/submit`,
+      method: "POST",
+      body: {
+        name: nameRef.current!.value,
+        email: emailRef.current!.value,
+        message: messageRef.current!.value,
+      },
+    });
+
+    if (!error) {
+      setSubmitted(true);
+    }
   };
 
   return (
@@ -72,7 +88,7 @@ const Contact = () => {
       <GameHeading heading="GET IN TOUCH" />
       <Container>
         <Wrapper size="auto">
-          {loading && <Spinner />}
+          {isLoading && <Spinner />}
           {!submitted && (
             <Form onSubmit={submitHandler}>
               <Input

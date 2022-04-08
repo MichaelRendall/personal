@@ -19,7 +19,7 @@ const Flags = () => {
   document.title = "Flags | Michael Rendall";
   const themeCtx = useContext(ThemeContext);
   const flagCtx = useContext(FlagContext);
-
+  console.log("loading Flags.tsx");
   useEffect(() => {
     themeCtx.changeTheme(Theme.BLUE);
   }, [themeCtx]);
@@ -35,7 +35,7 @@ const Flags = () => {
 
     const queryParams = new URLSearchParams(location.search);
     const filters = queryParams.entries();
-    
+
     for (const filter of filters) {
       const filterName = filter[0].split("-");
 

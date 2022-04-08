@@ -8,6 +8,7 @@ import ActiveFlagControls from "./ActiveFlagControls";
 
 const ActiveFlag: React.FC = () => {
   const flagCtx = useContext(FlagContext);
+  console.log("ActiveFlag.tsx");
   return (
     <Wrapper>
       {flagCtx.flags[flagCtx.currentFlag] && (

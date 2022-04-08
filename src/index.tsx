@@ -10,16 +10,14 @@ import App from "./App";
 import ThemeContextProvider from "./context/theme-context";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <CookiesProvider>
-      <ThemeContextProvider>
-        <NavContextProvider>
-          <BrowserRouter>
-            <App />
-          </BrowserRouter>
-        </NavContextProvider>
-      </ThemeContextProvider>
-    </CookiesProvider>
-  </React.StrictMode>,
+  <CookiesProvider>
+    <ThemeContextProvider>
+      <NavContextProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </NavContextProvider>
+    </ThemeContextProvider>
+  </CookiesProvider>,
   document.getElementById("root")
 );
