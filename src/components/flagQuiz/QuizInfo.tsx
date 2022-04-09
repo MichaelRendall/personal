@@ -1,7 +1,7 @@
 import React from "react";
-import classes from "./QuizInfo.module.scss";
-
 import { useAppSelector } from "../../store/hooks";
+
+import classes from "./QuizInfo.module.scss";
 
 import Wrapper from "../UI/Wrapper";
 import Stopwatch from "../timer/Stopwatch";

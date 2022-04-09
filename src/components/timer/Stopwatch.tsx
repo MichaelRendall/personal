@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import classes from "./Stopwatch.module.scss";
 
 import { useAppSelector, useAppDispatch } from "../../store/hooks";
 import { flagQuizActions } from "../../store/flag-quiz/flag-quiz-slice";
+
+import classes from "./Stopwatch.module.scss";
 
 const Stopwatch: React.FC = () => {
   const dispatch = useAppDispatch();

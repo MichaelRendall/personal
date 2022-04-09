@@ -1,5 +1,6 @@
 import React from "react";
 import { useAppSelector } from "../../store/hooks";
+
 import classes from "./FlagQuiz.module.scss";
 
 import ActiveFlag from "./ActiveFlag";

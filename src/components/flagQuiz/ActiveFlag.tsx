@@ -1,7 +1,7 @@
 import React from "react";
-import classes from "./ActiveFlag.module.scss";
-
 import { useAppSelector } from "../../store/hooks";
+
+import classes from "./ActiveFlag.module.scss";
 
 import Wrapper from "../UI/Wrapper";
 import ActiveFlagControls from "./ActiveFlagControls";

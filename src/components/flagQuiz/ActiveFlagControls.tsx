@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from "react";
-import classes from "./ActiveFlagControls.module.scss";
-
 import { useAppSelector, useAppDispatch } from "../../store/hooks";
 import { flagQuizActions } from "../../store/flag-quiz/flag-quiz-slice";
+
+import classes from "./ActiveFlagControls.module.scss";
 
 import Input from "../FormElements/Input";
 import Button from "../FormElements/Button";

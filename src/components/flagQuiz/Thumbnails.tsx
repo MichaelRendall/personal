@@ -1,10 +1,9 @@
 import React, { useContext } from "react";
-import classes from "./Thumbnails.module.scss";
-
-import { ThemeContext } from "../../context/theme-context";
-
 import { useAppSelector, useAppDispatch } from "../../store/hooks";
 import { flagQuizActions } from "../../store/flag-quiz/flag-quiz-slice";
+import { ThemeContext } from "../../context/theme-context";
+
+import classes from "./Thumbnails.module.scss";
 
 import Wrapper from "../UI/Wrapper";
 

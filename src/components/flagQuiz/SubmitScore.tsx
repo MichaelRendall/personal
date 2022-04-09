@@ -1,6 +1,5 @@
 import { useLocation } from "react-router";
 import { useRef } from "react";
-
 import { useAppSelector, useAppDispatch } from "../../store/hooks";
 import { flagQuizActions } from "../../store/flag-quiz/flag-quiz-slice";
 
