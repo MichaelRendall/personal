@@ -1,31 +1,73 @@
-import React, { useContext } from "react";
+import React, { useEffect, useRef } from "react";
 import classes from "./ActiveFlagControls.module.scss";
 
-import { FlagContext } from "../../context/flag-context";
+import { useAppSelector, useAppDispatch } from "../../store/hooks";
+import { flagQuizActions } from "../../store/flag-quiz/flag-quiz-slice";
 
 import Input from "../FormElements/Input";
 import Button from "../FormElements/Button";
 
 const ActiveFlagControls: React.FC = () => {
-  const flagCtx = useContext(FlagContext);
+  const answerRef = useRef<HTMLInputElement>(null);
+  const dispatch = useAppDispatch();
+
+  const activeFlags = useAppSelector((state) => state.flagQuiz.activeFlags);
+  const completedFlags = useAppSelector(
+    (state) => state.flagQuiz.completedFlags
+  );
+  const currentFlag = useAppSelector((state) => state.flagQuiz.currentFlag);
+
+  useEffect(() => {
+    answerRef.current!.value = "";
+  }, [currentFlag]);
+
+  const checkAnswerHandler = () => {
+    if (
+      answerRef.current?.value.toLowerCase() ===
+      activeFlags[currentFlag].name.toLowerCase()
+    ) {
+      answerRef.current.value = "";
+      const updatedCompletedFlags = completedFlags.concat(
+        activeFlags[currentFlag]
+      );
+
+      const updatedActiveFlags = activeFlags.filter(
+        (_, index) => index !== currentFlag
+      );
+
+      dispatch(
+        flagQuizActions.correctAnswer({
+          activeFlags: updatedActiveFlags,
+          completedFlags: updatedCompletedFlags,
+          score: updatedCompletedFlags.length,
+        })
+      );
+
+      if (updatedActiveFlags.length === 0) {
+        dispatch(flagQuizActions.completedGame(true));
+      } else {
+        dispatch(flagQuizActions.nextFlag("plus"));
+      }
+    }
+  };
 
   return (
     <div className={classes.controls}>
       <Button
         small
         name="Prev"
-        onClick={() => flagCtx.changeFlagHandler("minus")}
+        onClick={() => dispatch(flagQuizActions.nextFlag("minus"))}
       />
       <Input
         id="guess"
         type="text"
-        refValue={flagCtx.answerRef!}
-        onChange={flagCtx.answerHandler}
+        refValue={answerRef}
+        onChange={checkAnswerHandler}
       />
       <Button
         small
         name="Next"
-        onClick={() => flagCtx.changeFlagHandler("plus")}
+        onClick={() => dispatch(flagQuizActions.nextFlag("plus"))}
       />
     </div>
   );

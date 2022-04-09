@@ -1,20 +1,25 @@
-import React, { useContext } from "react";
+import React from "react";
 import classes from "./QuizInfo.module.scss";
 
-import { FlagContext } from "../../context/flag-context";
+import { useAppSelector } from "../../store/hooks";
+
 import Wrapper from "../UI/Wrapper";
 import Stopwatch from "../timer/Stopwatch";
 import Scoreboard from "./Scoreboard";
 
 const QuizInfo: React.FC = () => {
-  const flagCtx = useContext(FlagContext);
+  const score = useAppSelector((state) => state.flagQuiz.score);
+  const activeFlags = useAppSelector((state) => state.flagQuiz.activeFlags);
+  const completedFlags = useAppSelector(
+    (state) => state.flagQuiz.completedFlags
+  );
 
   return (
     <Wrapper size="aside">
       <div className={classes.QuizInfo__header}>
         <Stopwatch />
         <h2>
-          {flagCtx.score}/{flagCtx.flags.length + flagCtx.completedFlags.length}
+          {score}/{activeFlags.length + completedFlags.length}
         </h2>
       </div>
       <Scoreboard />

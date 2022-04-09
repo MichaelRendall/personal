@@ -1,17 +1,21 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import classes from "./Stopwatch.module.scss";
-import { FlagContext } from "../../context/flag-context";
+
+import { useAppSelector, useAppDispatch } from "../../store/hooks";
+import { flagQuizActions } from "../../store/flag-quiz/flag-quiz-slice";
 
 const Stopwatch: React.FC = () => {
-  const flagCtx = useContext(FlagContext);
+  const dispatch = useAppDispatch();
+  const gameCompleted = useAppSelector((state) => state.flagQuiz.gameCompleted);
+
   const [time, setTime] = useState(0);
 
   useEffect(() => {
     let interval: NodeJS.Timer;
 
-    if (flagCtx.gameCompleted) {
+    if (gameCompleted) {
       clearInterval(interval!);
-      flagCtx.setTime(time);
+      dispatch(flagQuizActions.setTime(time));
     } else {
       interval = setInterval(() => {
         setTime(time + 1000);
@@ -19,7 +23,7 @@ const Stopwatch: React.FC = () => {
     }
 
     return () => clearInterval(interval);
-  }, [flagCtx, time, setTime]);
+  }, [gameCompleted, time, setTime, dispatch]);
 
   return (
     <p className={classes.stopwatch}>

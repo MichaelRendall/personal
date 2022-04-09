@@ -1,7 +1,6 @@
-import React, { useContext } from "react";
+import React from "react";
+import { useAppSelector } from "../../store/hooks";
 import classes from "./FlagQuiz.module.scss";
-
-import { FlagContext } from "../../context/flag-context";
 
 import ActiveFlag from "./ActiveFlag";
 import SubmitScore from "./SubmitScore";
@@ -13,13 +12,13 @@ interface FlagQuizProps {
 }
 
 const FlagQuiz: React.FC<FlagQuizProps> = (props) => {
-  const flagCtx = useContext(FlagContext);
+  const gameCompleted = useAppSelector((state) => state.flagQuiz.gameCompleted);
 
   return (
     <>
       <div className={classes.container}>
-        {!flagCtx.gameCompleted && <ActiveFlag />}
-        {flagCtx.gameCompleted && <SubmitScore endGame={props.endGame} />}
+        {!gameCompleted && <ActiveFlag />}
+        {gameCompleted && <SubmitScore endGame={props.endGame} />}
         <QuizInfo />
       </div>
       <Thumbnails />

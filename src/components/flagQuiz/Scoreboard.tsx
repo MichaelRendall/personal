@@ -1,18 +1,21 @@
 import React, { useContext, useEffect } from "react";
+import { useAppSelector } from "../../store/hooks";
+import { ThemeContext } from "../../context/theme-context";
 import { useLocation } from "react-router";
+
 import classes from "./Scoreboard.module.scss";
 
 import useFetch from "../../hooks/useFetch";
 
 import Spinner from "../UI/Spinner";
-import { ThemeContext } from "../../context/theme-context";
-import { FlagContext } from "../../context/flag-context";
 
 const Scoreboard: React.FC = () => {
   const { isLoading, error, data, sendRequest } = useFetch();
   const location = useLocation();
   const themeCtx = useContext(ThemeContext);
-  const flagCtx = useContext(FlagContext);
+  const scoreSubmitted = useAppSelector(
+    (state) => state.flagQuiz.scoreSubmitted
+  );
 
   useEffect(() => {
     const fetchScoreboard = async () => {
@@ -37,7 +40,7 @@ const Scoreboard: React.FC = () => {
       });
     };
     fetchScoreboard();
-  }, [sendRequest, location.search, flagCtx.scoreSubmitted]);
+  }, [sendRequest, location.search, scoreSubmitted]);
 
   return (
     <>
