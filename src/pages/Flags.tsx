@@ -1,7 +1,8 @@
 import { useState, useContext, useEffect } from "react";
 import { useLocation } from "react-router";
+import { useAppDispatch } from "../store/hooks";
+import { flagQuizActions } from "../store/flag-quiz/flag-quiz-slice";
 
-import { FlagContext } from "../context/flag-context";
 import { ThemeContext } from "../context/theme-context";
 import Theme from "../models/theme-enum";
 import FlagList from "../models/flag-interface";
@@ -16,9 +17,9 @@ import Select from "../components/FormElements/Select";
 import { continentOptions } from "../lib/filter-options";
 
 const Flags = () => {
+  const dispatch = useAppDispatch();
   document.title = "Flags | Michael Rendall";
   const themeCtx = useContext(ThemeContext);
-  const flagCtx = useContext(FlagContext);
   console.log("loading Flags.tsx");
   useEffect(() => {
     themeCtx.changeTheme(Theme.BLUE);
@@ -52,11 +53,8 @@ const Flags = () => {
   const startGameHandler = () => {
     if (flags.length > 0) {
       const flagOrder = shuffleListHandler(flags);
-      flagCtx.setFlags(flagOrder);
-      flagCtx.setGameCompleted(false);
-      flagCtx.setScore(0);
-      flagCtx.setTime(0);
-      flagCtx.setCompletedFlags([]);
+
+      dispatch(flagQuizActions.resetGame({ activeFlags: flagOrder }));
       setGameRunning(true);
     }
   };

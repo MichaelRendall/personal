@@ -1,12 +1,14 @@
 import { useLocation } from "react-router";
+import { useRef } from "react";
+
+import { useAppSelector, useAppDispatch } from "../../store/hooks";
+import { flagQuizActions } from "../../store/flag-quiz/flag-quiz-slice";
 
 import Wrapper from "../UI/Wrapper";
 import Form from "../FormElements/Form";
 import Input from "../FormElements/Input";
 import Button from "../FormElements/Button";
 import useFetch from "../../hooks/useFetch";
-import { useContext, useRef } from "react";
-import { FlagContext } from "../../context/flag-context";
 import Spinner from "../UI/Spinner";
 
 interface SubmitScoreProps {
@@ -14,7 +16,13 @@ interface SubmitScoreProps {
 }
 
 const SubmitScore: React.FC<SubmitScoreProps> = (props) => {
-  const flagCtx = useContext(FlagContext);
+  const dispatch = useAppDispatch();
+  const score = useAppSelector((state) => state.flagQuiz.score);
+  const finalTime = useAppSelector((state) => state.flagQuiz.finalTime);
+  const scoreSubmitted = useAppSelector(
+    (state) => state.flagQuiz.scoreSubmitted
+  );
+
   const nicknameRef = useRef<HTMLInputElement>(null);
   const { isLoading, error, sendRequest } = useFetch();
   const location = useLocation();
@@ -39,19 +47,19 @@ const SubmitScore: React.FC<SubmitScoreProps> = (props) => {
       method: "POST",
       body: {
         nickname: nicknameRef.current!.value,
-        score: flagCtx.score,
-        time: flagCtx.time,
+        score: score,
+        time: finalTime,
         filter: filterList,
       },
     });
     if (!error) {
-      flagCtx.setScoreSubmitted(true);
+      dispatch(flagQuizActions.submittedScore(true));
     }
   };
 
   return (
     <Wrapper>
-      {!flagCtx.scoreSubmitted && (
+      {!scoreSubmitted && (
         <>
           <h2>Congratulations!</h2>
           <Form onSubmit={submitScoreHandler}>
@@ -66,7 +74,7 @@ const SubmitScore: React.FC<SubmitScoreProps> = (props) => {
           </Form>
         </>
       )}
-      {flagCtx.scoreSubmitted && (
+      {scoreSubmitted && (
         <>
           <h2>Score Submitted</h2>
           <Button name="End Game" onClick={props.endGame} invert />

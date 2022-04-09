@@ -2,29 +2,36 @@ import React, { useContext } from "react";
 import classes from "./Thumbnails.module.scss";
 
 import { ThemeContext } from "../../context/theme-context";
-import { FlagContext } from "../../context/flag-context";
+
+import { useAppSelector, useAppDispatch } from "../../store/hooks";
+import { flagQuizActions } from "../../store/flag-quiz/flag-quiz-slice";
 
 import Wrapper from "../UI/Wrapper";
 
 const Thumbnails: React.FC = () => {
-  const flagCtx = useContext(FlagContext);
   const themeCtx = useContext(ThemeContext);
+  const dispatch = useAppDispatch();
+  const activeFlags = useAppSelector((state) => state.flagQuiz.activeFlags);
+  const completedFlags = useAppSelector(
+    (state) => state.flagQuiz.completedFlags
+  );
+  const currentFlag = useAppSelector((state) => state.flagQuiz.currentFlag);
 
-  const thumbnails = flagCtx.flags.map((flag, index) => {
+  const thumbnails = activeFlags.map((flag, index) => {
     return (
       <span
         key={flag.name}
         className={`${classes.thumb} ${
-          index === flagCtx.currentFlag ? classes.active : ""
+          index === currentFlag ? classes.active : ""
         }`}
-        onClick={() => flagCtx.setCurrentFlag(index)}
+        onClick={() => dispatch(flagQuizActions.changeFlag(index))}
       >
         <img src={flag.thumb} alt={`thumbnail for ${flag.name}`} />
       </span>
     );
   });
 
-  const thumbnailsCompleted = flagCtx.completedFlags.map((flag, index) => {
+  const thumbnailsCompleted = completedFlags.map((flag, index) => {
     return (
       <span key={flag.name} className={`${classes.thumb} ${classes.correct}`}>
         <img src={flag.thumb} alt={`thumbnail for ${flag.name}`} />
