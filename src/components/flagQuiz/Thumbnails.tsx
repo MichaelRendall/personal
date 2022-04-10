@@ -8,6 +8,7 @@ import classes from "./Thumbnails.module.scss";
 import Wrapper from "../UI/Wrapper";
 
 const Thumbnails: React.FC = () => {
+  console.log("loading Thumbnails.tsx");
   const themeCtx = useContext(ThemeContext);
   const dispatch = useAppDispatch();
   const activeFlags = useAppSelector((state) => state.flagQuiz.activeFlags);

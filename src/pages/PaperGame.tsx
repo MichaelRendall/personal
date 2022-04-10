@@ -7,13 +7,10 @@ import Theme from "../models/theme-enum";
 import { useCookies } from "react-cookie";
 import { io, Socket } from "socket.io-client";
 
-import GameSection from "../components/UI/GameSection";
+import { Container, GameSection, Wrapper, Spinner } from "../components/UI";
 import GameHeading from "../components/GameHeading/GameHeading";
-import Wrapper from "../components/UI/Wrapper";
-import Container from "../components/UI/Container";
 import HostJoinGame from "../components/paperGame/HostJoinGame";
 import Game from "../components/paperGame/Game";
-import Spinner from "../components/UI/Spinner";
 
 const PaperGame = () => {
   document.title = "Paper Game | Michael Rendall";
@@ -35,9 +32,12 @@ const PaperGame = () => {
   const [socket, setSocket] = useState<Socket>();
 
   useEffect(() => {
-    const newSocket = io(`${process.env.REACT_APP_API_URL || "http://localhost:8080"}`, {
-      autoConnect: false,
-    });
+    const newSocket = io(
+      `${process.env.REACT_APP_API_URL || "http://localhost:8080"}`,
+      {
+        autoConnect: false,
+      }
+    );
     const sessionId = localStorage.getItem("sessionId");
 
     if (sessionId) {
@@ -70,7 +70,9 @@ const PaperGame = () => {
   const hostGameHandler = async (event: React.FormEvent) => {
     event.preventDefault();
     await sendRequest({
-      url: `${process.env.REACT_APP_API_URL || "http://localhost:8080"}/create-game`,
+      url: `${
+        process.env.REACT_APP_API_URL || "http://localhost:8080"
+      }/create-game`,
       method: "POST",
       body: {
         room: roomNameRef.current!.value,
@@ -82,7 +84,9 @@ const PaperGame = () => {
   const joinGameHandler = async (event: React.FormEvent) => {
     event.preventDefault();
     await sendRequest({
-      url: `${process.env.REACT_APP_API_URL || "http://localhost:8080"}/join-game`,
+      url: `${
+        process.env.REACT_APP_API_URL || "http://localhost:8080"
+      }/join-game`,
       method: "POST",
       body: {
         room: roomNameRef.current!.value,
@@ -94,7 +98,9 @@ const PaperGame = () => {
   const leaveGameHandler = async (event: React.FormEvent) => {
     event.preventDefault();
     sendRequest({
-      url: `${process.env.REACT_APP_API_URL || "http://localhost:8080"}/leave-game`,
+      url: `${
+        process.env.REACT_APP_API_URL || "http://localhost:8080"
+      }/leave-game`,
       method: "POST",
       body: {
         roomId: cookies.roomId,

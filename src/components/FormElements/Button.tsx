@@ -14,6 +14,7 @@ interface ButtonProps {
 }
 
 const Button: React.FC<ButtonProps> = (props) => {
+  console.log("loading Button.tsx");
   const themeCtx = useContext(ThemeContext);
 
   const buttonClasses = [classes.button, classes[themeCtx.theme]];

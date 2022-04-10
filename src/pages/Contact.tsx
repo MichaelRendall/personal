@@ -1,19 +1,13 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
-import Button from "../components/FormElements/Button";
-import Form from "../components/FormElements/Form";
-import Input from "../components/FormElements/Input";
-import Textarea from "../components/FormElements/Textarea";
-import GameHeading from "../components/GameHeading/GameHeading";
-import Container from "../components/UI/Container";
-import GameSection from "../components/UI/GameSection";
-import Wrapper from "../components/UI/Wrapper";
-
-import useValidator from "../hooks/useValidator";
-
 import { ThemeContext } from "../context/theme-context";
 import Theme from "../models/theme-enum";
-import Spinner from "../components/UI/Spinner";
+
+import useValidator from "../hooks/useValidator";
 import useFetch from "../hooks/useFetch";
+
+import { Container, GameSection, Wrapper, Spinner } from "../components/UI";
+import { Button, Form, Input, Textarea } from "../components/FormElements";
+import GameHeading from "../components/GameHeading/GameHeading";
 
 const isNotEmpty = (value: string) => value.trim() !== "";
 const isEmail = (value: string) => value.trim() !== "" && value.includes("@");

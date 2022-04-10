@@ -4,10 +4,10 @@ import { flagQuizActions } from "../../store/flag-quiz/flag-quiz-slice";
 
 import classes from "./ActiveFlagControls.module.scss";
 
-import Input from "../FormElements/Input";
-import Button from "../FormElements/Button";
+import { Button, Input } from "../FormElements";
 
 const ActiveFlagControls: React.FC = () => {
+  console.log("loading ActiveFlagControls.tsx");
   const answerRef = useRef<HTMLInputElement>(null);
   const dispatch = useAppDispatch();
 

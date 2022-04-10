@@ -3,18 +3,17 @@ import { useRef } from "react";
 import { useAppSelector, useAppDispatch } from "../../store/hooks";
 import { flagQuizActions } from "../../store/flag-quiz/flag-quiz-slice";
 
-import Wrapper from "../UI/Wrapper";
-import Form from "../FormElements/Form";
-import Input from "../FormElements/Input";
-import Button from "../FormElements/Button";
 import useFetch from "../../hooks/useFetch";
-import Spinner from "../UI/Spinner";
+
+import { Wrapper, Spinner } from "../UI";
+import { Form, Button, Input } from "../FormElements";
 
 interface SubmitScoreProps {
   endGame: () => void;
 }
 
 const SubmitScore: React.FC<SubmitScoreProps> = (props) => {
+  console.log("loading SubmitScore.tsx");
   const dispatch = useAppDispatch();
   const score = useAppSelector((state) => state.flagQuiz.score);
   const finalTime = useAppSelector((state) => state.flagQuiz.finalTime);

@@ -10,6 +10,7 @@ import useFetch from "../../hooks/useFetch";
 import Spinner from "../UI/Spinner";
 
 const Scoreboard: React.FC = () => {
+  console.log("loading Scoreboard.tsx");
   const { isLoading, error, data, sendRequest } = useFetch();
   const location = useLocation();
   const themeCtx = useContext(ThemeContext);

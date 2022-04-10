@@ -11,14 +11,12 @@ import {
   timerOptions,
 } from "../lib/filter-options";
 
-import GameSection from "../components/UI/GameSection";
+import { Container, GameSection, Wrapper } from "../components/UI";
+import { Button, Select } from "../components/FormElements";
+
 import GameHeading from "../components/GameHeading/GameHeading";
-import Wrapper from "../components/UI/Wrapper";
-import Container from "../components/UI/Container";
 import CharadeCard from "../components/charades/CharadeCard";
-import Button from "../components/FormElements/Button";
 import Timer from "../components/timer/Timer";
-import Select from "../components/FormElements/Select";
 
 interface CharadeList {
   [key: string]: string;

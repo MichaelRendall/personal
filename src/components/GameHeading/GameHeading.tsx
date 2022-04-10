@@ -10,6 +10,7 @@ interface GameHeadingProps {
 }
 
 const GameHeading: React.FC<GameHeadingProps> = (props) => {
+  console.log("loading GameHeading.tsx");
   const [dropdown, setDropdown] = useToggle(false);
 
   return (
