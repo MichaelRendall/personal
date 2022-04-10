@@ -128,18 +128,21 @@ const Charades = () => {
               label="Theme"
               options={themeOptions}
               param="f-theme"
+              placeholder="All Themes"
             />
             <Select
               id="category"
               label="Category"
               options={categoryOptions}
               param="f-cat"
+              placeholder="All Categories"
             />
             <Select
               id="timer"
               label="Timer"
               options={timerOptions}
               param="n-time"
+              placeholder="No Time Limit"
             />
           </>
         }

@@ -1,7 +1,7 @@
 @import "../../styles/_config.scss";
 
 .container {
-  @include flex($fd: column, $ai: center);
+  @include flex($fd: column, $ai: center, $gap: 2rem);
   width: 100%;
-  margin: 3rem 0 0;
+  margin: 2rem 0 0;
 }

@@ -3,7 +3,7 @@
 .button {
   position: relative;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   color: $white;
   padding: 1rem 2rem;
   font-weight: 700;
@@ -15,17 +15,17 @@
   transition: box-shadow $transition-speed linear;
   background-color: var(--color);
   border: 1px solid var(--color);
-  box-shadow: 0 2px 0 rgb(0 0 0 / 20%);
+  box-shadow: -2px 2px 0 rgb(0 0 0 / 20%);
 
   &:hover,
   &:active {
-    box-shadow: 0px 4px 0 rgb(0 0 0 / 20%);
+    box-shadow: -4px 4px 0 rgb(0 0 0 / 20%);
   }
 
   &:disabled,
   &:disabled:hover,
   &:disabled:active {
-    box-shadow: 0 2px 0 rgb(0 0 0 / 20%);
+    box-shadow: -2px 2px 0 rgb(0 0 0 / 20%);
     opacity: 0.5;
     cursor: not-allowed;
   }

@@ -4,47 +4,13 @@
   @include flex($fd: column, $jc: space-evenly, $ai: flex-start);
   height: 2.25rem;
   width: fit-content;
-  padding: 0 0.5rem;
+  padding: 0 0.5rem 0 0;
   cursor: pointer;
   transition: $transition-speed;
 
   &:hover,
-  &:active {
-    filter: brightness(0%);
+  &:active,
+  &.active {
+    color: var(--color);
   }
-
-  div {
-    background-color: $grey;
-    fill: $grey;
-    height: 0.175rem;
-    border-radius: 1px;
-    transition: $transition-speed;
-  }
-  div:first-child {
-    width: 0.75rem;
-  }
-  div:nth-child(2) {
-    width: 1.25rem;
-  }
-  div:last-child {
-    width: 1rem;
-  }
-}
-
-.change div:first-child {
-  width: 1.25rem;
-  -webkit-transform: rotate(-45deg) translate(-6.5px, 5px);
-  -ms-transform: rotate(-45deg) translate(-6.5px, 5px);
-  transform: rotate(-45deg) translate(-6.5px, 5px);
-}
-
-.change div:nth-child(2) {
-  opacity: 0;
-}
-
-.change div:last-child {
-  width: 1.25rem;
-  -webkit-transform: rotate(45deg) translate(-9px, -8px);
-  -ms-transform: rotate(45deg) translate(-9px, -8px);
-  transform: rotate(45deg) translate(-9px, -8px);
 }

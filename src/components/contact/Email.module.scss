@@ -1,0 +1,11 @@
+@import "../../styles/_config.scss";
+
+.email {
+  width: 100%;
+  @include flex($fd: row, $jc: center, $ai: center, $gap: 1rem);
+
+  svg {
+    color: var(--color);
+    font-size: 1.5rem;
+  }
+}

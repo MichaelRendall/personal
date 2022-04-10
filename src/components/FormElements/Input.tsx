@@ -25,18 +25,22 @@ const Input: React.FC<InputProps> = (props) => {
   return (
     <div className="input__wrapper">
       {props.label && <label htmlFor={props.id}>{props.label}</label>}
-      <input
-        className={inputClasses.join(" ")}
-        type={props.type}
-        id={props.id}
-        placeholder={props.placeholder}
-        autoComplete="off"
-        ref={props.refValue}
-        value={props.value}
-        onBlur={props.onBlur}
-        onChange={props.onChange}
-      />
-      {props.invalid && <AiOutlineCloseCircle className={classes.invalid__icon} />}
+      <span className="input__container">
+        <input
+          className={inputClasses.join(" ")}
+          type={props.type}
+          id={props.id}
+          placeholder={props.placeholder}
+          autoComplete="off"
+          ref={props.refValue}
+          value={props.value}
+          onBlur={props.onBlur}
+          onChange={props.onChange}
+        />
+        {props.invalid && (
+          <AiOutlineCloseCircle className={classes.invalid__icon} />
+        )}
+      </span>
     </div>
   );
 };

@@ -71,13 +71,16 @@ h3 {
 
 .input__wrapper {
   @include flex($fd: column);
-  position: relative;
-  /* min-width: 12rem; */
   font-size: 0.875rem;
+  position: relative;
 
   label {
     font-weight: 700;
     color: $grey;
     margin-bottom: 0.5rem;
+  }
+
+  .input__container {
+    position: relative;
   }
 }

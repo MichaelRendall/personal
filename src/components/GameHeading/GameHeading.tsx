@@ -1,4 +1,4 @@
-import { IoSettingsOutline, IoSettingsSharp } from "react-icons/io5";
+import { IoSettingsSharp } from "react-icons/io5";
 
 import useToggle from "../../hooks/useToggle";
 import Dropdown from "../UI/Dropdown";
@@ -18,10 +18,11 @@ const GameHeading: React.FC<GameHeadingProps> = (props) => {
       <section className={classes.heading}>
         <div className={`${classes.icon} ${dropdown && classes.active}`}>
           {props.showSettings && (
-            <span onClick={() => setDropdown()} aria-label="Open Game Settings">
-              {!dropdown && <IoSettingsOutline />}
-              {dropdown && <IoSettingsSharp />}
-            </span>
+            <IoSettingsSharp
+              className={`${dropdown && classes.active}`}
+              onClick={() => setDropdown()}
+              aria-label="Open Game Settings"
+            />
           )}
         </div>
         <h1>{props.heading}</h1>

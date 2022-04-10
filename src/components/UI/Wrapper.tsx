@@ -3,19 +3,24 @@ import classes from "./Wrapper.module.scss";
 
 interface WrapperProps {
   size?: string;
+  type?: string;
 }
 
 const Wrapper: React.FC<WrapperProps> = (props) => {
-  const wrapperClasses = [classes.wrapper];
-  !props.size ? wrapperClasses.push(classes.fixed) : wrapperClasses.push();
-  props.size === "auto"
-    ? wrapperClasses.push(classes.auto)
-    : wrapperClasses.push();
-  props.size === "aside"
-    ? wrapperClasses.push(classes.aside)
-    : wrapperClasses.push();
+  let size = props.size;
+  if (!props.size) {
+    size = "fixed";
+  }
+  let type = props.type;
+  if (!props.type) {
+    type = "large";
+  }
 
-  return <div className={wrapperClasses.join(" ")}>{props.children}</div>;
+  return (
+    <div className={`${classes.wrapper} ${classes[size!]} ${classes[type!]}`}>
+      {props.children}
+    </div>
+  );
 };
 
 export default Wrapper;

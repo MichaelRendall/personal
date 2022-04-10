@@ -1,8 +1,8 @@
 @import "../../styles/_config.scss";
 
 .container {
-  @include flex($fd: column, $jc: center, $gap: 2rem, $ai: baseline);
-  margin: 0 0 2rem;
+  @include flex($fd: column, $jc: center, $gap: 2rem, $ai: flex-start);
+  margin: 0;
   width: 100%;
 
   @media (min-width: $media-min-width) {

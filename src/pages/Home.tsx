@@ -11,7 +11,7 @@ const Home = () => {
   const themeCtx = useContext(ThemeContext);
 
   useEffect(() => {
-    themeCtx.changeTheme(Theme.DEFAULT);
+    themeCtx.changeTheme(Theme.RED);
   }, [themeCtx]);
 
   return (

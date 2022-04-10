@@ -18,14 +18,16 @@
   font-size: 1.5rem;
   user-select: none;
 
-  span {
-    padding: 0 0.5rem;
+  svg {
+    padding: 0 0.5rem 0 0;
+    width: fit-content;
     cursor: pointer;
     transition: $transition-speed;
 
     &:hover,
-    &:active {
-      filter: brightness(0%);
+    &:active,
+    &.active {
+      color: var(--color);
     }
   }
 }

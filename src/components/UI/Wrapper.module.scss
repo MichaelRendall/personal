@@ -3,12 +3,12 @@
 .wrapper {
   @include flex($fd: column, $ai: center, $gap: 3rem);
   position: relative;
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 2rem;
   margin: 0;
   text-align: center;
   background: $white;
-  box-shadow: -4px 4px 8px 0 $mid-grey;
+  box-shadow: -2px 2px 4px 0 $mid-grey;
 }
 
 .auto {
@@ -28,4 +28,9 @@
   @media (min-width: $media-min-width) {
     max-width: 20rem;
   }
+}
+
+.small {
+  gap: 1rem;
+  padding: 1rem 2rem;
 }

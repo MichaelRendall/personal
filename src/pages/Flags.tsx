@@ -92,6 +92,7 @@ const Flags = () => {
           label="Continent"
           options={continentOptions}
           param="f-continent"
+          placeholder="All Continents"
         />
       </GameHeading>
       <Container>
