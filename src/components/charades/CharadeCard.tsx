@@ -1,9 +1,8 @@
-import React, { useContext } from "react";
+import React from "react";
 import { FaFilm, FaMusic, FaRunning, FaQuestion } from "react-icons/fa";
 
 import classes from "./CharadeCard.module.scss";
 import Button from "../FormElements/Button";
-import { ThemeContext } from "../../context/theme-context";
 
 interface CharadeCardProps {
   category: string;
@@ -13,8 +12,6 @@ interface CharadeCardProps {
 }
 
 const CharadeCard: React.FC<CharadeCardProps> = (props) => {
-  const themeCtx = useContext(ThemeContext);
-
   let icon: JSX.Element;
   if (props.category === "film") {
     icon = <FaFilm />;
@@ -28,7 +25,7 @@ const CharadeCard: React.FC<CharadeCardProps> = (props) => {
 
   return (
     <>
-      <span className={`${classes.category} ${classes[themeCtx.theme]}`}>
+      <span className={`${classes.category}`}>
         {icon}
         <h3>{props.category.toString().toUpperCase()}</h3>
         {icon}

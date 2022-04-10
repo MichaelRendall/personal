@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import { Routes, Route } from "react-router-dom";
+import { ThemeContext } from "./context/theme-context";
 
 import Home from "./pages/Home";
 import Header from "./components/header/Header";
@@ -9,8 +11,9 @@ import Contact from "./pages/Contact";
 import Footer from "./components/footer/Footer";
 
 const App = () => {
+  const themeCtx = useContext(ThemeContext);
   return (
-    <div className="App">
+    <div className={`App ${themeCtx.theme}`}>
       <Header />
       <main>
         <Routes>

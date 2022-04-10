@@ -1,18 +1,5 @@
 @import "../../styles/_config.scss";
 
-.default {
-  --color: #{$grey};
-}
-.yellow {
-  --color: #{$dark-yellow};
-}
-.red {
-  --color: #{$dark-pink};
-}
-.blue {
-  --color: #{$dark-blue};
-}
-
 .container {
   @include flex($fd: column, $jc: center, $gap: 2rem, $ai: baseline);
   margin: 0 0 2rem;

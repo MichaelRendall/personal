@@ -5,27 +5,5 @@
   width: 100%;
   height: 100%;
   padding: 2rem 1rem;
-}
-
-.default {
-  --dark-color: #{$mid-grey};
-}
-
-.red {
-  --dark-color: #{$dark-pink};
-}
-
-.yellow {
-  --dark-color: #{$dark-yellow};
-}
-
-.blue {
-  --dark-color: #{$dark-blue};
-}
-
-.default,
-.red,
-.yellow,
-.blue {
   background: $off-white;
 }

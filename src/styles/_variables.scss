@@ -13,7 +13,7 @@ $pastel-yellow: #fdffb6;
 $dark-yellow: #ffce00;
 
 $pastel-blue: #90dbf4;
-$dark-blue: #009BFF;
+$dark-blue: #009bff;
 
 /* Dimensions */
 $header-height-web: 6.8rem;
@@ -28,3 +28,21 @@ $transition-speed: 0.4s;
 
 /* @Media */
 $media-min-width: 40rem;
+
+/* THEME COLOURS */
+.default {
+  --color: #{$grey};
+  --pastelColour: #{$mid-grey};
+}
+.yellow {
+  --color: #{$dark-yellow};
+  --pastelColor: #{$pastel-yellow};
+}
+.red {
+  --color: #{$dark-pink};
+  --pastelColor: #{$pastel-pink};
+}
+.blue {
+  --color: #{$dark-blue};
+  --pastelColor: #{$pastel-blue};
+}

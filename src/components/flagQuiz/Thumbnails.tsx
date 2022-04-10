@@ -1,7 +1,6 @@
-import React, { useContext } from "react";
+import React from "react";
 import { useAppSelector, useAppDispatch } from "../../store/hooks";
 import { flagQuizActions } from "../../store/flag-quiz/flag-quiz-slice";
-import { ThemeContext } from "../../context/theme-context";
 
 import classes from "./Thumbnails.module.scss";
 
@@ -9,7 +8,6 @@ import Wrapper from "../UI/Wrapper";
 
 const Thumbnails: React.FC = () => {
   console.log("loading Thumbnails.tsx");
-  const themeCtx = useContext(ThemeContext);
   const dispatch = useAppDispatch();
   const activeFlags = useAppSelector((state) => state.flagQuiz.activeFlags);
   const completedFlags = useAppSelector(
@@ -41,7 +39,7 @@ const Thumbnails: React.FC = () => {
 
   return (
     <Wrapper size="auto">
-      <div className={`${classes.thumbs} ${classes[themeCtx.theme]}`}>
+      <div className={`${classes.thumbs}`}>
         {thumbnails}
         {thumbnailsCompleted}
       </div>

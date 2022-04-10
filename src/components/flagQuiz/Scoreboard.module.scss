@@ -1,22 +1,5 @@
 @import "../../styles/_config.scss";
 
-.default {
-  --color: #{$grey};
-  --pastel-color: #{$mid-grey};
-}
-.yellow {
-  --color: #{$dark-yellow};
-  --pastel-color: #{$pastel-yellow};
-}
-.red {
-  --color: #{$dark-pink};
-  --pastel-color: #{$pastel-pink};
-}
-.blue {
-  --color: #{$dark-blue};
-  --pastel-color: #{$pastel-blue};
-}
-
 .scoreboard {
   width: 100%;
 }
@@ -43,7 +26,7 @@
     }
     &:nth-of-type(2),
     &:nth-of-type(3) {
-      background-color: var(--pastel-color);
+      background-color: var(--pastelColor);
       color: $black;
     }
 

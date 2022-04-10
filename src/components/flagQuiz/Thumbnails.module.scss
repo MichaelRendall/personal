@@ -1,19 +1,5 @@
 @import "../../styles/_config.scss";
 
-.default {
-  --color: #{$grey};
-}
-.yellow {
-  --color: #{$dark-yellow};
-}
-.red {
-  --color: #{$dark-pink};
-}
-.blue {
-  --color: #{$dark-blue};
-  --pastelColor: #{$pastel-blue};
-}
-
 .thumbs {
   @include flex($fd: row, $jc: center, $fw: wrap, $gap: 0.5rem);
 

@@ -1,5 +1,4 @@
-import React, { useContext } from "react";
-import { ThemeContext } from "../../context/theme-context";
+import React from "react";
 import classes from "./Button.module.scss";
 
 interface ButtonProps {
@@ -15,9 +14,8 @@ interface ButtonProps {
 
 const Button: React.FC<ButtonProps> = (props) => {
   console.log("loading Button.tsx");
-  const themeCtx = useContext(ThemeContext);
 
-  const buttonClasses = [classes.button, classes[themeCtx.theme]];
+  const buttonClasses = [classes.button];
 
   if (props.large) {
     buttonClasses.push(classes.large);

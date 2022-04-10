@@ -1,6 +1,5 @@
-import React, { useContext, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useAppSelector } from "../../store/hooks";
-import { ThemeContext } from "../../context/theme-context";
 import { useLocation } from "react-router";
 
 import classes from "./Scoreboard.module.scss";
@@ -13,7 +12,6 @@ const Scoreboard: React.FC = () => {
   console.log("loading Scoreboard.tsx");
   const { isLoading, error, data, sendRequest } = useFetch();
   const location = useLocation();
-  const themeCtx = useContext(ThemeContext);
   const scoreSubmitted = useAppSelector(
     (state) => state.flagQuiz.scoreSubmitted
   );
@@ -48,7 +46,7 @@ const Scoreboard: React.FC = () => {
       {isLoading && <Spinner />}
       {error && <small>{error}</small>}
       {data?.flagScores && (
-        <div className={`${classes.scoreboard} ${classes[themeCtx.theme]}`}>
+        <div className={`${classes.scoreboard}`}>
           <h3>Leaderboard</h3>
           {data.flagScores.length > 0 && (
             <div className={classes.scoreboard__list}>
