@@ -9,6 +9,7 @@ import Wrapper from "../UI/Wrapper";
 const Thumbnails: React.FC = () => {
   console.log("loading Thumbnails.tsx");
   const dispatch = useAppDispatch();
+  const gameCompleted = useAppSelector((state) => state.flagQuiz.gameCompleted);
   const activeFlags = useAppSelector((state) => state.flagQuiz.activeFlags);
   const completedFlags = useAppSelector(
     (state) => state.flagQuiz.completedFlags
@@ -16,13 +17,20 @@ const Thumbnails: React.FC = () => {
   const currentFlag = useAppSelector((state) => state.flagQuiz.currentFlag);
 
   const thumbnails = activeFlags.map((flag, index) => {
+    const changeFlagHandler = () => {
+      if (gameCompleted) {
+        return;
+      }
+      dispatch(flagQuizActions.changeFlag(index));
+    };
+
     return (
       <span
         key={flag.name}
         className={`${classes.thumb} ${
-          index === currentFlag ? classes.active : ""
-        }`}
-        onClick={() => dispatch(flagQuizActions.changeFlag(index))}
+          index === currentFlag && !gameCompleted && classes.active
+        } ${gameCompleted && classes.incorrect}`}
+        onClick={changeFlagHandler}
       >
         <img src={flag.thumb} alt={`thumbnail for ${flag.name}`} />
       </span>

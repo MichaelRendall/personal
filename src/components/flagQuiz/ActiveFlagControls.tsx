@@ -44,7 +44,7 @@ const ActiveFlagControls: React.FC = () => {
       );
 
       if (updatedActiveFlags.length === 0) {
-        dispatch(flagQuizActions.completedGame(true));
+        dispatch(flagQuizActions.completedGame());
       } else {
         dispatch(flagQuizActions.nextFlag("plus"));
       }

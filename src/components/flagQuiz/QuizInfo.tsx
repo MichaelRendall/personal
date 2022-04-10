@@ -1,5 +1,6 @@
 import React from "react";
-import { useAppSelector } from "../../store/hooks";
+import { useAppSelector, useAppDispatch } from "../../store/hooks";
+import { flagQuizActions } from "../../store/flag-quiz/flag-quiz-slice";
 
 import classes from "./QuizInfo.module.scss";
 
@@ -9,6 +10,8 @@ import Scoreboard from "./Scoreboard";
 
 const QuizInfo: React.FC = () => {
   console.log("loading QuizInfo.tsx");
+  const dispatch = useAppDispatch();
+  const gameCompleted = useAppSelector((state) => state.flagQuiz.gameCompleted);
   const score = useAppSelector((state) => state.flagQuiz.score);
   const activeFlags = useAppSelector((state) => state.flagQuiz.activeFlags);
   const completedFlags = useAppSelector(
@@ -22,6 +25,11 @@ const QuizInfo: React.FC = () => {
         <h2>
           {score}/{activeFlags.length + completedFlags.length}
         </h2>
+        {!gameCompleted && (
+          <small onClick={() => dispatch(flagQuizActions.completedGame())}>
+            Give Up?
+          </small>
+        )}
       </div>
       <Scoreboard />
     </Wrapper>

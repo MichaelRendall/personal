@@ -29,6 +29,7 @@ const flagQuizSlice = createSlice({
       state.activeFlags = action.payload.activeFlags;
       state.completedFlags = [];
       state.gameCompleted = false;
+      state.scoreSubmitted = false;
       state.score = 0;
       state.finalTime = 0;
     },
@@ -55,8 +56,8 @@ const flagQuizSlice = createSlice({
       state.completedFlags = action.payload.completedFlags;
       state.score = action.payload.score;
     },
-    completedGame(state, action) {
-      state.gameCompleted = action.payload;
+    completedGame(state) {
+      state.gameCompleted = true;
     },
     changeFlag(state, action) {
       state.currentFlag = action.payload;
