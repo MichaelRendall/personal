@@ -7,7 +7,7 @@ const Hamburger = () => {
   const navCtx = useContext(NavContext);
   let content;
   content = (
-    <div>
+    <div className={classes.container}>
       <CgMenuLeft
         className={`${classes.hamburger} ${
           navCtx.drawerShowing && classes.active

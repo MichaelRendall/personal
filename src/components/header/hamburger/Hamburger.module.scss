@@ -1,12 +1,17 @@
 @import "../../../styles/_config.scss";
 
+.container {
+  @include flex($jc: flex-start, $ai: center);
+}
+
 .hamburger {
-  @include flex($fd: column, $jc: space-evenly, $ai: flex-start);
-  height: 2.25rem;
-  width: fit-content;
+  @include flex($fd: column, $jc: flex-start, $ai: flex-start);
+  height: 100%;
+  width: 2.5rem;
   padding: 0 0.5rem 0 0;
   cursor: pointer;
   transition: $transition-speed;
+  user-select: none;
 
   &:hover,
   &:active,
