@@ -15,7 +15,7 @@ const ContactForm = () => {
   const nameRef = useRef<HTMLInputElement>(null);
   const messageRef = useRef<HTMLTextAreaElement>(null);
 
-  const { isLoading, error, sendRequest } = useFetch();
+  const { data, isLoading, error, sendRequest } = useFetch();
 
   const {
     isValid: enteredNameIsValid,
@@ -39,23 +39,27 @@ const ContactForm = () => {
     }
   }, [enteredNameIsValid, enteredMessageIsValid]);
 
+  useEffect(() => {
+    if (data && !error) {
+      setSubmitted(true);
+    } else {
+      setSubmitted(false);
+    }
+  }, [data, error]);
+
   const submitHandler = async (event: React.FormEvent) => {
     event.preventDefault();
 
     await sendRequest({
       url: `${
         process.env.REACT_APP_API_URL || "http://localhost:8080"
-      }/contact/submit`,
+      }/contact/send-message`,
       method: "POST",
       body: {
         name: nameRef.current!.value,
         message: messageRef.current!.value,
       },
     });
-
-    if (!error) {
-      setSubmitted(true);
-    }
   };
 
   return (
@@ -84,6 +88,7 @@ const ContactForm = () => {
       )}
       {submitted && <p>Thanks for the message!</p>}
       {isLoading && <Spinner />}
+      {error && <small className="error">{error}</small>}
     </Wrapper>
   );
 };
