@@ -2,15 +2,25 @@
 
 Work in progress personal site which will include games and quizes
 
-Please download the code and then run
+### Links
 
-`npm install`
+- [Frontend can be found here](https://michaelrendall.co.uk/)
+- [Backend RestAPI Repo](https://github.com/MichaelRendall/personal-backend)
 
-followed by
+### Frontend built with
 
-`npm start`
+- React
+- TypeScript
+- SCSS (With CSS Modules)
+- RestAPI
+- SocketIO
 
-and going to
-http://localhost:3000
+### Screenshots
 
-Can also be found temporarily at https://michael-rendall.vercel.app/
+#### Desktop
+
+![](./src/assets/screenshots/screenshot-desktop.png)
+
+#### Mobile
+
+![](./src/assets/screenshots/screenshot-mobile.png)
