@@ -28,7 +28,9 @@ const GameHeading: React.FC<GameHeadingProps> = (props) => {
         <h1>{props.heading}</h1>
         <span></span>
       </section>
-      <Dropdown show={dropdown}>{props.children}</Dropdown>
+      {props.showSettings && (
+        <Dropdown show={dropdown}>{props.children}</Dropdown>
+      )}
     </>
   );
 };

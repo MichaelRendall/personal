@@ -32,7 +32,7 @@ const Thumbnails: React.FC = () => {
         } ${gameCompleted && classes.incorrect}`}
         onClick={changeFlagHandler}
       >
-        <img src={flag.thumb} alt={`thumbnail for ${flag.name}`} />
+        <img src={flag.src} alt={`thumbnail for ${flag.name}`} />
       </span>
     );
   });
@@ -40,7 +40,7 @@ const Thumbnails: React.FC = () => {
   const thumbnailsCompleted = completedFlags.map((flag, index) => {
     return (
       <span key={flag.name} className={`${classes.thumb} ${classes.correct}`}>
-        <img src={flag.thumb} alt={`thumbnail for ${flag.name}`} />
+        <img src={flag.src} alt={`thumbnail for ${flag.name}`} />
       </span>
     );
   });

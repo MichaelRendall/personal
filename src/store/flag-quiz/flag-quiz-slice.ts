@@ -30,6 +30,7 @@ const flagQuizSlice = createSlice({
       state.completedFlags = [];
       state.gameCompleted = false;
       state.scoreSubmitted = false;
+      state.currentFlag = 0;
       state.score = 0;
       state.finalTime = 0;
     },
