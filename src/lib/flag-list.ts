@@ -46,6 +46,43 @@ import ukraine from "../assets/flags/ukraine.svg";
 import unitedKingdom from "../assets/flags/unitedKingdom.svg";
 import vaticanCity from "../assets/flags/vaticanCity.svg";
 
+import argentina from "../assets/flags/argentina.svg";
+import bolivia from "../assets/flags/bolivia.svg";
+import brazil from "../assets/flags/brazil.svg";
+import chile from "../assets/flags/chile.svg";
+import colombia from "../assets/flags/colombia.svg";
+import ecuador from "../assets/flags/ecuador.svg";
+import guyana from "../assets/flags/guyana.svg";
+import paraguay from "../assets/flags/paraguay.svg";
+import peru from "../assets/flags/peru.svg";
+import suriname from "../assets/flags/suriname.svg";
+import uruguay from "../assets/flags/uruguay.svg";
+import venezuela from "../assets/flags/venezuela.svg";
+
+import antiguaBarbuda from "../assets/flags/antiguaBarbuda.svg";
+import bahamas from "../assets/flags/bahamas.svg";
+import barbados from "../assets/flags/barbados.svg";
+import belize from "../assets/flags/belize.svg";
+import canada from "../assets/flags/canada.svg";
+import costaRica from "../assets/flags/costaRica.svg";
+import cuba from "../assets/flags/cuba.svg";
+import dominica from "../assets/flags/dominica.svg";
+import dominicanRepublic from "../assets/flags/dominicanRepublic.svg";
+import elSalvador from "../assets/flags/elSalvador.svg";
+import grenada from "../assets/flags/grenada.svg";
+import guatemala from "../assets/flags/guatemala.svg";
+import haiti from "../assets/flags/haiti.svg";
+import honduras from "../assets/flags/honduras.svg";
+import jamaica from "../assets/flags/jamaica.svg";
+import mexico from "../assets/flags/mexico.svg";
+import nicaragua from "../assets/flags/nicaragua.svg";
+import panama from "../assets/flags/panama.svg";
+import saintKittsAndNevis from "../assets/flags/saintKittsAndNevis.svg";
+import saintLucia from "../assets/flags/saintLucia.svg";
+import saintVincent from "../assets/flags/saintVincent.svg";
+import trinidadTobago from "../assets/flags/trinidadTobago.svg";
+import usa from "../assets/flags/usa.svg";
+
 import australia from "../assets/flags/australia.jpg";
 
 const FLAG_LIST = [
@@ -283,6 +320,181 @@ const FLAG_LIST = [
     name: "Vatican City",
     continent: "europe",
     src: vaticanCity,
+  },
+  {
+    name: "Argentina",
+    continent: "southamerica",
+    src: argentina,
+  },
+  {
+    name: "Bolivia",
+    continent: "southamerica",
+    src: bolivia,
+  },
+  {
+    name: "Brazil",
+    continent: "southamerica",
+    src: brazil,
+  },
+  {
+    name: "Chile",
+    continent: "southamerica",
+    src: chile,
+  },
+  {
+    name: "Colombia",
+    continent: "southamerica",
+    src: colombia,
+  },
+  {
+    name: "Ecuador",
+    continent: "southamerica",
+    src: ecuador,
+  },
+  {
+    name: "Guyana",
+    continent: "southamerica",
+    src: guyana,
+  },
+  {
+    name: "Paraguay",
+    continent: "southamerica",
+    src: paraguay,
+  },
+  {
+    name: "Peru",
+    continent: "southamerica",
+    src: peru,
+  },
+  {
+    name: "Suriname",
+    continent: "southamerica",
+    src: suriname,
+  },
+  {
+    name: "Uruguay",
+    continent: "southamerica",
+    src: uruguay,
+  },
+  {
+    name: "Venezuela",
+    continent: "southamerica",
+    src: venezuela,
+  },
+  {
+    name: "Antigua and Barbuda",
+    continent: "northamerica",
+    src: antiguaBarbuda,
+  },
+  {
+    name: "Bahamas",
+    continent: "northamerica",
+    src: bahamas,
+  },
+  {
+    name: "Barbados",
+    continent: "northamerica",
+    src: barbados,
+  },
+  {
+    name: "Belize",
+    continent: "northamerica",
+    src: belize,
+  },
+  {
+    name: "Canada",
+    continent: "northamerica",
+    src: canada,
+  },
+  {
+    name: "Costa Rica",
+    continent: "northamerica",
+    src: costaRica,
+  },
+  {
+    name: "Cuba",
+    continent: "northamerica",
+    src: cuba,
+  },
+  {
+    name: "Dominica",
+    continent: "northamerica",
+    src: dominica,
+  },
+  {
+    name: "Dominican Republic",
+    continent: "northamerica",
+    src: dominicanRepublic,
+  },
+  {
+    name: "El Salvador",
+    continent: "northamerica",
+    src: elSalvador,
+  },
+  {
+    name: "Grenada",
+    continent: "northamerica",
+    src: grenada,
+  },
+  {
+    name: "Guatemala",
+    continent: "northamerica",
+    src: guatemala,
+  },
+  {
+    name: "Haiti",
+    continent: "northamerica",
+    src: haiti,
+  },
+  {
+    name: "Honduras",
+    continent: "northamerica",
+    src: honduras,
+  },
+  {
+    name: "Jamaica",
+    continent: "northamerica",
+    src: jamaica,
+  },
+  {
+    name: "Mexico",
+    continent: "northamerica",
+    src: mexico,
+  },
+  {
+    name: "Nicaragua",
+    continent: "northamerica",
+    src: nicaragua,
+  },
+  {
+    name: "Panama",
+    continent: "northamerica",
+    src: panama,
+  },
+  {
+    name: "Saint Kitts and Nevis",
+    continent: "northamerica",
+    src: saintKittsAndNevis,
+  },
+  {
+    name: "Saint Lucia",
+    continent: "northamerica",
+    src: saintLucia,
+  },
+  {
+    name: "Saint Vincent and the Grenadines",
+    continent: "northamerica",
+    src: saintVincent,
+  },
+  {
+    name: "Trinidad and Tobago",
+    continent: "northamerica",
+    src: trinidadTobago,
+  },
+  {
+    name: "United States of America",
+    continent: "northamerica",
+    src: usa,
   },
   {
     name: "Australia",
