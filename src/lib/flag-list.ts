@@ -83,6 +83,55 @@ import saintVincent from "../assets/flags/saintVincent.svg";
 import trinidadTobago from "../assets/flags/trinidadTobago.svg";
 import usa from "../assets/flags/usa.svg";
 
+import afghanistan from "../assets/flags/afghanistan.svg";
+import armenia from "../assets/flags/armenia.svg";
+import azerbaijan from "../assets/flags/azerbaijan.svg";
+import bahrain from "../assets/flags/bahrain.svg";
+import bangladesh from "../assets/flags/bangladesh.svg";
+import bhutan from "../assets/flags/bhutan.svg";
+import brunei from "../assets/flags/brunei.svg";
+import cambodia from "../assets/flags/cambodia.svg";
+import china from "../assets/flags/china.svg";
+import georgia from "../assets/flags/georgia.svg";
+import india from "../assets/flags/india.svg";
+import indonesia from "../assets/flags/indonesia.svg";
+import iran from "../assets/flags/iran.svg";
+import iraq from "../assets/flags/iraq.svg";
+import israel from "../assets/flags/israel.svg";
+import japan from "../assets/flags/japan.svg";
+//import jordan from "../assets/flags/jordan.svg";
+import kazakhstan from "../assets/flags/kazakhstan.svg";
+import kuwait from "../assets/flags/kuwait.svg";
+import kyrgyzstan from "../assets/flags/kyrgyzstan.svg";
+import laos from "../assets/flags/laos.svg";
+import lebanon from "../assets/flags/lebanon.svg";
+import malaysia from "../assets/flags/malaysia.svg";
+import maldives from "../assets/flags/maldives.svg";
+import mongolia from "../assets/flags/mongolia.svg";
+import myanmar from "../assets/flags/myanmar.svg";
+import nepal from "../assets/flags/nepal.svg";
+import northKorea from "../assets/flags/northKorea.svg";
+import oman from "../assets/flags/oman.svg";
+import pakistan from "../assets/flags/pakistan.svg";
+import palestine from "../assets/flags/palestine.svg";
+import philippines from "../assets/flags/philippines.svg";
+import qatar from "../assets/flags/qatar.svg";
+import saudiArabia from "../assets/flags/saudiArabia.svg";
+import singapore from "../assets/flags/singapore.svg";
+import southKorea from "../assets/flags/southKorea.svg";
+import sriLanka from "../assets/flags/sriLanka.svg";
+import syria from "../assets/flags/syria.svg";
+import taiwan from "../assets/flags/taiwan.svg";
+import tajikistan from "../assets/flags/tajikistan.svg";
+import thailand from "../assets/flags/thailand.svg";
+import timorLeste from "../assets/flags/timorLeste.svg";
+import turkey from "../assets/flags/turkey.svg";
+import turkmenistan from "../assets/flags/turkmenistan.svg";
+import uae from "../assets/flags/uae.svg";
+import uzbekistan from "../assets/flags/uzbekistan.svg";
+import vietnam from "../assets/flags/vietnam.svg";
+import yemen from "../assets/flags/yemen.svg";
+
 import australia from "../assets/flags/australia.jpg";
 
 const FLAG_LIST = [
@@ -495,6 +544,246 @@ const FLAG_LIST = [
     name: "United States of America",
     continent: "northamerica",
     src: usa,
+  },
+  {
+    name: "Afghanistan",
+    continent: "asia",
+    src: afghanistan,
+  },
+  {
+    name: "Armenia",
+    continent: "asia",
+    src: armenia,
+  },
+  {
+    name: "Azerbaijan",
+    continent: "asia",
+    src: azerbaijan,
+  },
+  {
+    name: "Bahrain",
+    continent: "asia",
+    src: bahrain,
+  },
+  {
+    name: "Bangladesh",
+    continent: "asia",
+    src: bangladesh,
+  },
+  {
+    name: "Bhutan",
+    continent: "asia",
+    src: bhutan,
+  },
+  {
+    name: "Brunei",
+    continent: "asia",
+    src: brunei,
+  },
+  {
+    name: "Cambodia",
+    continent: "asia",
+    src: cambodia,
+  },
+  {
+    name: "China",
+    continent: "asia",
+    src: china,
+  },
+  {
+    name: "Georgia",
+    continent: "asia",
+    src: georgia,
+  },
+  {
+    name: "India",
+    continent: "asia",
+    src: india,
+  },
+  {
+    name: "Indonesia",
+    continent: "asia",
+    src: indonesia,
+  },
+  {
+    name: "Iran",
+    continent: "asia",
+    src: iran,
+  },
+  {
+    name: "Iraq",
+    continent: "asia",
+    src: iraq,
+  },
+  {
+    name: "Israel",
+    continent: "asia",
+    src: israel,
+  },
+  {
+    name: "Japan",
+    continent: "asia",
+    src: japan,
+  },
+  /* {
+    name: "Joran",
+    continent: "asia",
+    src: jordan,
+  }, */
+  {
+    name: "Kazakhstan",
+    continent: "asia",
+    src: kazakhstan,
+  },
+  {
+    name: "Kuwait",
+    continent: "asia",
+    src: kuwait,
+  },
+  {
+    name: "Kyrgyzstan",
+    continent: "asia",
+    src: kyrgyzstan,
+  },
+  {
+    name: "Laos",
+    continent: "asia",
+    src: laos,
+  },
+  {
+    name: "Lebanon",
+    continent: "asia",
+    src: lebanon,
+  },
+  {
+    name: "Malaysia",
+    continent: "asia",
+    src: malaysia,
+  },
+  {
+    name: "Maldives",
+    continent: "asia",
+    src: maldives,
+  },
+  {
+    name: "Mongolia",
+    continent: "asia",
+    src: mongolia,
+  },
+  {
+    name: "Myanmar",
+    continent: "asia",
+    src: myanmar,
+  },
+  {
+    name: "Nepal",
+    continent: "asia",
+    src: nepal,
+  },
+  {
+    name: "North Korea",
+    continent: "asia",
+    src: northKorea,
+  },
+  {
+    name: "Oman",
+    continent: "asia",
+    src: oman,
+  },
+  {
+    name: "Pakistan",
+    continent: "asia",
+    src: pakistan,
+  },
+  {
+    name: "Palestine",
+    continent: "asia",
+    src: palestine,
+  },
+  {
+    name: "Philippines",
+    continent: "asia",
+    src: philippines,
+  },
+  {
+    name: "Qatar",
+    continent: "asia",
+    src: qatar,
+  },
+  {
+    name: "Saudi Arabia",
+    continent: "asia",
+    src: saudiArabia,
+  },
+  {
+    name: "Singapore",
+    continent: "asia",
+    src: singapore,
+  },
+  {
+    name: "South Korea",
+    continent: "asia",
+    src: southKorea,
+  },
+  {
+    name: "Sri Lanka",
+    continent: "asia",
+    src: sriLanka,
+  },
+  {
+    name: "Syria",
+    continent: "asia",
+    src: syria,
+  },
+  {
+    name: "Taiwan",
+    continent: "asia",
+    src: taiwan,
+  },
+  {
+    name: "Tajikistan",
+    continent: "asia",
+    src: tajikistan,
+  },
+  {
+    name: "Thailand",
+    continent: "asia",
+    src: thailand,
+  },
+  {
+    name: "Timor-Leste",
+    continent: "asia",
+    src: timorLeste,
+  },
+  {
+    name: "Turkey",
+    continent: "asia",
+    src: turkey,
+  },
+  {
+    name: "Turkmenistan",
+    continent: "asia",
+    src: turkmenistan,
+  },
+  {
+    name: "United Arab Emirates",
+    continent: "asia",
+    src: uae,
+  },
+  {
+    name: "Uzbekistan",
+    continent: "asia",
+    src: uzbekistan,
+  },
+  {
+    name: "Vietnam",
+    continent: "asia",
+    src: vietnam,
+  },
+  {
+    name: "Yemen",
+    continent: "asia",
+    src: yemen,
   },
   {
     name: "Australia",
