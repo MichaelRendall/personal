@@ -23,10 +23,11 @@ const ActiveFlagControls: React.FC = () => {
 
   const checkAnswerHandler = () => {
     if (
-      answerRef.current?.value.toLowerCase() ===
-      activeFlags[currentFlag].name.toLowerCase()
+      activeFlags[currentFlag].acceptable.includes(
+        answerRef.current!.value.toLowerCase()
+      )
     ) {
-      answerRef.current.value = "";
+      answerRef.current!.value = "";
       const updatedCompletedFlags = completedFlags.concat(
         activeFlags[currentFlag]
       );

@@ -42,7 +42,7 @@ const Flags = () => {
 
       if (filterName[0] === "f") {
         activeFlags = activeFlags.filter(
-          (singleFlag: FlagList) => singleFlag[filterName[1]] === filter[1]
+          (singleFlag: any) => singleFlag[filterName[1]] === filter[1]
         );
       }
     }
