@@ -14,7 +14,7 @@ import faroeIslands from "../assets/flags/faroeIslands.svg";
 import finland from "../assets/flags/finland.svg";
 import france from "../assets/flags/france.svg";
 import germany from "../assets/flags/germany.svg";
-import gibraltar from "../assets/flags/gibraltar.svg";
+//import gibraltar from "../assets/flags/gibraltar.svg";
 import greece from "../assets/flags/greece.svg";
 import hungary from "../assets/flags/hungary.svg";
 import iceland from "../assets/flags/iceland.svg";
@@ -132,7 +132,75 @@ import uzbekistan from "../assets/flags/uzbekistan.svg";
 import vietnam from "../assets/flags/vietnam.svg";
 import yemen from "../assets/flags/yemen.svg";
 
-import australia from "../assets/flags/australia.jpg";
+import algeria from "../assets/flags/algeria.svg";
+import angola from "../assets/flags/angola.svg";
+import benin from "../assets/flags/benin.svg";
+import botswana from "../assets/flags/botswana.svg";
+import burkinaFaso from "../assets/flags/burkinaFaso.svg";
+import burundi from "../assets/flags/burundi.svg";
+import cameroon from "../assets/flags/cameroon.svg";
+import capeVerde from "../assets/flags/capeVerde.svg";
+import car from "../assets/flags/car.svg";
+import chad from "../assets/flags/chad.svg";
+import comoros from "../assets/flags/comoros.svg";
+import drc from "../assets/flags/drc.svg";
+import djibouti from "../assets/flags/djibouti.svg";
+import egypt from "../assets/flags/egypt.svg";
+import equatorialGuinea from "../assets/flags/equatorialGuinea.svg";
+import eritrea from "../assets/flags/eritrea.svg";
+import eswatini from "../assets/flags/eswatini.svg";
+import ethiopia from "../assets/flags/ethiopia.svg";
+import gabon from "../assets/flags/gabon.svg";
+import gambia from "../assets/flags/gambia.svg";
+import ghana from "../assets/flags/ghana.svg";
+import guinea from "../assets/flags/guinea.svg";
+import guineaBissau from "../assets/flags/guineaBissau.svg";
+import ivoryCoast from "../assets/flags/ivoryCoast.svg";
+import kenya from "../assets/flags/kenya.svg";
+import lesotho from "../assets/flags/lesotho.svg";
+import liberia from "../assets/flags/liberia.svg";
+import libya from "../assets/flags/libya.svg";
+import madagascar from "../assets/flags/madagascar.svg";
+import malawi from "../assets/flags/malawi.svg";
+import mali from "../assets/flags/mali.svg";
+import mauritania from "../assets/flags/mauritania.svg";
+import mauritius from "../assets/flags/mauritius.svg";
+import morocco from "../assets/flags/morocco.svg";
+import mozambique from "../assets/flags/mozambique.svg";
+import namibia from "../assets/flags/namibia.svg";
+import niger from "../assets/flags/niger.svg";
+import nigeria from "../assets/flags/nigeria.svg";
+//import roc from '../assets/flags/roc.svg';
+import rwanda from "../assets/flags/rwanda.svg";
+import saoTome from "../assets/flags/saoTome.svg";
+import senegal from "../assets/flags/senegal.svg";
+import seychelles from "../assets/flags/seychelles.svg";
+import sierraLeone from "../assets/flags/sierraLeone.svg";
+import somalia from "../assets/flags/somalia.svg";
+import southAfrica from "../assets/flags/southAfrica.svg";
+import southSudan from "../assets/flags/southSudan.svg";
+import sudan from "../assets/flags/sudan.svg";
+import tanzania from "../assets/flags/tanzania.svg";
+import togo from "../assets/flags/togo.svg";
+import tunisia from "../assets/flags/tunisia.svg";
+import uganda from "../assets/flags/uganda.svg";
+import zambia from "../assets/flags/zambia.svg";
+import zimbabwe from "../assets/flags/zimbabwe.svg";
+
+import australia from "../assets/flags/australia.svg";
+import fiji from "../assets/flags/fiji.svg";
+import kiribati from "../assets/flags/kiribati.svg";
+import micronesia from "../assets/flags/micronesia.svg";
+import marshallIslands from "../assets/flags/marshallIslands.svg";
+import nauru from "../assets/flags/nauru.svg";
+import newZealand from "../assets/flags/newZealand.svg";
+import palau from "../assets/flags/palau.svg";
+import papuaNewGuinea from "../assets/flags/papuaNewGuinea.svg";
+import samoa from "../assets/flags/samoa.svg";
+import solomonIslands from "../assets/flags/solomonIslands.svg";
+import tonga from "../assets/flags/tonga.svg";
+import tuvalu from "../assets/flags/tuvalu.svg";
+import vanuatu from "../assets/flags/vanuatu.svg";
 
 const FLAG_LIST = [
   {
@@ -215,11 +283,11 @@ const FLAG_LIST = [
     continent: "europe",
     src: germany,
   },
-  {
+  /* {
     name: "Gibraltar",
     continent: "europe",
     src: gibraltar,
-  },
+  }, */
   {
     name: "Greece",
     continent: "europe",
@@ -786,9 +854,344 @@ const FLAG_LIST = [
     src: yemen,
   },
   {
+    name: "Algeria",
+    continent: "africa",
+    src: algeria,
+  },
+  {
+    name: "Angola",
+    continent: "africa",
+    src: angola,
+  },
+  {
+    name: "Benin",
+    continent: "africa",
+    src: benin,
+  },
+  {
+    name: "Botswana",
+    continent: "africa",
+    src: botswana,
+  },
+  {
+    name: "Burkina Faso",
+    continent: "africa",
+    src: burkinaFaso,
+  },
+  {
+    name: "Burundi",
+    continent: "africa",
+    src: burundi,
+  },
+  {
+    name: "Cameroon",
+    continent: "africa",
+    src: cameroon,
+  },
+  {
+    name: "Cape Verde",
+    continent: "africa",
+    src: capeVerde,
+  },
+  {
+    name: "Central African Republic",
+    continent: "africa",
+    src: car,
+  },
+  {
+    name: "Chad",
+    continent: "africa",
+    src: chad,
+  },
+  {
+    name: "Comoros",
+    continent: "africa",
+    src: comoros,
+  },
+  {
+    name: "Democratic Republic of Congo",
+    continent: "africa",
+    src: drc,
+  },
+  {
+    name: "Djibouti",
+    continent: "africa",
+    src: djibouti,
+  },
+  {
+    name: "Egypt",
+    continent: "africa",
+    src: egypt,
+  },
+  {
+    name: "Equatorial Guinea",
+    continent: "africa",
+    src: equatorialGuinea,
+  },
+  {
+    name: "Eritrea",
+    continent: "africa",
+    src: eritrea,
+  },
+  {
+    name: "Eswatini",
+    continent: "africa",
+    src: eswatini,
+  },
+  {
+    name: "Ethiopia",
+    continent: "africa",
+    src: ethiopia,
+  },
+  {
+    name: "Gabon",
+    continent: "africa",
+    src: gabon,
+  },
+  {
+    name: "Gambia",
+    continent: "africa",
+    src: gambia,
+  },
+  {
+    name: "Ghana",
+    continent: "africa",
+    src: ghana,
+  },
+  {
+    name: "Guinea",
+    continent: "africa",
+    src: guinea,
+  },
+  {
+    name: "Guinea-Bissau",
+    continent: "africa",
+    src: guineaBissau,
+  },
+  {
+    name: "Ivory Coast",
+    continent: "africa",
+    src: ivoryCoast,
+  },
+  {
+    name: "Kenya",
+    continent: "africa",
+    src: kenya,
+  },
+  {
+    name: "Lesotho",
+    continent: "africa",
+    src: lesotho,
+  },
+  {
+    name: "Liberia",
+    continent: "africa",
+    src: liberia,
+  },
+  {
+    name: "Libya",
+    continent: "africa",
+    src: libya,
+  },
+  {
+    name: "Madagascar",
+    continent: "africa",
+    src: madagascar,
+  },
+  {
+    name: "Malawi",
+    continent: "africa",
+    src: malawi,
+  },
+  {
+    name: "Mali",
+    continent: "africa",
+    src: mali,
+  },
+  {
+    name: "Mauritania",
+    continent: "africa",
+    src: mauritania,
+  },
+  {
+    name: "Mauritius",
+    continent: "africa",
+    src: mauritius,
+  },
+  {
+    name: "Morocca",
+    continent: "africa",
+    src: morocco,
+  },
+  {
+    name: "Mozambique",
+    continent: "africa",
+    src: mozambique,
+  },
+  {
+    name: "Namibia",
+    continent: "africa",
+    src: namibia,
+  },
+  {
+    name: "Niger",
+    continent: "africa",
+    src: niger,
+  },
+  {
+    name: "Nigeria",
+    continent: "africa",
+    src: nigeria,
+  },
+  /* {
+    name: "Republic of Congo",
+    continent: "africa",
+    src: roc,
+  }, */
+  {
+    name: "Rwanda",
+    continent: "africa",
+    src: rwanda,
+  },
+  {
+    name: "Sao Tome and Principe",
+    continent: "africa",
+    src: saoTome,
+  },
+  {
+    name: "Senegal",
+    continent: "africa",
+    src: senegal,
+  },
+  {
+    name: "Seychelles",
+    continent: "africa",
+    src: seychelles,
+  },
+  {
+    name: "Sierra Leone",
+    continent: "africa",
+    src: sierraLeone,
+  },
+  {
+    name: "Somalia",
+    continent: "africa",
+    src: somalia,
+  },
+  {
+    name: "South Africa",
+    continent: "africa",
+    src: southAfrica,
+  },
+  {
+    name: "South Sudan",
+    continent: "africa",
+    src: southSudan,
+  },
+  {
+    name: "Sudan",
+    continent: "africa",
+    src: sudan,
+  },
+  {
+    name: "Tanzania",
+    continent: "africa",
+    src: tanzania,
+  },
+  {
+    name: "Togo",
+    continent: "africa",
+    src: togo,
+  },
+  {
+    name: "Tunisia",
+    continent: "africa",
+    src: tunisia,
+  },
+  {
+    name: "Uganda",
+    continent: "africa",
+    src: uganda,
+  },
+  {
+    name: "Zambia",
+    continent: "africa",
+    src: zambia,
+  },
+  {
+    name: "Zimbabwe",
+    continent: "africa",
+    src: zimbabwe,
+  },
+  {
     name: "Australia",
     continent: "oceania",
     src: australia,
+  },
+  {
+    name: "Fiji",
+    continent: "oceania",
+    src: fiji,
+  },
+  {
+    name: "Kiribati",
+    continent: "oceania",
+    src: kiribati,
+  },
+  {
+    name: "Marshall Islands",
+    continent: "oceania",
+    src: marshallIslands,
+  },
+  {
+    name: "Micronesia",
+    continent: "oceania",
+    src: micronesia,
+  },
+  {
+    name: "Nauru",
+    continent: "oceania",
+    src: nauru,
+  },
+  {
+    name: "New Zealand",
+    continent: "oceania",
+    src: newZealand,
+  },
+  {
+    name: "Palau",
+    continent: "oceania",
+    src: palau,
+  },
+  {
+    name: "Papua New Guinea",
+    continent: "oceania",
+    src: papuaNewGuinea,
+  },
+  {
+    name: "Samoa",
+    continent: "oceania",
+    src: samoa,
+  },
+  {
+    name: "Solomon Islands",
+    continent: "oceania",
+    src: solomonIslands,
+  },
+  {
+    name: "Tonga",
+    continent: "oceania",
+    src: tonga,
+  },
+  {
+    name: "Tuvalu",
+    continent: "oceania",
+    src: tuvalu,
+  },
+  {
+    name: "Vanuatu",
+    continent: "oceania",
+    src: vanuatu,
   },
 ];
 
