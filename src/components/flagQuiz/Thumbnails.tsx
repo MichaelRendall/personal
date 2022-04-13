@@ -46,7 +46,7 @@ const Thumbnails: React.FC = () => {
   });
 
   return (
-    <Wrapper size="auto">
+    <Wrapper size="fixedLarge">
       <div className={`${classes.thumbs}`}>
         {thumbnails}
         {thumbnailsCompleted}

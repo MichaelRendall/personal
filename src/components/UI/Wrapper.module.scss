@@ -23,6 +23,11 @@
   max-width: 40rem;
 }
 
+.fixedLarge {
+  width: 100%;
+  max-width: 62rem;
+}
+
 .aside {
   width: 100%;
   @media (min-width: $media-min-width) {
