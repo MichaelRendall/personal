@@ -87,7 +87,7 @@ const ContactForm = () => {
           <Input
             id="email"
             type="email"
-            placeholder="Email"
+            placeholder="Your email"
             refValue={emailRef}
             invalid={emailInputHasError}
             onBlur={emailBlurHandler}

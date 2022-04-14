@@ -11,7 +11,6 @@ import QuizContainer from "../components/flagQuiz/QuizContainer";
 
 const Flags = () => {
   document.title = "Flags | Michael Rendall";
-  console.log("loading Flags.tsx");
 
   const themeCtx = useContext(ThemeContext);
   useEffect(() => {
