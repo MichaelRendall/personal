@@ -18,7 +18,7 @@ const Home = () => {
     <section className={classes.cardSection}>
       <Card header="Charades" url="/charades" />
       <Card header="Paper Game" url="/paper-game" unfinished />
-      <Card header="Flag Quiz" url="/flags" unfinished />
+      <Card header="Flag Quiz" url="/flags" />
     </section>
   );
 };
