@@ -25,3 +25,14 @@ export const continentOptions = [
   { value: "oceania", label: "Oceania" },
   { value: "southamerica", label: "South America" },
 ];
+
+export const colourOptions = [
+  { value: "black", label: "Black" },
+  { value: "blue", label: "Blue" },
+  { value: "green", label: "Green" },
+  { value: "maroon", label: "Maroon" },
+  { value: "orange", label: "Orange" },
+  { value: "red", label: "Red" },
+  { value: "white", label: "White" },
+  { value: "yellow", label: "Yellow" },
+];

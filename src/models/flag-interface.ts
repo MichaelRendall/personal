@@ -3,6 +3,7 @@ interface FlagList {
   continent: string;
   src: string;
   acceptable: string[];
+  colours: string[];
 }
 
 export default FlagList;

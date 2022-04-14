@@ -31,13 +31,13 @@ const SubmitScore: React.FC<SubmitScoreProps> = (props) => {
     const queryParams = new URLSearchParams(location.search);
     const filters = queryParams.entries();
 
-    let filterList = { continent: "all" };
+    let filterList = { continent: "all", colours: "all" };
     for (const filter of filters) {
       const filterName = filter[0].split("-");
 
       filterList = { ...filterList, [filterName[1]]: filter[1] };
     }
-
+	
     await sendRequest({
       url: `${
         process.env.REACT_APP_API_URL || "http://localhost:8080"

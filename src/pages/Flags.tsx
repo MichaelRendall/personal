@@ -7,7 +7,7 @@ import { ThemeContext } from "../context/theme-context";
 import Theme from "../models/theme-enum";
 import FlagList from "../models/flag-interface";
 import FLAG_LIST from "../lib/flag-list";
-import { continentOptions } from "../lib/filter-options";
+import { colourOptions, continentOptions } from "../lib/filter-options";
 
 import GameHeading from "../components/GameHeading/GameHeading";
 import FlagQuiz from "../components/flagQuiz/FlagQuiz";
@@ -41,9 +41,12 @@ const Flags = () => {
       const filterName = filter[0].split("-");
 
       if (filterName[0] === "f") {
-        activeFlags = activeFlags.filter(
-          (singleFlag: any) => singleFlag[filterName[1]] === filter[1]
-        );
+        activeFlags = activeFlags.filter((singleFlag: any) => {
+          if (Array.isArray(singleFlag[filterName[1]])) {
+            return singleFlag[filterName[1]].includes(filter[1]);
+          }
+          return singleFlag[filterName[1]] === filter[1];
+        });
       }
     }
 
@@ -93,6 +96,13 @@ const Flags = () => {
           options={continentOptions}
           param="f-continent"
           placeholder="All Continents"
+        />
+        <Select
+          id="colours"
+          label="Colour"
+          options={colourOptions}
+          param="f-colours"
+          placeholder="All Colours"
         />
       </GameHeading>
       <Container>
