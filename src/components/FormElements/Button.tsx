@@ -13,7 +13,6 @@ interface ButtonProps {
 }
 
 const Button: React.FC<ButtonProps> = (props) => {
-  console.log("loading Button.tsx");
 
   const buttonClasses = [classes.button];
 

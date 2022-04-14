@@ -13,7 +13,6 @@ interface SubmitScoreProps {
 }
 
 const SubmitScore: React.FC<SubmitScoreProps> = (props) => {
-  console.log("loading SubmitScore.tsx");
   const dispatch = useAppDispatch();
   const score = useAppSelector((state) => state.flagQuiz.score);
   const finalTime = useAppSelector((state) => state.flagQuiz.finalTime);

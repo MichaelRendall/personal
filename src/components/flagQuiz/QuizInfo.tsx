@@ -9,7 +9,6 @@ import Stopwatch from "../timer/Stopwatch";
 import Scoreboard from "./Scoreboard";
 
 const QuizInfo: React.FC = () => {
-  console.log("loading QuizInfo.tsx");
   const dispatch = useAppDispatch();
   const gameCompleted = useAppSelector((state) => state.flagQuiz.gameCompleted);
   const score = useAppSelector((state) => state.flagQuiz.score);

@@ -9,7 +9,6 @@ import useFetch from "../../hooks/useFetch";
 import Spinner from "../UI/Spinner";
 
 const Scoreboard: React.FC = () => {
-  console.log("loading Scoreboard.tsx");
   const { isLoading, error, data, sendRequest } = useFetch();
   const location = useLocation();
   const scoreSubmitted = useAppSelector(
@@ -21,7 +20,7 @@ const Scoreboard: React.FC = () => {
       const queryParams = new URLSearchParams(location.search);
       const filters = queryParams.entries();
 
-      let filterList = { continent: "all" };
+      let filterList = { continent: "all", $colours: "all" };
       for (const filter of filters) {
         const filterName = filter[0].split("-");
 
@@ -43,8 +42,6 @@ const Scoreboard: React.FC = () => {
 
   return (
     <>
-      {isLoading && <Spinner />}
-      {error && <small>{error}</small>}
       {data?.flagScores && (
         <div className="width100">
           <h3>Leaderboard</h3>
@@ -81,6 +78,8 @@ const Scoreboard: React.FC = () => {
           {data.flagScores.length === 0 && <small>No Scores Set</small>}
         </div>
       )}
+      {error && <small>{error}</small>}
+      {isLoading && <Spinner />}
     </>
   );
 };

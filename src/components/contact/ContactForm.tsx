@@ -13,6 +13,7 @@ const ContactForm = () => {
   const [formValid, setFormValid] = useState(false);
 
   const nameRef = useRef<HTMLInputElement>(null);
+  const emailRef = useRef<HTMLInputElement>(null);
   const messageRef = useRef<HTMLTextAreaElement>(null);
 
   const { data, isLoading, error, sendRequest } = useFetch();
@@ -25,6 +26,13 @@ const ContactForm = () => {
   } = useValidator(isNotEmpty);
 
   const {
+    isValid: enteredEmailIsValid,
+    hasError: emailInputHasError,
+    valueChangeHandler: emailChangeHandler,
+    inputBlurHandler: emailBlurHandler,
+  } = useValidator(isNotEmpty);
+
+  const {
     isValid: enteredMessageIsValid,
     hasError: messageInputHasError,
     valueChangeHandler: messageChangeHandler,
@@ -32,12 +40,12 @@ const ContactForm = () => {
   } = useValidator(isNotEmpty);
 
   useEffect(() => {
-    if (enteredNameIsValid && enteredMessageIsValid) {
+    if (enteredNameIsValid && enteredEmailIsValid && enteredMessageIsValid) {
       setFormValid(true);
     } else {
       setFormValid(false);
     }
-  }, [enteredNameIsValid, enteredMessageIsValid]);
+  }, [enteredNameIsValid, enteredEmailIsValid, enteredMessageIsValid]);
 
   useEffect(() => {
     if (data && !error) {
@@ -57,6 +65,7 @@ const ContactForm = () => {
       method: "POST",
       body: {
         name: nameRef.current!.value,
+        email: emailRef.current!.value,
         message: messageRef.current!.value,
       },
     });
@@ -74,6 +83,15 @@ const ContactForm = () => {
             invalid={nameInputHasError}
             onBlur={nameBlurHandler}
             onChange={nameChangeHandler}
+          />
+          <Input
+            id="email"
+            type="email"
+            placeholder="Email"
+            refValue={emailRef}
+            invalid={emailInputHasError}
+            onBlur={emailBlurHandler}
+            onChange={emailChangeHandler}
           />
           <Textarea
             id="message"

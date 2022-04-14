@@ -13,7 +13,6 @@ interface FlagQuizProps {
 }
 
 const FlagQuiz: React.FC<FlagQuizProps> = (props) => {
-  console.log("loading FlagsQuiz.tsx");
   const gameCompleted = useAppSelector((state) => state.flagQuiz.gameCompleted);
 
   return (

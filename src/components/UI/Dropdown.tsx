@@ -7,7 +7,6 @@ interface DropdownProps {
 }
 
 const Dropdown: React.FC<DropdownProps> = (props) => {
-  console.log("Dropdown.tsx");
   const nodeRef = useRef(null);
   return (
     <CSSTransition

@@ -7,7 +7,6 @@ import classes from "./Thumbnails.module.scss";
 import Wrapper from "../UI/Wrapper";
 
 const Thumbnails: React.FC = () => {
-  console.log("loading Thumbnails.tsx");
   const dispatch = useAppDispatch();
   const gameCompleted = useAppSelector((state) => state.flagQuiz.gameCompleted);
   const activeFlags = useAppSelector((state) => state.flagQuiz.activeFlags);
@@ -25,7 +24,7 @@ const Thumbnails: React.FC = () => {
     };
 
     return (
-      <span
+      <figure
         key={flag.name}
         className={`${classes.thumb} ${
           index === currentFlag && !gameCompleted && classes.active
@@ -33,15 +32,15 @@ const Thumbnails: React.FC = () => {
         onClick={changeFlagHandler}
       >
         <img src={flag.src} alt={`thumbnail for ${flag.name}`} />
-      </span>
+      </figure>
     );
   });
 
   const thumbnailsCompleted = completedFlags.map((flag, index) => {
     return (
-      <span key={flag.name} className={`${classes.thumb} ${classes.correct}`}>
+      <figure key={flag.name} className={`${classes.thumb} ${classes.correct}`}>
         <img src={flag.src} alt={`thumbnail for ${flag.name}`} />
-      </span>
+      </figure>
     );
   });
 

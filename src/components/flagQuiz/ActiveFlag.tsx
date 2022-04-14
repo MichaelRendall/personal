@@ -10,19 +10,18 @@ const ActiveFlag: React.FC = () => {
   const activeFlags = useAppSelector((state) => state.flagQuiz.activeFlags);
   const currentFlag = useAppSelector((state) => state.flagQuiz.currentFlag);
 
-  console.log("ActiveFlag.tsx");
   return (
     <Wrapper>
       {activeFlags[currentFlag] && (
         <>
           <ActiveFlagControls />
-          <div className={classes.flagContainer}>
+          <figure className={classes.flagContainer}>
             <img
               className="imageContain"
               src={activeFlags[currentFlag].src}
               alt={`flag of ${activeFlags[currentFlag].name}`}
             />
-          </div>
+          </figure>
         </>
       )}
     </Wrapper>

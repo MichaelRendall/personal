@@ -7,7 +7,6 @@ import classes from "./ActiveFlagControls.module.scss";
 import { Button, Input } from "../FormElements";
 
 const ActiveFlagControls: React.FC = () => {
-  console.log("loading ActiveFlagControls.tsx");
   const answerRef = useRef<HTMLInputElement>(null);
   const dispatch = useAppDispatch();
 
