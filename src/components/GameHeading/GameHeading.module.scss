@@ -16,17 +16,11 @@
 .icon {
   @include flex($jc: flex-start, $ai: center);
   color: $grey;
-  font-size: 1.5rem;
-  user-select: none;
 
   svg {
-    padding: 0 0.5rem 0 0;
-    width: 2rem;
-    cursor: pointer;
-    transition: $transition-speed;
+    @include iconBtn();
 
     &:hover,
-    &:active,
     &.active {
       color: var(--color);
     }

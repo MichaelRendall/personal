@@ -2,25 +2,20 @@
 
 .background {
   @include flex($jc: center, $ai: center);
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100%;
+  @include size($w: 100%, $h: 100%);
+  @include absolute($t: 0);
   background: $white;
   opacity: 0.75;
 }
 
 .spinner {
   @include flex($jc: center, $ai: center);
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100%;
+  @include size($w: 100%, $h: 100%);
+  @include absolute($t: 0);
 
   &:after {
     @include pseudo($pos: relative);
-    width: 24px;
-    height: 24px;
+    @include size($w: 24px, $h: 24px);
     margin: 0;
     border-radius: 50%;
     border: 4px solid $grey;

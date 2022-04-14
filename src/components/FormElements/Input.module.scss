@@ -1,7 +1,6 @@
 @import "../../styles/_config.scss";
 
 .input {
-  width: 100%;
   padding: 1rem;
   border: 1px solid $mid-grey;
   border-radius: 8px;
@@ -12,8 +11,7 @@
 }
 
 .invalid__icon {
-  position: absolute;
-  right: 0;
+  @include absolute($r: 0);
   height: 100%;
   color: $dark-pink;
   font-size: 1.25rem;

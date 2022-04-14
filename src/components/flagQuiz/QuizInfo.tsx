@@ -20,7 +20,7 @@ const QuizInfo: React.FC = () => {
 
   return (
     <Wrapper size="aside">
-      <div className={classes.QuizInfo__header}>
+      <div className={`${classes.QuizInfo__header} width100`}>
         <Stopwatch />
         <h2>
           {score}/{activeFlags.length + completedFlags.length}

@@ -2,12 +2,11 @@
 
 .QuizInfo__header {
   @include flex($fd: row, $jc: space-between, $ai: center);
-  width: 100%;
 
   small {
     color: var(--color);
-    cursor: pointer;
     font-weight: 500;
+    cursor: pointer;
 
     &:hover {
       text-decoration: underline;

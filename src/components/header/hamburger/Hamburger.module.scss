@@ -6,15 +6,9 @@
 
 .hamburger {
   @include flex($fd: column, $jc: flex-start, $ai: flex-start);
-  height: 100%;
-  width: 2.5rem;
-  padding: 0 0.5rem 0 0;
-  cursor: pointer;
-  transition: $transition-speed;
-  user-select: none;
+  @include iconBtn($w: 2.5rem);
 
   &:hover,
-  &:active,
   &.active {
     color: var(--color);
   }

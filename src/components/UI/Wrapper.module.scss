@@ -19,13 +19,11 @@
 }
 
 .fixed {
-  width: 100%;
-  max-width: 40rem;
+  @include size($w: 100%, $maxw: 40rem);
 }
 
 .fixedLarge {
-  width: 100%;
-  max-width: 62rem;
+  @include size($w: 100%, $maxw: 62rem);
 }
 
 .aside {

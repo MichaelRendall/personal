@@ -92,7 +92,7 @@ const Select: React.FC<SelectProps> = (props) => {
           <span className={classes.arrow}></span>
         </div>
         {open && (
-          <div className={classes.select__options}>
+          <div className={`${classes.select__options} width100`}>
             <ul>{listItems}</ul>
           </div>
         )}

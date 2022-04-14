@@ -67,26 +67,3 @@ input,
 textarea {
   font-size: 0.85rem;
 }
-
-/* Global Classes */
-
-.error {
-  font-weight: 600;
-  color: $dark-pink;
-}
-
-.input__wrapper {
-  @include flex($fd: column);
-  font-size: 0.875rem;
-  position: relative;
-
-  label {
-    font-weight: 700;
-    color: $grey;
-    margin-bottom: 0.5rem;
-  }
-
-  .input__container {
-    position: relative;
-  }
-}

@@ -1,8 +1,7 @@
 @import "../../styles/_config.scss";
 
 .textarea {
-  width: 100%;
-  min-height: 7rem;
+  @include size($w: 100%, $minh: 7rem);
   padding: 1rem;
   border: 1px solid $mid-grey;
   border-radius: 8px;
@@ -18,9 +17,7 @@
 }
 
 .invalid__icon {
-  position: absolute;
-  right: 0;
-  top: 1rem;
+  @include absolute($t: 1rem, $r: 0);
   color: $dark-pink;
   font-size: 1.25rem;
   margin-right: 1rem;

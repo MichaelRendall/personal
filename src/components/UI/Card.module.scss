@@ -2,8 +2,7 @@
 
 .card {
   @include flex($jc: center, $ai: center);
-  width: 100%;
-  min-height: 14rem;
+  @include size($w: 100%, $minh: 14rem);
   text-align: center;
   padding: 0;
   cursor: pointer;

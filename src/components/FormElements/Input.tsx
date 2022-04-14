@@ -16,7 +16,7 @@ interface InputProps {
 }
 
 const Input: React.FC<InputProps> = (props) => {
-  const inputClasses = [classes.input];
+  const inputClasses = [classes.input, "width100"];
 
   if (props.invalid) {
     inputClasses.push(classes.invalid);

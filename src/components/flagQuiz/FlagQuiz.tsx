@@ -18,7 +18,7 @@ const FlagQuiz: React.FC<FlagQuizProps> = (props) => {
 
   return (
     <>
-      <div className={classes.container}>
+      <div className={`${classes.container} width100`}>
         {!gameCompleted && <ActiveFlag />}
         {gameCompleted && <SubmitScore endGame={props.endGame} />}
         <QuizInfo />

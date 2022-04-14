@@ -46,10 +46,10 @@ const Scoreboard: React.FC = () => {
       {isLoading && <Spinner />}
       {error && <small>{error}</small>}
       {data?.flagScores && (
-        <div className={`${classes.scoreboard}`}>
+        <div className="width100">
           <h3>Leaderboard</h3>
           {data.flagScores.length > 0 && (
-            <div className={classes.scoreboard__list}>
+            <div className={`${classes.scoreboard__list} width100`}>
               {data.flagScores.map((score) => {
                 return (
                   <div

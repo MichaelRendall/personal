@@ -3,20 +3,9 @@
 .container {
   @include flex($fd: column, $jc: center, $gap: 2rem, $ai: flex-start);
   margin: 0;
-  width: 100%;
 
   @media (min-width: $media-min-width) {
     flex-direction: row-reverse;
     flex-wrap: wrap;
   }
-}
-
-.controls {
-  @include flex($gap: 1rem);
-}
-
-.flag {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
 }

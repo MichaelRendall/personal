@@ -5,6 +5,15 @@
   position: $pos;
 }
 
+@mixin iconBtn($w: 2rem) {
+  height: 100%;
+  width: $w;
+  padding: 0 0.5rem 0 0;
+  cursor: pointer;
+  transition: $transition-speed;
+  user-select: none;
+}
+
 /* Display Flex */
 @mixin flex(
   $fd: false,
@@ -38,5 +47,60 @@
 
   @if $flex != false {
     flex: $flex;
+  }
+}
+
+/* Size */
+@mixin size(
+  $w: false,
+  $maxw: false,
+  $minw: false,
+  $h: false,
+  $maxh: false,
+  $minh: false
+) {
+  @if $w != false {
+    width: $w;
+  }
+
+  @if $maxw != false {
+    max-width: $maxw;
+  }
+
+  @if $minw != false {
+    min-width: $minw;
+  }
+
+  @if $h != false {
+    height: $h;
+  }
+
+  @if $maxh != false {
+    max-height: $maxh;
+  }
+
+  @if $minh != false {
+    min-height: $minh;
+  }
+}
+
+/* Position absolute */
+@mixin absolute($t: false, $r: false, $b: false, $l: false) {
+  position: absolute;
+
+  @if $t != false {
+    top: $t;
+  }
+
+  @if $r != false {
+    right: $r;
+  }
+
+  @if $b != false {
+    bottom: $b;
+  }
+
+  @if $l != false {
+    left: $l;
   }
 }

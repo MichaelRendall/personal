@@ -18,7 +18,7 @@ const ActiveFlag: React.FC = () => {
           <ActiveFlagControls />
           <div className={classes.flagContainer}>
             <img
-              className={classes.flag}
+              className="imageContain"
               src={activeFlags[currentFlag].src}
               alt={`flag of ${activeFlags[currentFlag].name}`}
             />
