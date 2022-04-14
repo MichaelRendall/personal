@@ -6,7 +6,7 @@
 }
 
 .clear {
-  @include absolute($t: 3px, $r: 5px);
+  @include absolute($t: 0, $r: 5px);
   font-weight: 500;
   opacity: 1;
   color: var(--color);
