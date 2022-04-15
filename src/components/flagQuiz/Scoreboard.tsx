@@ -20,7 +20,7 @@ const Scoreboard: React.FC = () => {
       const queryParams = new URLSearchParams(location.search);
       const filters = queryParams.entries();
 
-      let filterList = { continent: "all", $colours: "all" };
+      let filterList = { continent: "all", colours: "all" };
       for (const filter of filters) {
         const filterName = filter[0].split("-");
 
