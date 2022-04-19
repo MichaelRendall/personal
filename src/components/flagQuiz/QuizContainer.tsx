@@ -16,7 +16,7 @@ const QuizContainer = () => {
   const [gameRunning, setGameRunning] = useState(false);
   const [flags, setFlags] = useState(FLAG_LIST);
   const location = useLocation();
-
+  console.log("QuizContianer");
   useEffect(() => {
     setGameRunning(false);
 

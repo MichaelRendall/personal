@@ -1,8 +1,6 @@
-import React, { useRef, useEffect, useState, useContext } from "react";
+import { useRef, useEffect, useState, memo } from "react";
 
 import useFetch from "../hooks/useFetch";
-import { ThemeContext } from "../context/theme-context";
-import Theme from "../models/theme-enum";
 
 import { useCookies } from "react-cookie";
 import { io, Socket } from "socket.io-client";
@@ -13,13 +11,6 @@ import HostJoinGame from "../components/paperGame/HostJoinGame";
 import Game from "../components/paperGame/Game";
 
 const PaperGame = () => {
-  document.title = "Paper Game | Michael Rendall";
-
-  const themeCtx = useContext(ThemeContext);
-  useEffect(() => {
-    themeCtx.changeTheme(Theme.YELLOW);
-  }, [themeCtx]);
-
   const roomNameRef = useRef<HTMLInputElement>(null);
   const userNameRef = useRef<HTMLInputElement>(null);
 
@@ -135,4 +126,4 @@ const PaperGame = () => {
   );
 };
 
-export default PaperGame;
+export default memo(PaperGame);

@@ -1,9 +1,7 @@
-import React, { useState, useEffect, useContext } from "react";
+import { useState, useEffect, memo } from "react";
 
 import { useLocation } from "react-router";
 import useTimer from "../hooks/useTimer";
-import { ThemeContext } from "../context/theme-context";
-import Theme from "../models/theme-enum";
 import CHARADE_LIST from "../lib/charade-list";
 import {
   themeOptions,
@@ -26,13 +24,6 @@ interface CharadeList {
 }
 
 const Charades = () => {
-  const themeCtx = useContext(ThemeContext);
-  useEffect(() => {
-    themeCtx.changeTheme(Theme.RED);
-  }, [themeCtx]);
-
-  document.title = "Charades | Michael Rendall";
-
   const [charadeList, setCharadeList] = useState<CharadeList[]>([]);
   const [charade, setCharade] = useState<string | null>(null);
   const [theme, setTheme] = useState<string | null>(null);
@@ -165,4 +156,4 @@ const Charades = () => {
   );
 };
 
-export default Charades;
+export default memo(Charades);

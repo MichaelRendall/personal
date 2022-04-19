@@ -1,6 +1,4 @@
-import { useContext, useEffect } from "react";
-import { ThemeContext } from "../context/theme-context";
-import Theme from "../models/theme-enum";
+import { memo } from "react";
 import { colourOptions, continentOptions } from "../lib/filter-options";
 
 import GameHeading from "../components/GameHeading/GameHeading";
@@ -10,13 +8,6 @@ import { Select } from "../components/FormElements";
 import QuizContainer from "../components/flagQuiz/QuizContainer";
 
 const Flags = () => {
-  document.title = "Flags | Michael Rendall";
-
-  const themeCtx = useContext(ThemeContext);
-  useEffect(() => {
-    themeCtx.changeTheme(Theme.BLUE);
-  }, [themeCtx]);
-
   return (
     <GameSection>
       <GameHeading heading="FLAG QUIZ" showSettings>
@@ -40,4 +31,4 @@ const Flags = () => {
   );
 };
 
-export default Flags;
+export default  memo(Flags);
