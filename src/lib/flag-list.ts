@@ -99,7 +99,7 @@ import iran from "../assets/flags/iran.svg";
 import iraq from "../assets/flags/iraq.svg";
 import israel from "../assets/flags/israel.svg";
 import japan from "../assets/flags/japan.svg";
-//import jordan from "../assets/flags/jordan.svg";
+import jordan from "../assets/flags/jordan.svg";
 import kazakhstan from "../assets/flags/kazakhstan.svg";
 import kuwait from "../assets/flags/kuwait.svg";
 import kyrgyzstan from "../assets/flags/kyrgyzstan.svg";
@@ -898,13 +898,13 @@ const FLAG_LIST = [
     acceptable: ["japan"],
     colours: [white, red],
   },
-  /* {
+  {
     name: "Joran",
     continent: "asia",
-    src: jordan, 
-	acceptable: ['jordan'], 
-	colours: [red, black, white, green],
-  }, */
+    src: jordan,
+    acceptable: ["jordan"],
+    colours: [red, black, white, green],
+  },
   {
     name: "Kazakhstan",
     continent: "asia",
